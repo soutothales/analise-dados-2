@@ -3,12 +3,15 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 
 ```{r}
 library(rpart)
 library(caret)
 library(dplyr)
-library(unbalanced)
 ```
 
 ```{r}
@@ -33,7 +36,9 @@ ggplot(df_classes, aes(x = situacao_final, y = proporcao), options(scipen=5)) +
 ```
 
 Foi percebido que a classe nao_eleito (não eleito) possui muito mais instâncias que a classe eleito. eleito possui 416 instâncias e nao_eleito possui 3719 instâncias, com proporção de 10,1% e 89,9%. Ao treinar um modelo futuro ele tende a ficar enviesado visto que a diferença entre nao_eleito e eleito é visivelmente grande.
-
+\  
+\  
+\  
 
 ##2. Treine: um modelo de regressão logística, uma árvore de decisão e um modelo de adaboost. Tune esses modelos usando validação cruzada e controle overfitting se necessário, considerando as particularidades de cada modelo. 
 
@@ -44,8 +49,10 @@ dataPartition <- createDataPartition(y = eleicoes$situacao_final , p=0.70, list=
 treino <- eleicoes[ dataPartition, ]
 teste <- eleicoes[ -dataPartition, ]
 ```
+\  
+\  
 
-Já que vimos na questão anterior que as classes estão desbalanceadas, é importante balanceá-las e depois treinar o modelo.
+Já que vimos na questão anterior que as classes estão desbalanceadas, é importante balanceá-las para depois treinar o modelo. Escolhemos usar a ideia de under-sampling.
 
 ```{r}
 ctrl <- trainControl(method = "repeatedcv", 
@@ -54,13 +61,51 @@ ctrl <- trainControl(method = "repeatedcv",
                      verboseIter = FALSE,
                      sampling = "down")
 
-modelo_under <- train(situacao_final ~ .,
-                         data = treino,
-                         method = "rpart",
-                         preProcess = c("scale", "center"),
-                         trControl = ctrl)
-```
 
+formula = as.formula(situacao_final ~ total_despesa + descricao_cor_raca + estado_civil + grau)
+```
+\  
+\  
+\  
+
+### Regressão logística:
+```{r warning = FALSE}
+reg_log1 <- train(formula,
+                 data = treino,
+                 method="glm",
+                 trControl = ctrl,
+                 family="binomial",      # se a variável for binária
+                 na.action = na.omit)
+
+reg_log1
+```
+\  
+\  
+\  
+
+### Árvore de decisão:
+```{r}
+arvore <- train(formula,
+                 data = treino,
+                 method = "rpart",
+                 trControl = ctrl,
+                 cp=0.001,  # parâmetro de complexidade
+                 maxdepth=20)
+
+arvore
+```
+\  
+\  
+\  
+
+### Adaboost:
+```{r}
+manel <- train(formula,
+                data=treino,
+                method = "adaboost")
+
+manel
+```
 
 
 
