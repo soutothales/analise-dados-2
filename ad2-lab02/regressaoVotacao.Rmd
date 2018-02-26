@@ -1,0 +1,188 @@
+---
+title: "Regressão na Votação"
+author: "Thales Souto"
+date: "22 de novembro de 2017"
+output:
+  html_notebook:
+    fig_height: 4
+    fig_width: 5
+    theme: readable
+    toc: yes
+    toc_float: yes
+  html_document:
+    toc: yes
+editor_options:
+  chunk_output_type: outline
+---
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(magrittr)
+library(corrplot)
+library(leaps)
+```
+
+```{r}
+options(scipen = 4)
+eleicoes <- read.csv("eleicoes2014.csv", encoding="latin1")
+```
+
+Para iniciar as questões, é importante que retiremos as variáveis com problemas:
+
+```{r}
+dados_problemas <- eleicoes %>% select(recursos_de_outros_candidatos.comites, recursos_de_partidos, recursos_de_pessoas_físicas, recursos_de_pessoas_juridicas, recursos_proprios)
+
+summary(dados_problemas)
+```
+
+```{r}
+eleicoes$recursos_de_outros_candidatos.comites[is.na(eleicoes$recursos_de_outros_candidatos.comites)]<-median (eleicoes$recursos_de_outros_candidatos.comites, na.rm = TRUE)
+
+eleicoes$recursos_proprios[is.na(eleicoes$recursos_proprios)]<-median (eleicoes$recursos_proprios, na.rm = TRUE)
+
+eleicoes$recursos_de_pessoas_físicas[is.na(eleicoes$recursos_de_pessoas_físicas)]<-median (eleicoes$recursos_de_pessoas_físicas, na.rm = TRUE)
+
+eleicoes$recursos_de_pessoas_juridicas[is.na(eleicoes$recursos_de_pessoas_juridicas)]<-median (eleicoes$recursos_de_pessoas_juridicas, na.rm = TRUE)
+
+eleicoes$recursos_de_partidos[is.na(eleicoes$recursos_de_partidos)]<-median (eleicoes$recursos_de_partidos, na.rm = TRUE)
+
+```
+
+
+
+
+##1. Um modelo de regressão múltipla com todas as variáveis é plausível para explicar a variação em y (número de votos)?
+
+Seria interessante filtrarmos os dados retirando todas as variáveis "inúteis".
+
+```{r}
+filtra_dados <- eleicoes %>% select(-nome, -sequencial_candidato, -numero_cadidato, -cargo, -setor_economico_receita, -setor_economico_despesa)
+```
+
+Após isso transformamos variáveis categóricas em numéricas.
+
+```{r}
+ 
+filtra_dados$sexo <- as.numeric(filtra_dados$sexo)
+
+filtra_dados$grau <- as.numeric(filtra_dados$grau)
+
+filtra_dados$estado_civil <-as.numeric(filtra_dados$estado_civil)
+
+filtra_dados$UF <-as.numeric(filtra_dados$UF)
+
+#1=DEM, 2=PC do B, 3=PCB, 4=PCO, 5=PDT, 6=PEN, 7=PHS, 8=PMDB, 9 =PMN, 10=PP, 11=PPL, 12=PPS, 13=PR, 14=PRB, 15=PROS, #16=PRP, 17=PRTB, 18=PSB, 19=PSC, 20=PSD, 21=PSDB, 22=PSDC, 23=PSL, 24=PSOL, 25=PSTU, 26=PT, 27=PT do B, 28=PTB, #29=PTC, 30=PTN, 31=PV, 32=SD
+filtra_dados$partido <-as.numeric(filtra_dados$partido)
+
+filtra_dados_completo <- filtra_dados
+```
+
+Feito isso vamos calcular o p-valor das variáveis filtradas em relação a variável y (número de votos):
+
+```{r}
+t.test (filtra_dados$UF,filtra_dados$votos) 
+t.test (filtra_dados$partido,filtra_dados$votos)
+t.test (filtra_dados$quantidade_doacoes,filtra_dados$votos)
+t.test (filtra_dados$quantidade_doadores,filtra_dados$votos)
+t.test (filtra_dados$total_receita,filtra_dados$votos)
+t.test (filtra_dados$media_receita,filtra_dados$votos)
+t.test (filtra_dados$recursos_de_outros_candidatos.comites,filtra_dados$votos)
+t.test (filtra_dados$recursos_de_partidos,filtra_dados$votos)
+t.test (filtra_dados$recursos_de_pessoas_físicas,filtra_dados$votos)
+t.test (filtra_dados$recursos_de_pessoas_juridicas,filtra_dados$votos)
+t.test (filtra_dados$recursos_proprios,filtra_dados$votos)
+t.test (filtra_dados$quantidade_despesas,filtra_dados$votos)
+t.test (filtra_dados$quantidade_fornecedores,filtra_dados$votos)
+t.test (filtra_dados$total_despesa,filtra_dados$votos)
+t.test (filtra_dados$media_despesa,filtra_dados$votos)
+t.test (filtra_dados$idade,filtra_dados$votos)
+t.test (filtra_dados$sexo,filtra_dados$votos)
+t.test (filtra_dados$grau,filtra_dados$votos)
+t.test (filtra_dados$estado_civil,filtra_dados$votos)
+```
+
+Observamos que todas as colunas restantes possuem um p-valor bem abaixo de 0.05.
+
+Resposta: Um modelo de regressão linear múltipla com todas as variáveis não é plausível, pois exitem variáveis que são únicas nos dados e por isso não apresenta correlação com a variável y (número de votos).
+
+##2. Todas as variáveis são úteis para o modelo de regressão? Há variáveis redudantes? Justifique sua resposta em ambos os casos.
+
+Para saber se temos variáveis redundantes devemos calcular a correlação entre variáveis que julgamos (manualmente) como parecidas:
+
+```{r}
+corr = cor(filtra_dados[, 1:20])
+round(corr, 2)
+
+corrplot(correlationMatrix, method="circle")
+```
+
+A variáveis com correlação muito forte são: total_depesa x total_receita = 0.99, quantidade_fornecedores x quantidade_despesas = 0.93, quantiade_doadores x quantidade_doacoes = 0.86 e recursos_partidos x total_receita = 0.82. Isso indica redundancia dessas variáveis.
+
+Resposta: Nem todas as variáveis são úteis pois há variáveis redundantes, como foi mostrado pela forte correlação entre elas.
+
+
+##3. No caso de haver variáveis pouco explicativas e/ou redudantes, construa um novo modelo sem essas variáveis e o compare ao modelo com todas as variáveis (e.g. em termos de R2 e RSE).
+
+Dados filtrados retirando as variáveis que julgamos redundantes na questão anterior:
+```{r}
+filtra_dados <- filtra_dados %>% select(-total_despesa, -quantidade_despesas)
+```
+
+Modelo com todas as variáveis:
+```{r}
+modelo_completo <- lm(formula = votos ~ ., filtra_dados_completo, na.action = na.omit)
+
+summary(modelo_completo)
+```
+
+
+Modelo com as variáveis retiradas:
+```{r}
+modelo_filtrado <- lm(formula = votos ~ ., filtra_dados, na.action = na.omit)
+
+summary(modelo_filtrado)
+```
+
+##4. Analise plots de resíduos e verifique se há tendências nos erros.
+
+```{r}
+ggplot(modelo_filtrado, aes(x = .fitted, y = .resid)) + 
+  geom_point() + 
+  xlab("Ajustado") + 
+  ylab("Resíduos")
+```
+
+Como citado em sala de aula, se os resíduos apresentarem valores próximos podemos afirmar que o modelo não é bom. O ideal seria que os pontos no gráficos estivessem bem espalhados.
+
+##5. Quais variáveis conseguem explicar melhor o número de votos?
+
+Usaremos esta função para buscar qual melhor subconjunto entre as variáveis x que predizem y.
+
+```{r}
+sub_conjunto <-
+    regsubsets(votos ~ .,
+               data = filtra_dados,
+               nbest = 1,       
+               nvmax = NULL,   
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive",
+               really.big = T)
+
+summary_sub_conjunto <- summary(sub_conjunto)
+summary_sub_conjunto
+```
+
+Feito isso, vamos agora avaliar quais variáveis melhor predizem y (número de votos):
+
+```{r}
+modelo_ideal <- which.max(summary_sub_conjunto$adjr2)
+modelo_ideal
+
+summary_sub_conjunto$which[modelo_ideal,]
+```
+
+As variáveis com TRUE são as que melhor predizem o número de votos!
+
+

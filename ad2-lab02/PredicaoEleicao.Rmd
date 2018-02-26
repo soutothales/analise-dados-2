@@ -1,0 +1,283 @@
+---
+title: "PredicaoEleicao"
+author: "Thales Souto"
+date: "11 de dezembro de 2017"
+output:
+  html_notebook:
+    fig_height: 4
+    fig_width: 5
+    theme: readable
+    toc: yes
+    toc_float: yes
+  html_document:
+    toc: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+```{r}
+library(caret)
+library(dplyr)
+library(tidyr)
+library(magrittr)
+library(corrplot)
+```
+
+##Pré-Lab
+
+Antes de começar as tarefas, decidi fazer alguns "ajustes" antes. Antes de mais nada vamos carregar o data frame que iremos trabalhar.
+
+```{r}
+options(scipen = 4)
+eleicoes <- read.csv("eleicoes2014.csv", encoding="latin1")
+```
+
+Nesta parte julguei necessário substituir os valores dados como <i>NA</i> pela mediana da coluna.
+
+```{r}
+eleicoes$recursos_de_outros_candidatos.comites[is.na(eleicoes$recursos_de_outros_candidatos.comites)]<-median (eleicoes$recursos_de_outros_candidatos.comites, na.rm = TRUE)
+
+eleicoes$recursos_proprios[is.na(eleicoes$recursos_proprios)]<-median (eleicoes$recursos_proprios, na.rm = TRUE)
+
+eleicoes$recursos_de_pessoas_físicas[is.na(eleicoes$recursos_de_pessoas_físicas)]<-median (eleicoes$recursos_de_pessoas_físicas, na.rm = TRUE)
+
+eleicoes$recursos_de_pessoas_juridicas[is.na(eleicoes$recursos_de_pessoas_juridicas)]<-median (eleicoes$recursos_de_pessoas_juridicas, na.rm = TRUE)
+
+eleicoes$recursos_de_partidos[is.na(eleicoes$recursos_de_partidos)]<-median (eleicoes$recursos_de_partidos, na.rm = TRUE)
+```
+
+Feito isso, criei um novo data frame chamado filtra_dados que receberá o data frame <i>eleicoes</i> menos variáveis que não influenciam no número de votos, são essas: Nome, Sequencial do Candidato, Número do Candidato, Cargo, Setor Economico Receita e Setor Economico Despesa.
+
+```{r}
+filtra_dados <- eleicoes %>% select(-nome, -sequencial_candidato, -numero_cadidato, -cargo, -setor_economico_receita, -setor_economico_despesa)
+```
+
+Bom, após esses ajustes podemos começar as nossas tarefas.
+
+
+
+##1. Usando todas as variáveis disponíveis, tune (usando validação cruzada): (i) um modelo de regressão Ridge, (ii) um modelo de regressão Lasso e (iii) um modelo KNN. Para os modelos de regressão linear, o parâmetro a ser tunado é o lambda (penalização dos coeficientes) e o KNN o número de vizinhos.
+
+É interessante criar uma variável de controle de treino.
+
+```{r}
+fitControl <- trainControl(method='cv', number = 10)
+```
+
+fitControl é a nossa variável de controle para validação cruzada. É importante que tunemos o lambda no modelo Ridge:
+
+```{r}
+lambda.grid <- expand.grid(lambda = seq(0, 0.20, by=0.01))
+ridge.fit <- train(votos ~ ., data=filtra_dados, 
+                  method='ridge', 
+                  metric="RMSE",
+                  tuneGrid = lambda.grid,
+                  trControl=fitControl)
+
+ridge.fit
+```
+
+Ao tunar o lambda e treinar o modelo, encontramos que o lambda perfeito é lambda = 0. Isso pode ser explicado pelo filtro que fizemos na fase Pré-Lab.
+
+Para ficar mais fácil visualizar o crescimento do lambda, e em que ponto o Lambda é zero é interessante plotarmos um gráfico desse modelo em relação ao RMSE.
+
+```{r}
+plot(ridge.fit, xlab = "Lambda", ylab = "RMSE")
+ridge.fit
+```
+
+
+Depois de treinarmos o modelo Ridge tunando o lambda, faremos o mesmo para o modelo Lasso:
+
+```{r}
+fraction.grid <- expand.grid(fraction = seq(0, 0.20, by=0.01))
+lasso.fit <- train(votos ~ ., data=filtra_dados, 
+                  method='lasso', 
+                  metric="RMSE",
+                  tuneGrid = fraction.grid,
+                  trControl=fitControl)
+
+lasso.fit
+```
+
+
+Podemos observar que a fração usada no modelo é 0.12, que é onde encontramos o menor RMSE:
+
+```{r}
+plot(lasso.fit)
+lasso.fit
+```
+
+Para finalizarmos essa fase de tunar os modelos, vamos treinar um modelo KNN:
+
+
+```{r}
+knn.grid <- expand.grid(k = seq(1, 100, length=100))
+knn.fit <- train(votos ~ ., data=filtra_dados, 
+                  method='knn', 
+                  metric="RMSE",
+                  tuneGrid = knn.grid,
+                  trControl=fitControl)
+
+knn.fit
+```
+
+O modelo foi treinado até k = 100, e o k que encontrou o menor valor de RMSE é k = 73.
+
+```{r}
+plot(knn.fit)
+knn.fit
+```
+
+
+
+##2. Compare os três modelos em termos do erro RMSE de validação cruzada.
+
+
+```{r}
+ridge.pred <- predict(ridge.fit, filtra_dados %>% select(-votos))
+ridge.df <- data.frame(pred = ridge.pred, obs = filtra_dados$votos)
+ridge.df$model <- "Ridge"
+
+ridge.round <- round(defaultSummary(ridge.df), digits = 3)
+ridge.round
+```
+
+
+```{r}
+lasso.pred <- predict(lasso.fit, filtra_dados %>% select(-votos))
+lasso.df <- data.frame(pred = lasso.pred, obs = filtra_dados$votos)
+lasso.df$model <- "Lasso"
+
+lasso.round <- round(defaultSummary(lasso.df), digits = 3)
+lasso.round
+```
+
+
+```{r}
+knn.pred <- predict(knn.fit, filtra_dados %>% select(-votos))
+knn.df <- data.frame(pred = knn.pred, obs = filtra_dados$votos)
+knn.df$model <- "KNN"
+
+knn.round <- round(defaultSummary(knn.df), digits = 3)
+knn.round
+```
+
+```{r}
+comparacao <- rbind(ridge.df, lasso.df, knn.df)
+
+ggplot(comparacao, aes(x = pred, y = obs)) + 
+  geom_point(alpha = 0.5, position = position_jitter(width=0.2)) + 
+  facet_grid(. ~ model) + 
+  geom_abline(color="red")
+```
+
+
+
+##3. Quais as variáveis mais importantes segundo o modelo de regressão Ridge e Lasso?  Variáveis foram descartadas pelo Lasso? Quais?
+
+```{r}
+varImp(ridge.fit)
+```
+
+```{r}
+plot(varImp(ridge.fit))
+```
+
+O modelo lasso define uma importância para uma variável de acordo com “a dificuldade” (maior lâmbda) para “zerar”/desconsiderar tal variável do modelo associando um valor de [0, 100] a essa variável, quanto maior mais importante a variável é para o modelo.
+
+```{r}
+varImp(lasso.fit)
+```
+
+
+```{r}
+plot(varImp(lasso.fit))
+```
+
+recursos_próprios é sem dúvida a variável menos importante seguida por UF e Partido, as próximas variáveis têm um nível de importância relativamente próximo, onde se destacam pelo nível de importância total_receita e total_despesa que são consideras extremamente importantes para o modelo (~100).
+
+Além disso a variável retirada do modelo foi recursos_proprios.
+
+
+
+##4. Re-treine o melhor modelo (usando os melhores valores de parâmetros encontrados em todos os dados, sem usar validação cruzada).
+
+```{r}
+knn.new.grid <- expand.grid(k = 73)
+knn.no.cv <- train(votos ~ ., data = filtra_dados,
+               method='knn',
+               tuneGrid = knn.new.grid)
+
+knn.no.cv
+```
+
+```{r}
+knn.new.pred <- predict(knn.no.cv, filtra_dados %>% select(-votos))
+knn.new.df <- data.frame(pred = knn.new.pred, obs = filtra_dados$votos)
+knn.new.df$model <- "KNN sem CV"
+
+knn.new.round <- round(defaultSummary(knn.new.df), digits = 3)
+knn.new.round
+```
+
+```{r}
+ggplot(knn.new.df, aes(x = pred, y = obs)) + 
+  geom_point(alpha = 0.5, position = position_jitter(width=0.2)) + 
+  facet_grid(. ~ model) + 
+  geom_abline(color="red")
+```
+
+
+
+##5. Use esse último modelo treinado para prever os dados de teste disponíveis no challenge que criamos na plataforma Kaggle.
+
+```{r}
+kaggle_treino <- read.csv("train.csv", encoding="UTF-8")
+
+kaggle_treino <- kaggle_treino %>% select(-nome, -numero_cadidato, -cargo, -setor_economico_receita, -setor_economico_despesa)
+
+```
+
+```{r}
+kaggle_teste <- read.csv("test.csv", encoding="UTF-8")
+
+kaggle_teste <- kaggle_teste %>% select(-nome, -numero_cadidato, -cargo, -setor_economico_receita, -setor_economico_despesa)
+
+```
+
+```{r}
+kaggle_treino[is.na(kaggle_treino)] <- 0
+kaggle_teste[is.na(kaggle_teste)] <- 0
+kaggle.knn <- train(votos ~ ., data=kaggle_treino, 
+                   method='knn',
+                   tuneGrid = knn.new.grid)
+kaggle.knn
+```
+
+
+
+```{r}
+predicao.kaggle <- predict(knn.no.cv, kaggle_teste)
+
+kaggle_teste$votos <- predicao.kaggle
+
+kaggle_teste <- kaggle_teste %>% select(ID, votos)
+
+```
+
+
+```{r}
+write.csv(kaggle_teste, file = "kaggle_knn.csv", row.names = FALSE)
+```
+
+
+
+
+
+
+
+
+
+
+

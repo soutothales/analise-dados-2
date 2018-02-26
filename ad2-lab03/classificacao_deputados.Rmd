@@ -1,0 +1,28 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(rpart)
+library(caret)
+library(dplyr)
+```
+
+```{r}
+eleicoes = read.csv("train.csv", encoding="utf-8")
+```
+
+```{r}
+# Separa os dados em treino e teste
+dataPartition <- createDataPartition(y = eleicoes$situacao_final , p=0.70, list=FALSE)
+
+treino <- eleicoes[ dataPartition, ]
+teste <- eleicoes[ -dataPartition, ]
+```
+
+
+
+
+
