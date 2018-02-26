@@ -8,11 +8,34 @@ output: html_notebook
 library(rpart)
 library(caret)
 library(dplyr)
+library(unbalanced)
 ```
 
 ```{r}
 eleicoes = read.csv("train.csv", encoding="utf-8")
 ```
+
+##1. Há desbalanceamento das classes (isto é, uma classe tem muito mais instâncias que outra)? Em que proporção? Quais efeitos colaterais o desbalanceamento de classes pode causar no classificador?
+
+Para responder esta questão iremos plotar a diferença entre as duas classes: eleito e não eleito.
+
+```{r}
+df_classes <- eleicoes %>% count(situacao_final)
+
+df_classes
+```
+Para ilustrar melhor, plotamos o gráfico com a proporção:
+
+```{r}
+proporcao <- (df_classes$n/sum(df_classes$n) * 100)
+ggplot(df_classes, aes(x = situacao_final, y = proporcao), options(scipen=5)) +
+    geom_bar(stat = "identity")
+```
+
+Foi percebido que a classe nao_eleito (não eleito) possui muito mais instâncias que a classe eleito. eleito possui 416 instâncias e nao_eleito possui 3719 instâncias, com proporção de 10,1% e 89,9%. Ao treinar um modelo futuro ele tende a ficar enviesado visto que a diferença entre nao_eleito e eleito é visivelmente grande.
+
+
+##2. Treine: um modelo de regressão logística, uma árvore de decisão e um modelo de adaboost. Tune esses modelos usando validação cruzada e controle overfitting se necessário, considerando as particularidades de cada modelo. 
 
 ```{r}
 # Separa os dados em treino e teste
@@ -20,6 +43,22 @@ dataPartition <- createDataPartition(y = eleicoes$situacao_final , p=0.70, list=
 
 treino <- eleicoes[ dataPartition, ]
 teste <- eleicoes[ -dataPartition, ]
+```
+
+Já que vimos na questão anterior que as classes estão desbalanceadas, é importante balanceá-las e depois treinar o modelo.
+
+```{r}
+ctrl <- trainControl(method = "repeatedcv", 
+                     number = 10, 
+                     repeats = 10, 
+                     verboseIter = FALSE,
+                     sampling = "down")
+
+modelo_under <- train(situacao_final ~ .,
+                         data = treino,
+                         method = "rpart",
+                         preProcess = c("scale", "center"),
+                         trControl = ctrl)
 ```
 
 
