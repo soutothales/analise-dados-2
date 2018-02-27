@@ -73,7 +73,7 @@ formula = as.formula(situacao_final ~ total_despesa + descricao_cor_raca + estad
 reg_log1 <- train(formula,
                  data = treino,
                  method="glm",
-                 trControl = ctrl,
+                 trControl = ctrl, 
                  family="binomial",      # se a variável for binária
                  na.action = na.omit)
 
@@ -89,8 +89,9 @@ arvore <- train(formula,
                  data = treino,
                  method = "rpart",
                  trControl = ctrl,
+                 minsplit=30,
                  cp=0.001,  # parâmetro de complexidade
-                 maxdepth=20)
+                 maxdepth=30)
 
 arvore
 ```
@@ -100,12 +101,115 @@ arvore
 
 ### Adaboost:
 ```{r}
-manel <- train(formula,
+boost <- train(formula,
                 data=treino,
+                trControl = ctrl,
                 method = "adaboost")
 
-manel
+boost
 ```
+\  
+\  
+\  
+
+##3. Reporte acurácia, precision, recall e f-measure no treino e validação. Como você avalia os resultados? Justifique sua resposta.
+
+Acurácia = (TP + TN)/(TP + TN + FP + FN) 
+<i>Nos diz a proporção de observações corretamente classificadas.</i>
+
+Precision =  TP / (TP + FP)
+<i> Diz respeito a quantas das observaçoes preditas como positivas são realmente positivas </i>
+
+Recall = TP / (TP + FN)
+<i>  Diz respeito a quantas das observaçoes positivas foram corretamente classificadas <i>
+
+F-Measure = 2 x (Recall x Precision) / (Recall + Precision)
+
+
+### Regressão logística:
+```{r}
+teste$predicao_log <- predict(reg_log1, teste)
+
+TP <- teste %>% filter(situacao_final == "eleito", predicao_log == "eleito") %>% nrow()
+TN <- teste %>% filter(situacao_final == "nao_eleito" , predicao_log == "nao_eleito" ) %>% nrow()
+FP <- teste %>% filter(situacao_final == "nao_eleito" , predicao_log == "eleito") %>% nrow() 
+FN <- teste %>% filter(situacao_final == "eleito", predicao_log == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+f_measure <- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure
+```
+
+
+
+### Árvore de decisão:
+```{r}
+teste$predicao_arvore <- predict(arvore, teste)
+
+TP <- teste %>% filter(situacao_final == "eleito", predicao_arvore == "eleito") %>% nrow()
+TN <- teste %>% filter(situacao_final == "nao_eleito" , predicao_arvore == "nao_eleito" ) %>% nrow()
+FP <- teste %>% filter(situacao_final == "nao_eleito" , predicao_arvore == "eleito") %>% nrow() 
+FN <- teste %>% filter(situacao_final == "eleito", predicao_arvore == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+f_measure <- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure
+```
+
+
+
+### Adaboost:
+```{r}
+teste$predicao_ada <- predict(boost, teste)
+
+TP <- teste %>% filter(situacao_final == "eleito", predicao_ada == "eleito") %>% nrow()
+TN <- teste %>% filter(situacao_final == "nao_eleito" , predicao_ada == "nao_eleito" ) %>% nrow()
+FP <- teste %>% filter(situacao_final == "nao_eleito" , predicao_ada == "eleito") %>% nrow() 
+FN <- teste %>% filter(situacao_final == "eleito", predicao_ada == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+f_measure <- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure
+```
+
+
+Para uma análise mais otimista podemos levar em consideração o Recall
+
+```{r}
+confusionMatrix(teste$predicao_log, teste$situacao_final)
+```
+
+
+##4. Interprete as saídas dos modelos. Quais atributos parecem ser mais importantes de acordo com cada modelo? Crie pelo menos um novo atributo que não está nos dados originais e estude o impacto desse atributo
+
+```{r}
+varImp(reg_log1)
+varImp(arvore)
+varImp(boost)
+```
+
+
+##5. Envie seus melhores modelos à competição do Kaggle. Sugestões abaixo:
+###1. Experimente outros modelos (e.g. SVM, RandomForests e GradientBoosting)
+###2. Crie novos atributos.
 
 
 
