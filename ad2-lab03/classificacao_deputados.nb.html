@@ -174,26 +174,12 @@ $(document).ready(function () {
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShycGFydClcbmxpYnJhcnkoY2FyZXQpXG5saWJyYXJ5KGRwbHlyKVxuYGBgIn0= -->
 <pre class="r"><code>library(rpart)
 library(caret)
 library(dplyr)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYZHBseXLigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOnN0YXRz4oCZOlxuXG4gICAgZmlsdGVyLCBsYWdcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmJhc2XigJk6XG5cbiAgICBpbnRlcnNlY3QsIHNldGRpZmYsIHNldGVxdWFsLCB1bmlvblxuIn0= -->
-<pre><code>
-Attaching package: ‘dplyr’
-
-The following objects are masked from ‘package:stats’:
-
-    filter, lag
-
-The following objects are masked from ‘package:base’:
-
-    intersect, setdiff, setequal, union</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -212,7 +198,7 @@ The following objects are masked from ‘package:base’:
 <pre class="r"><code>df_classes &lt;- eleicoes %&gt;% count(situacao_final)
 df_classes</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVJ3VTdETUF4MW0wSzFTQ3RJZk1kNjRNSVA3QXM0N1laQ2xyS0lrRXhwT2poeTR6ZjQwaFluVGNvYXFZMGQyeTkrZm43ZUh4N3BnUUpBQ2FRa2dCOUFWZUpSUUFVYmI3OEF5RU1vQUxLZExTYURYUlhlS25FUnFrZnZQbVJqVkNnaG5ZazNxcGw1aVpFMStvWXIxaWZ3OG1USHVETVd2UkgvMkx6NEJXaCtaamlaTWdROU1zZmF6cklQa1RmUUdNdlpOYjEwQStOSXFwT2FxVFN5enJBYmF6N2JoQTgwdnZHWXBtbWNxYTJLYTNOMjBtZ3NMYjFzdFdjVkpTc3l0b1c5U2tLV3ZCdTBiM25jOGRPZzMzZFBXZW4yZnczWHZxZFNKVlhxK0ZRbCtNa3NDOUZ2VW91a2lyQVdCWTRYeFY1RkVxSEJtY1BJN2RsSzdaSytHTzFiWjl3aUZ1VkdwY2k4cC9FUGdRWnR5VlVDQUFBPSJ9 -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVJ3VTdETUF4MW0wSzFTQ3RJZk1kNjRNQVg3QXM0N1laQ2xyS0lrRXhwT2poeTR6ZjQwaFluVGNvYXFZMGQyeTkrZm43ZUh4N3BnUUpBQ2FRa2dCOUFWZUpSUUFVYmI3OEF5RU1vQUxLZExTYURYUlhlS25FUnFrZnZQbVJqVkNnaG5ZazNxcGw1aVpFMStvWXIxaWZ3OG1USHVETVd2UkgvMkx6NEJXaCtaamlaTWdROU1zZmF6cklQa1RmUUdNdlpOYjEwQStOSXFwT2FxVFN5enJBYmF6N2JoQTgwdnZHWXBtbWNxYTJLYTNOMjBtZ3NMYjFzdFdjVkpTc3l0b1c5U2tLV3ZCdTBiM25jOGRPZzMzZFBXZW4yZnczWHZxZFNKVlhxK0ZRbCtNa3NDOUZ2VW91a2lyQVdCWTRYeFY1RkVxSEJtY1BJN2RsSzdaSytHTzFiWjl3aUZ1VkdwY2k4cC9FUEVlNnFYRlVDQUFBPSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["situacao_final"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"eleito","2":"416"},{"1":"nao_eleito","2":"3719"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
@@ -238,6 +224,14 @@ ggplot(df_classes, aes(x = situacao_final, y = proporcao), options(scipen=5)) +
 </div>
 <div id="treine-um-modelo-de-regressao-logistica-uma-arvore-de-decisao-e-um-modelo-de-adaboost.-tune-esses-modelos-usando-validacao-cruzada-e-controle-overfitting-se-necessario-considerando-as-particularidades-de-cada-modelo." class="section level2">
 <h2>2. Treine: um modelo de regressão logística, uma árvore de decisão e um modelo de adaboost. Tune esses modelos usando validação cruzada e controle overfitting se necessário, considerando as particularidades de cada modelo.</h2>
+<p>Podemos escolher algumas variáveis com as quais queremos trabalhar:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmlsdHJhX2RhZG9zIDwtIGVsZWljb2VzICU+JSBzZWxlY3QodG90YWxfZGVzcGVzYSwgZGVzY3JpY2FvX2Nvcl9yYWNhLCBlc3RhZG9fY2l2aWwsIGdyYXUsIHNpdHVhY2FvX2ZpbmFsKVxuYGBgIn0= -->
+<pre class="r"><code>filtra_dados &lt;- eleicoes %&gt;% select(total_despesa, descricao_cor_raca, estado_civil, grau, situacao_final)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTZXBhcmEgb3MgZGFkb3MgZW0gdHJlaW5vIGUgdGVzdGVcbmRhdGFQYXJ0aXRpb24gPC0gY3JlYXRlRGF0YVBhcnRpdGlvbih5ID0gZWxlaWNvZXMkc2l0dWFjYW9fZmluYWwgLCBwPTAuNzAsIGxpc3Q9RkFMU0UpXG50cmVpbm8gPC0gZWxlaWNvZXNbIGRhdGFQYXJ0aXRpb24sIF1cbnRlc3RlIDwtIGVsZWljb2VzWyAtZGF0YVBhcnRpdGlvbiwgXVxuYGBgIn0= -->
@@ -252,10 +246,10 @@ teste &lt;- eleicoes[ -dataPartition, ]</code></pre>
 <p>Já que vimos na questão anterior que as classes estão desbalanceadas, é importante balanceá-las para depois treinar o modelo. Escolhemos usar a ideia de under-sampling.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3RybCA8LSB0cmFpbkNvbnRyb2wobWV0aG9kID0gXCJyZXBlYXRlZGN2XCIsIFxuICAgICAgICAgICAgICAgICAgICAgbnVtYmVyID0gMTAsIFxuICAgICAgICAgICAgICAgICAgICAgcmVwZWF0cyA9IDEwLCBcbiAgICAgICAgICAgICAgICAgICAgIHZlcmJvc2VJdGVyID0gRkFMU0UsXG4gICAgICAgICAgICAgICAgICAgICBzYW1wbGluZyA9IFwiZG93blwiKVxuZm9ybXVsYSA9IGFzLmZvcm11bGEoc2l0dWFjYW9fZmluYWwgfiB0b3RhbF9kZXNwZXNhICsgZGVzY3JpY2FvX2Nvcl9yYWNhICsgZXN0YWRvX2NpdmlsICsgZ3JhdSlcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3RybCA8LSB0cmFpbkNvbnRyb2wobWV0aG9kID0gXCJyZXBlYXRlZGN2XCIsIFxuICAgICAgICAgICAgICAgICAgICAgbnVtYmVyID0gMTAsIFxuICAgICAgICAgICAgICAgICAgICAgcmVwZWF0cyA9IDEwLFxuICAgICAgICAgICAgICAgICAgICAgdmVyYm9zZUl0ZXIgPSBGQUxTRSxcbiAgICAgICAgICAgICAgICAgICAgIHNhbXBsaW5nID0gXCJkb3duXCIpXG5mb3JtdWxhID0gYXMuZm9ybXVsYShzaXR1YWNhb19maW5hbCB+IHRvdGFsX2Rlc3Blc2EgKyBkZXNjcmljYW9fY29yX3JhY2EgKyBlc3RhZG9fY2l2aWwgKyBncmF1KVxuYGBgIn0= -->
 <pre class="r"><code>ctrl &lt;- trainControl(method = &quot;repeatedcv&quot;, 
                      number = 10, 
-                     repeats = 10, 
+                     repeats = 10,
                      verboseIter = FALSE,
                      sampling = &quot;down&quot;)
 formula = as.formula(situacao_final ~ total_despesa + descricao_cor_raca + estado_civil + grau)</code></pre>
@@ -267,16 +261,16 @@ formula = as.formula(situacao_final ~ total_despesa + descricao_cor_raca + estad
 <h3>Regressão logística:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVnX2xvZzEgPC0gdHJhaW4oZm9ybXVsYSxcbiAgICAgICAgICAgICAgICAgZGF0YSA9IHRyZWlubyxcbiAgICAgICAgICAgICAgICAgbWV0aG9kPVwiZ2xtXCIsXG4gICAgICAgICAgICAgICAgIHRyQ29udHJvbCA9IGN0cmwsIFxuICAgICAgICAgICAgICAgICBmYW1pbHk9XCJiaW5vbWlhbFwiLCAgICAgICMgc2UgYSB2YXJpw6F2ZWwgZm9yIGJpbsOhcmlhXG4gICAgICAgICAgICAgICAgIG5hLmFjdGlvbiA9IG5hLm9taXQpXG5yZWdfbG9nMVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVnX2xvZzEgPC0gdHJhaW4oZm9ybXVsYSxcbiAgICAgICAgICAgICAgICAgIGRhdGEgPSB0cmVpbm8sXG4gICAgICAgICAgICAgICAgICBtZXRob2Q9XCJnbG1cIixcbiAgICAgICAgICAgICAgICAgIHRyQ29udHJvbCA9IGN0cmwsIFxuICAgICAgICAgICAgICAgICAgZmFtaWx5PVwiYmlub21pYWxcIiwgICAgICAjIHNlIGEgdmFyacOhdmVsIGZvciBiaW7DoXJpYVxuICAgICAgICAgICAgICAgICAgbmEuYWN0aW9uID0gbmEub21pdClcbnJlZ19sb2cxXG5gYGAifQ== -->
 <pre class="r"><code>reg_log1 &lt;- train(formula,
-                 data = treino,
-                 method=&quot;glm&quot;,
-                 trControl = ctrl, 
-                 family=&quot;binomial&quot;,      # se a variável for binária
-                 na.action = na.omit)
+                  data = treino,
+                  method=&quot;glm&quot;,
+                  trControl = ctrl, 
+                  family=&quot;binomial&quot;,      # se a variável for binária
+                  na.action = na.omit)
 reg_log1</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgTGluZWFyIE1vZGVsIFxuXG4yODk2IHNhbXBsZXNcbiAgIDQgcHJlZGljdG9yc1xuICAgMiBjbGFzc2VzOiAnZWxlaXRvJywgJ25hb19lbGVpdG8nIFxuXG5ObyBwcmUtcHJvY2Vzc2luZ1xuUmVzYW1wbGluZzogQ3Jvc3MtVmFsaWRhdGVkICgxMCBmb2xkLCByZXBlYXRlZCAxMCB0aW1lcykgXG5TdW1tYXJ5IG9mIHNhbXBsZSBzaXplczogMjYwNywgMjYwNiwgMjYwNywgMjYwNywgMjYwNSwgMjYwNiwgLi4uIFxuQWRkdGlvbmFsIHNhbXBsaW5nIHVzaW5nIGRvd24tc2FtcGxpbmdcblxuUmVzYW1wbGluZyByZXN1bHRzOlxuXG4gIEFjY3VyYWN5ICAgS2FwcGEgICAgXG4gIDAuOTI4NDgyOSAgMC42NjU3NzgzXG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2VuZXJhbGl6ZWQgTGluZWFyIE1vZGVsIFxuXG4yODk2IHNhbXBsZXNcbiAgIDQgcHJlZGljdG9yc1xuICAgMiBjbGFzc2VzOiAnZWxlaXRvJywgJ25hb19lbGVpdG8nIFxuXG5ObyBwcmUtcHJvY2Vzc2luZ1xuUmVzYW1wbGluZzogQ3Jvc3MtVmFsaWRhdGVkICgxMCBmb2xkLCByZXBlYXRlZCAxMCB0aW1lcykgXG5TdW1tYXJ5IG9mIHNhbXBsZSBzaXplczogMjYwNSwgMjYwNywgMjYwNSwgMjYwNywgMjYwNiwgMjYwNywgLi4uIFxuQWRkdGlvbmFsIHNhbXBsaW5nIHVzaW5nIGRvd24tc2FtcGxpbmdcblxuUmVzYW1wbGluZyByZXN1bHRzOlxuXG4gIEFjY3VyYWN5ICAgS2FwcGEgICAgXG4gIDAuOTIxMjc2NyAgMC42MzY1NjY5XG4ifQ== -->
 <pre><code>Generalized Linear Model 
 
 2896 samples
@@ -285,13 +279,13 @@ reg_log1</code></pre>
 
 No pre-processing
 Resampling: Cross-Validated (10 fold, repeated 10 times) 
-Summary of sample sizes: 2607, 2606, 2607, 2607, 2605, 2606, ... 
+Summary of sample sizes: 2605, 2607, 2605, 2607, 2606, 2607, ... 
 Addtional sampling using down-sampling
 
 Resampling results:
 
   Accuracy   Kappa    
-  0.9284829  0.6657783</code></pre>
+  0.9212767  0.6365669</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -301,7 +295,7 @@ Resampling results:
 <h3>Árvore de decisão:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXJ2b3JlIDwtIHRyYWluKGZvcm11bGEsXG4gICAgICAgICAgICAgICAgIGRhdGEgPSB0cmVpbm8sXG4gICAgICAgICAgICAgICAgIG1ldGhvZCA9IFwicnBhcnRcIixcbiAgICAgICAgICAgICAgICAgdHJDb250cm9sID0gY3RybCxcbiAgICAgICAgICAgICAgICAgbWluc3BsaXQ9MzAsXG4gICAgICAgICAgICAgICAgIGNwPTAuMDAxLCAgIyBwYXLDom1ldHJvIGRlIGNvbXBsZXhpZGFkZVxuICAgICAgICAgICAgICAgICBtYXhkZXB0aD0zMClcbmFydm9yZVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXJ2b3JlIDwtIHRyYWluKGZvcm11bGEsXG4gICAgICAgICAgICAgICAgIGRhdGEgPSB0cmVpbm8sXG4gICAgICAgICAgICAgICAgIG1ldGhvZCA9IFwicnBhcnRcIixcbiAgICAgICAgICAgICAgICAgdHJDb250cm9sID0gY3RybCxcbiAgICAgICAgICAgICAgICAgbWluc3BsaXQ9MzAsXG4gICAgICAgICAgICAgICAgIGNwPTAuMDAxLCAgIyBwYXLDom1ldHJvIGRlIGNvbXBsZXhpZGFkZVxuICAgICAgICAgICAgICAgICBtYXhkZXB0aD0zMClcblxuYXJ2b3JlXG5gYGAifQ== -->
 <pre class="r"><code>arvore &lt;- train(formula,
                  data = treino,
                  method = &quot;rpart&quot;,
@@ -309,30 +303,9 @@ Resampling results:
                  minsplit=30,
                  cp=0.001,  # parâmetro de complexidade
                  maxdepth=30)
+
 arvore</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQ0FSVCBcblxuMjg5NiBzYW1wbGVzXG4gICA0IHByZWRpY3RvcnNcbiAgIDIgY2xhc3NlczogJ2VsZWl0bycsICduYW9fZWxlaXRvJyBcblxuTm8gcHJlLXByb2Nlc3NpbmdcblJlc2FtcGxpbmc6IENyb3NzLVZhbGlkYXRlZCAoMTAgZm9sZCwgcmVwZWF0ZWQgMTAgdGltZXMpIFxuU3VtbWFyeSBvZiBzYW1wbGUgc2l6ZXM6IDI2MDcsIDI2MDYsIDI2MDYsIDI2MDYsIDI2MDcsIDI2MDcsIC4uLiBcbkFkZHRpb25hbCBzYW1wbGluZyB1c2luZyBkb3duLXNhbXBsaW5nXG5cblJlc2FtcGxpbmcgcmVzdWx0cyBhY3Jvc3MgdHVuaW5nIHBhcmFtZXRlcnM6XG5cbiAgY3AgICAgICAgICAgQWNjdXJhY3kgICBLYXBwYSAgICBcbiAgMC4wMjA1NDc5NSAgMC44OTUyNzUxICAwLjU5NzQ5NzlcbiAgMC4wMjIyNjAyNyAgMC44OTUyNzUxICAwLjU5NzQ5NzlcbiAgMC4zMjE5MTc4MSAgMC44OTUyNzUxICAwLjU5NzQ5NzlcblxuQWNjdXJhY3kgd2FzIHVzZWQgdG8gc2VsZWN0IHRoZSBvcHRpbWFsIG1vZGVsIHVzaW5nIHRoZSBsYXJnZXN0IHZhbHVlLlxuVGhlIGZpbmFsIHZhbHVlIHVzZWQgZm9yIHRoZSBtb2RlbCB3YXMgY3AgPSAwLjMyMTkxNzguXG4ifQ== -->
-<pre><code>CART 
-
-2896 samples
-   4 predictors
-   2 classes: 'eleito', 'nao_eleito' 
-
-No pre-processing
-Resampling: Cross-Validated (10 fold, repeated 10 times) 
-Summary of sample sizes: 2607, 2606, 2606, 2606, 2607, 2607, ... 
-Addtional sampling using down-sampling
-
-Resampling results across tuning parameters:
-
-  cp          Accuracy   Kappa    
-  0.02054795  0.8952751  0.5974979
-  0.02226027  0.8952751  0.5974979
-  0.32191781  0.8952751  0.5974979
-
-Accuracy was used to select the optimal model using the largest value.
-The final value used for the model was cp = 0.3219178.</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>     </p>
@@ -341,38 +314,14 @@ The final value used for the model was cp = 0.3219178.</code></pre>
 <h3>Adaboost:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm9vc3QgPC0gdHJhaW4oZm9ybXVsYSxcbiAgICAgICAgICAgICAgICBkYXRhPXRyZWlubyxcbiAgICAgICAgICAgICAgICB0ckNvbnRyb2wgPSBjdHJsLFxuICAgICAgICAgICAgICAgIG1ldGhvZCA9IFwiYWRhYm9vc3RcIilcbmJvb3N0XG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm9vc3QgPC0gdHJhaW4oZm9ybXVsYSxcbiAgICAgICAgICAgICAgICBkYXRhPXRyZWlubyxcbiAgICAgICAgICAgICAgICB0ckNvbnRyb2wgPSBjdHJsLFxuICAgICAgICAgICAgICAgIG1ldGhvZCA9IFwiYWRhYm9vc3RcIilcblxuYm9vc3RcbmBgYCJ9 -->
 <pre class="r"><code>boost &lt;- train(formula,
                 data=treino,
                 trControl = ctrl,
                 method = &quot;adaboost&quot;)
+
 boost</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQWRhQm9vc3QgQ2xhc3NpZmljYXRpb24gVHJlZXMgXG5cbjI4OTYgc2FtcGxlc1xuICAgNCBwcmVkaWN0b3JzXG4gICAyIGNsYXNzZXM6ICdlbGVpdG8nLCAnbmFvX2VsZWl0bycgXG5cbk5vIHByZS1wcm9jZXNzaW5nXG5SZXNhbXBsaW5nOiBDcm9zcy1WYWxpZGF0ZWQgKDEwIGZvbGQsIHJlcGVhdGVkIDEwIHRpbWVzKSBcblN1bW1hcnkgb2Ygc2FtcGxlIHNpemVzOiAyNjA2LCAyNjA2LCAyNjA2LCAyNjA3LCAyNjA3LCAyNjA3LCAuLi4gXG5BZGR0aW9uYWwgc2FtcGxpbmcgdXNpbmcgZG93bi1zYW1wbGluZ1xuXG5SZXNhbXBsaW5nIHJlc3VsdHMgYWNyb3NzIHR1bmluZyBwYXJhbWV0ZXJzOlxuXG4gIG5JdGVyICBtZXRob2QgICAgICAgICBBY2N1cmFjeSAgIEthcHBhICAgIFxuICAgNTAgICAgQWRhYm9vc3QuTTEgICAgMC44ODcyNTc2ICAwLjU1OTUxMjJcbiAgIDUwICAgIFJlYWwgYWRhYm9vc3QgIDAuODg0Mzg3MSAgMC41NTQzMTkzXG4gIDEwMCAgICBBZGFib29zdC5NMSAgICAwLjg4NDE0NTMgIDAuNTQ3ODM3M1xuICAxMDAgICAgUmVhbCBhZGFib29zdCAgMC44ODU2NjU3ICAwLjU2MTI1MzBcbiAgMTUwICAgIEFkYWJvb3N0Lk0xICAgIDAuODgyNzY3OCAgMC41NDQ1NTQ0XG4gIDE1MCAgICBSZWFsIGFkYWJvb3N0ICAwLjg4NjY2NzggIDAuNTYxNTI5N1xuXG5BY2N1cmFjeSB3YXMgdXNlZCB0byBzZWxlY3QgdGhlIG9wdGltYWwgbW9kZWwgdXNpbmcgdGhlIGxhcmdlc3QgdmFsdWUuXG5UaGUgZmluYWwgdmFsdWVzIHVzZWQgZm9yIHRoZSBtb2RlbCB3ZXJlIG5JdGVyID0gNTAgYW5kIG1ldGhvZCA9IEFkYWJvb3N0Lk0xLlxuIn0= -->
-<pre><code>AdaBoost Classification Trees 
-
-2896 samples
-   4 predictors
-   2 classes: 'eleito', 'nao_eleito' 
-
-No pre-processing
-Resampling: Cross-Validated (10 fold, repeated 10 times) 
-Summary of sample sizes: 2606, 2606, 2606, 2607, 2607, 2607, ... 
-Addtional sampling using down-sampling
-
-Resampling results across tuning parameters:
-
-  nIter  method         Accuracy   Kappa    
-   50    Adaboost.M1    0.8872576  0.5595122
-   50    Real adaboost  0.8843871  0.5543193
-  100    Adaboost.M1    0.8841453  0.5478373
-  100    Real adaboost  0.8856657  0.5612530
-  150    Adaboost.M1    0.8827678  0.5445544
-  150    Real adaboost  0.8866678  0.5615297
-
-Accuracy was used to select the optimal model using the largest value.
-The final values used for the model were nIter = 50 and method = Adaboost.M1.</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>     </p>
@@ -382,15 +331,65 @@ The final values used for the model were nIter = 50 and method = Adaboost.M1.</c
 <h2>3. Reporte acurácia, precision, recall e f-measure no treino e validação. Como você avalia os resultados? Justifique sua resposta.</h2>
 <p>Acurácia = (TP + TN)/(TP + TN + FP + FN) <i>Nos diz a proporção de observações corretamente classificadas.</i></p>
 <p>Precision = TP / (TP + FP) <i> Diz respeito a quantas das observaçoes preditas como positivas são realmente positivas </i></p>
-<p>Recall = TP / (TP + FN) <i> Diz respeito a quantas das observaçoes positivas foram corretamente classificadas <i></p>
+<p>Recall = TP / (TP + FN) <i> Diz respeito a quantas das observaçoes positivas foram corretamente classificadas </i></p>
 <p>F-Measure = 2 x (Recall x Precision) / (Recall + Precision)</p>
-<div id="regressao-logistica-1" class="section level3">
-<h3>Regressão logística:</h3>
+<div id="regressao-logistica-no-treino" class="section level3">
+<h3>Regressão logística no treino:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdGUkcHJlZGljYW9fbG9nIDwtIHByZWRpY3QocmVnX2xvZzEsIHRlc3RlKVxuVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19sb2cgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKVxuVE4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2xvZyA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbkZQIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19sb2cgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKSBcbkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fbG9nID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuYWNjdXJhY3kgPC0gKFRQICsgVE4pLyhUUCArIFROICsgRlAgKyBGTikgXG5wcmVjaXNpb24gPC0gVFAgLyAoVFAgKyBGUClcbnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKVxuZl9tZWFzdXJlIDwtIDIqKHJlY2FsbCAqIHByZWNpc2lvbikgLyAocmVjYWxsICsgcHJlY2lzaW9uKVxuYWNjdXJhY3lcbmBgYCJ9 -->
-<pre class="r"><code>teste$predicao_log &lt;- predict(reg_log1, teste)
-TP &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_log == &quot;eleito&quot;) %&gt;% nrow()
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJlaW5vJHByZWRpY2FvX2xvZyA8LSBwcmVkaWN0KHJlZ19sb2cxLCB0cmVpbm8pXG5gYGAifQ== -->
+<pre class="r"><code>treino$predicao_log &lt;- predict(reg_log1, treino)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoidW1hIHByZWRpw6fDo28gYSBwYXJ0aXIgZGUgdW0gYWp1c3RlIHJhbmstZGVmaWNpZW50IHBvZGUgc2VyIGVuZ2Fub3NvXG4ifQ== -->
+<pre><code>uma predição a partir de um ajuste rank-deficient pode ser enganoso</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFAgPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fbG9nID09IFwiZWxlaXRvXCIpICU+JSBucm93KClcblROIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwibmFvX2VsZWl0b1wiICwgcHJlZGljYW9fbG9nID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuRlAgPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19sb2cgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKSBcbkZOIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwiZWxlaXRvXCIsIHByZWRpY2FvX2xvZyA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIFxucHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApXG5yZWNhbGwgPC0gVFAgLyAoVFAgKyBGTilcbmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbilcbmFjY3VyYWN5XG5gYGAifQ== -->
+<pre class="r"><code>TP &lt;- treino %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_log == &quot;eleito&quot;) %&gt;% nrow()
+TN &lt;- treino %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_log == &quot;nao_eleito&quot; ) %&gt;% nrow()
+FP &lt;- treino %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_log == &quot;eleito&quot;) %&gt;% nrow() 
+FN &lt;- treino %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_log == &quot;nao_eleito&quot; ) %&gt;% nrow()
+accuracy &lt;- (TP + TN)/(TP + TN + FP + FN) 
+precision &lt;- TP / (TP + FP)
+recall &lt;- TP / (TP + FN)
+f_measure &lt;- 2*(recall * precision) / (recall + precision)
+accuracy</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuOTI0NzIzOFxuIn0= -->
+<pre><code>[1] 0.9247238</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJlY2lzaW9uXG5gYGAifQ== -->
+<pre class="r"><code>precision</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTkxNTg0MlxuIn0= -->
+<pre><code>[1] 0.5915842</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVjYWxsXG5gYGAifQ== -->
+<pre class="r"><code>recall</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuODE4NDkzMlxuIn0= -->
+<pre><code>[1] 0.8184932</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZl9tZWFzdXJlXG5gYGAifQ== -->
+<pre class="r"><code>f_measure</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNjg2NzgxNlxuIn0= -->
+<pre><code>[1] 0.6867816</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="regressao-logistica-no-teste" class="section level3">
+<h3>Regressão logística no teste:</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdGUkcHJlZGljYW9fbG9nIDwtIHByZWRpY3QocmVnX2xvZzEsIHRlc3RlKVxuYGBgIn0= -->
+<pre class="r"><code>teste$predicao_log &lt;- predict(reg_log1, teste)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoidW1hIHByZWRpw6fDo28gYSBwYXJ0aXIgZGUgdW0gYWp1c3RlIHJhbmstZGVmaWNpZW50IHBvZGUgc2VyIGVuZ2Fub3NvXG4ifQ== -->
+<pre><code>uma predição a partir de um ajuste rank-deficient pode ser enganoso</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19sb2cgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKVxuVE4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2xvZyA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbkZQIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19sb2cgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKSBcbkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fbG9nID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuYWNjdXJhY3kgPC0gKFRQICsgVE4pLyhUUCArIFROICsgRlAgKyBGTikgXG5wcmVjaXNpb24gPC0gVFAgLyAoVFAgKyBGUClcbnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKVxuZl9tZWFzdXJlIDwtIDIqKHJlY2FsbCAqIHByZWNpc2lvbikgLyAocmVjYWxsICsgcHJlY2lzaW9uKVxuYWNjdXJhY3lcbmBgYCJ9 -->
+<pre class="r"><code>TP &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_log == &quot;eleito&quot;) %&gt;% nrow()
 TN &lt;- teste %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_log == &quot;nao_eleito&quot; ) %&gt;% nrow()
 FP &lt;- teste %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_log == &quot;eleito&quot;) %&gt;% nrow() 
 FN &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_log == &quot;nao_eleito&quot; ) %&gt;% nrow()
@@ -400,143 +399,139 @@ recall &lt;- TP / (TP + FN)
 f_measure &lt;- 2*(recall * precision) / (recall + precision)
 accuracy</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuOTI0MTMyNFxuIn0= -->
-<pre><code>[1] 0.9241324</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuOTMwNTg5MlxuIn0= -->
+<pre><code>[1] 0.9305892</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJlY2lzaW9uXG5gYGAifQ== -->
 <pre class="r"><code>precision</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTkyNTkyNlxuIn0= -->
-<pre><code>[1] 0.5925926</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNjAzMjYwOVxuIn0= -->
+<pre><code>[1] 0.6032609</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVjYWxsXG5gYGAifQ== -->
 <pre class="r"><code>recall</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNzc0MTkzNVxuIn0= -->
-<pre><code>[1] 0.7741935</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuODk1MTYxM1xuIn0= -->
+<pre><code>[1] 0.8951613</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZl9tZWFzdXJlXG5gYGAifQ== -->
 <pre class="r"><code>f_measure</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNjcxMzI4N1xuIn0= -->
-<pre><code>[1] 0.6713287</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNzIwNzc5MlxuIn0= -->
+<pre><code>[1] 0.7207792</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Os valores de acurácia, precisão, recall e f-measure são maiores na partição de teste do que na partição de treino.</p>
 </div>
-<div id="arvore-de-decisao-1" class="section level3">
-<h3>Árvore de decisão:</h3>
+<div id="arvore-de-decisao-no-treino" class="section level3">
+<h3>Árvore de decisão no treino:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdGUkcHJlZGljYW9fYXJ2b3JlIDwtIHByZWRpY3QoYXJ2b3JlLCB0ZXN0ZSlcblRQIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fYXJ2b3JlID09IFwiZWxlaXRvXCIpICU+JSBucm93KClcblROIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19hcnZvcmUgPT0gXCJuYW9fZWxlaXRvXCIgKSAlPiUgbnJvdygpXG5GUCA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwibmFvX2VsZWl0b1wiICwgcHJlZGljYW9fYXJ2b3JlID09IFwiZWxlaXRvXCIpICU+JSBucm93KCkgXG5GTiA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwiZWxlaXRvXCIsIHByZWRpY2FvX2Fydm9yZSA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIFxucHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApXG5yZWNhbGwgPC0gVFAgLyAoVFAgKyBGTilcbmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbilcbmFjY3VyYWN5XG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJlaW5vJHByZWRpY2FvX2Fydm9yZSA8LSBwcmVkaWN0KGFydm9yZSwgdHJlaW5vKVxuXG5UUCA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19hcnZvcmUgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKVxuVE4gPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19hcnZvcmUgPT0gXCJuYW9fZWxlaXRvXCIgKSAlPiUgbnJvdygpXG5GUCA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2Fydm9yZSA9PSBcImVsZWl0b1wiKSAlPiUgbnJvdygpIFxuRk4gPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fYXJ2b3JlID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuXG5hY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSBcbnByZWNpc2lvbiA8LSBUUCAvIChUUCArIEZQKVxucmVjYWxsIDwtIFRQIC8gKFRQICsgRk4pXG5mX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pXG5cbmFjY3VyYWN5XG5wcmVjaXNpb25cbnJlY2FsbFxuZl9tZWFzdXJlXG5gYGAifQ== -->
+<pre class="r"><code>treino$predicao_arvore &lt;- predict(arvore, treino)
+
+TP &lt;- treino %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_arvore == &quot;eleito&quot;) %&gt;% nrow()
+TN &lt;- treino %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_arvore == &quot;nao_eleito&quot; ) %&gt;% nrow()
+FP &lt;- treino %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_arvore == &quot;eleito&quot;) %&gt;% nrow() 
+FN &lt;- treino %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_arvore == &quot;nao_eleito&quot; ) %&gt;% nrow()
+
+accuracy &lt;- (TP + TN)/(TP + TN + FP + FN) 
+precision &lt;- TP / (TP + FP)
+recall &lt;- TP / (TP + FN)
+f_measure &lt;- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="arvore-de-decisao-no-teste" class="section level3">
+<h3>Árvore de decisão no teste:</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdGUkcHJlZGljYW9fYXJ2b3JlIDwtIHByZWRpY3QoYXJ2b3JlLCB0ZXN0ZSlcblxuVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19hcnZvcmUgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKVxuVE4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2Fydm9yZSA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbkZQIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19hcnZvcmUgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKSBcbkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fYXJ2b3JlID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuXG5hY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSBcbnByZWNpc2lvbiA8LSBUUCAvIChUUCArIEZQKVxucmVjYWxsIDwtIFRQIC8gKFRQICsgRk4pXG5mX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pXG5cbmFjY3VyYWN5XG5wcmVjaXNpb25cbnJlY2FsbFxuZl9tZWFzdXJlXG5gYGAifQ== -->
 <pre class="r"><code>teste$predicao_arvore &lt;- predict(arvore, teste)
+
 TP &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_arvore == &quot;eleito&quot;) %&gt;% nrow()
 TN &lt;- teste %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_arvore == &quot;nao_eleito&quot; ) %&gt;% nrow()
 FP &lt;- teste %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_arvore == &quot;eleito&quot;) %&gt;% nrow() 
 FN &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_arvore == &quot;nao_eleito&quot; ) %&gt;% nrow()
+
 accuracy &lt;- (TP + TN)/(TP + TN + FP + FN) 
 precision &lt;- TP / (TP + FP)
 recall &lt;- TP / (TP + FN)
 f_measure &lt;- 2*(recall * precision) / (recall + precision)
-accuracy</code></pre>
+
+accuracy
+precision
+recall
+f_measure</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuODYzNTk5N1xuIn0= -->
-<pre><code>[1] 0.8635997</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJlY2lzaW9uXG5gYGAifQ== -->
-<pre class="r"><code>precision</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Ao contrário do modelo de Regressão Logística, o modelo de Árvore de Decisão apresenta valores maiores na partição de treino.</p>
+</div>
+<div id="adaboost-no-treino" class="section level3">
+<h3>Adaboost no treino:</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJlaW5vJHByZWRpY2FvX2FkYSA8LSBwcmVkaWN0KGJvb3N0LCB0cmVpbm8pXG5cblRQIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwiZWxlaXRvXCIsIHByZWRpY2FvX2FkYSA9PSBcImVsZWl0b1wiKSAlPiUgbnJvdygpXG5UTiA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2FkYSA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbkZQIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwibmFvX2VsZWl0b1wiICwgcHJlZGljYW9fYWRhID09IFwiZWxlaXRvXCIpICU+JSBucm93KCkgXG5GTiA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19hZGEgPT0gXCJuYW9fZWxlaXRvXCIgKSAlPiUgbnJvdygpXG5cbmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIFxucHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApXG5yZWNhbGwgPC0gVFAgLyAoVFAgKyBGTilcbmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbilcblxuYWNjdXJhY3lcbnByZWNpc2lvblxucmVjYWxsXG5mX21lYXN1cmVcbmBgYCJ9 -->
+<pre class="r"><code>treino$predicao_ada &lt;- predict(boost, treino)
+
+TP &lt;- treino %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_ada == &quot;eleito&quot;) %&gt;% nrow()
+TN &lt;- treino %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_ada == &quot;nao_eleito&quot; ) %&gt;% nrow()
+FP &lt;- treino %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_ada == &quot;eleito&quot;) %&gt;% nrow() 
+FN &lt;- treino %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_ada == &quot;nao_eleito&quot; ) %&gt;% nrow()
+
+accuracy &lt;- (TP + TN)/(TP + TN + FP + FN) 
+precision &lt;- TP / (TP + FP)
+recall &lt;- TP / (TP + FN)
+f_measure &lt;- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNDIwNDk0N1xuIn0= -->
-<pre><code>[1] 0.4204947</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVjYWxsXG5gYGAifQ== -->
-<pre class="r"><code>recall</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuOTU5Njc3NFxuIn0= -->
-<pre><code>[1] 0.9596774</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZl9tZWFzdXJlXG5gYGAifQ== -->
-<pre class="r"><code>f_measure</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTg0NzY2NlxuIn0= -->
-<pre><code>[1] 0.5847666</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="adaboost-1" class="section level3">
-<h3>Adaboost:</h3>
+<div id="adaboost-no-teste" class="section level3">
+<h3>Adaboost no teste:</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdGUkcHJlZGljYW9fYWRhIDwtIHByZWRpY3QoYm9vc3QsIHRlc3RlKVxuVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19hZGEgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKVxuVE4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2FkYSA9PSBcIm5hb19lbGVpdG9cIiApICU+JSBucm93KClcbkZQIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJuYW9fZWxlaXRvXCIgLCBwcmVkaWNhb19hZGEgPT0gXCJlbGVpdG9cIikgJT4lIG5yb3coKSBcbkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gXCJlbGVpdG9cIiwgcHJlZGljYW9fYWRhID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuYWNjdXJhY3kgPC0gKFRQICsgVE4pLyhUUCArIFROICsgRlAgKyBGTikgXG5wcmVjaXNpb24gPC0gVFAgLyAoVFAgKyBGUClcbnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKVxuZl9tZWFzdXJlIDwtIDIqKHJlY2FsbCAqIHByZWNpc2lvbikgLyAocmVjYWxsICsgcHJlY2lzaW9uKVxuYWNjdXJhY3lcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdGUkcHJlZGljYW9fYWRhIDwtIHByZWRpY3QoYm9vc3QsIHRlc3RlKVxuXG5UUCA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwiZWxlaXRvXCIsIHByZWRpY2FvX2FkYSA9PSBcImVsZWl0b1wiKSAlPiUgbnJvdygpXG5UTiA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09IFwibmFvX2VsZWl0b1wiICwgcHJlZGljYW9fYWRhID09IFwibmFvX2VsZWl0b1wiICkgJT4lIG5yb3coKVxuRlAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcIm5hb19lbGVpdG9cIiAsIHByZWRpY2FvX2FkYSA9PSBcImVsZWl0b1wiKSAlPiUgbnJvdygpIFxuRk4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSBcImVsZWl0b1wiLCBwcmVkaWNhb19hZGEgPT0gXCJuYW9fZWxlaXRvXCIgKSAlPiUgbnJvdygpXG5cbmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIFxucHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApXG5yZWNhbGwgPC0gVFAgLyAoVFAgKyBGTilcbmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbilcblxuYWNjdXJhY3lcbnByZWNpc2lvblxucmVjYWxsXG5mX21lYXN1cmVcbmBgYCJ9 -->
 <pre class="r"><code>teste$predicao_ada &lt;- predict(boost, teste)
+
 TP &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_ada == &quot;eleito&quot;) %&gt;% nrow()
 TN &lt;- teste %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_ada == &quot;nao_eleito&quot; ) %&gt;% nrow()
 FP &lt;- teste %&gt;% filter(situacao_final == &quot;nao_eleito&quot; , predicao_ada == &quot;eleito&quot;) %&gt;% nrow() 
 FN &lt;- teste %&gt;% filter(situacao_final == &quot;eleito&quot;, predicao_ada == &quot;nao_eleito&quot; ) %&gt;% nrow()
+
 accuracy &lt;- (TP + TN)/(TP + TN + FP + FN) 
 precision &lt;- TP / (TP + FP)
 recall &lt;- TP / (TP + FN)
 f_measure &lt;- 2*(recall * precision) / (recall + precision)
-accuracy</code></pre>
+
+accuracy
+precision
+recall
+f_measure</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuODc4MTI3NVxuIn0= -->
-<pre><code>[1] 0.8781275</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJlY2lzaW9uXG5gYGAifQ== -->
-<pre class="r"><code>precision</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNDQ0ODk4XG4ifQ== -->
-<pre><code>[1] 0.444898</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmVjYWxsXG5gYGAifQ== -->
-<pre class="r"><code>recall</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuODc5MDMyM1xuIn0= -->
-<pre><code>[1] 0.8790323</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZl9tZWFzdXJlXG5gYGAifQ== -->
-<pre class="r"><code>f_measure</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNTkwNzg1OVxuIn0= -->
-<pre><code>[1] 0.5907859</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Para uma análise mais otimista podemos levar em consideração o Recall</p>
+<p>Como podemos notar, o modelo na partição treino apresenta acurácia, precisão, recall e f-measure maior que no teste, igualmente ao modelo de Árvore de Decisão.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29uZnVzaW9uTWF0cml4KHRlc3RlJHByZWRpY2FvX2xvZywgdGVzdGUkc2l0dWFjYW9fZmluYWwpXG5gYGAifQ== -->
-<pre class="r"><code>confusionMatrix(teste$predicao_log, teste$situacao_final)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29uZnVzaW9uTWF0cml4KHRlc3RlJHByZWRpY2FvX2xvZywgdGVzdGUkc2l0dWFjYW9fZmluYWwpXG5jb25mdXNpb25NYXRyaXgodGVzdGUkcHJlZGljYW9fYXJ2b3JlLCB0ZXN0ZSRzaXR1YWNhb19maW5hbClcbmNvbmZ1c2lvbk1hdHJpeCh0ZXN0ZSRwcmVkaWNhb19hZGEsIHRlc3RlJHNpdHVhY2FvX2ZpbmFsKVxuYGBgIn0= -->
+<pre class="r"><code>confusionMatrix(teste$predicao_log, teste$situacao_final)
+confusionMatrix(teste$predicao_arvore, teste$situacao_final)
+confusionMatrix(teste$predicao_ada, teste$situacao_final)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQ29uZnVzaW9uIE1hdHJpeCBhbmQgU3RhdGlzdGljc1xuXG4gICAgICAgICAgICBSZWZlcmVuY2VcblByZWRpY3Rpb24gICBlbGVpdG8gbmFvX2VsZWl0b1xuICBlbGVpdG8gICAgICAgICA5NiAgICAgICAgIDY2XG4gIG5hb19lbGVpdG8gICAgIDI4ICAgICAgIDEwNDlcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICBBY2N1cmFjeSA6IDAuOTI0MSAgICAgICAgIFxuICAgICAgICAgICAgICAgICA5NSUgQ0kgOiAoMC45MDgsIDAuOTM4MylcbiAgICBObyBJbmZvcm1hdGlvbiBSYXRlIDogMC44OTk5ICAgICAgICAgXG4gICAgUC1WYWx1ZSBbQWNjID4gTklSXSA6IDAuMDAxOTMwMCAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgIEthcHBhIDogMC42MjkzICAgICAgICAgXG4gTWNuZW1hcidzIFRlc3QgUC1WYWx1ZSA6IDAuMDAwMTM1NSAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgIFNlbnNpdGl2aXR5IDogMC43NzQxOSAgICAgICAgXG4gICAgICAgICAgICBTcGVjaWZpY2l0eSA6IDAuOTQwODEgICAgICAgIFxuICAgICAgICAgUG9zIFByZWQgVmFsdWUgOiAwLjU5MjU5ICAgICAgICBcbiAgICAgICAgIE5lZyBQcmVkIFZhbHVlIDogMC45NzQwMCAgICAgICAgXG4gICAgICAgICAgICAgUHJldmFsZW5jZSA6IDAuMTAwMDggICAgICAgIFxuICAgICAgICAgRGV0ZWN0aW9uIFJhdGUgOiAwLjA3NzQ4ICAgICAgICBcbiAgIERldGVjdGlvbiBQcmV2YWxlbmNlIDogMC4xMzA3NSAgICAgICAgXG4gICAgICBCYWxhbmNlZCBBY2N1cmFjeSA6IDAuODU3NTAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAnUG9zaXRpdmUnIENsYXNzIDogZWxlaXRvICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
-<pre><code>Confusion Matrix and Statistics
-
-            Reference
-Prediction   eleito nao_eleito
-  eleito         96         66
-  nao_eleito     28       1049
-                                         
-               Accuracy : 0.9241         
-                 95% CI : (0.908, 0.9383)
-    No Information Rate : 0.8999         
-    P-Value [Acc &gt; NIR] : 0.0019300      
-                                         
-                  Kappa : 0.6293         
- Mcnemar's Test P-Value : 0.0001355      
-                                         
-            Sensitivity : 0.77419        
-            Specificity : 0.94081        
-         Pos Pred Value : 0.59259        
-         Neg Pred Value : 0.97400        
-             Prevalence : 0.10008        
-         Detection Rate : 0.07748        
-   Detection Prevalence : 0.13075        
-      Balanced Accuracy : 0.85750        
-                                         
-       'Positive' Class : eleito         
-                                         </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -545,864 +540,6 @@ Prediction   eleito nao_eleito
 <h2>4. Interprete as saídas dos modelos. Quais atributos parecem ser mais importantes de acordo com cada modelo? Crie pelo menos um novo atributo que não está nos dados originais e estude o impacto desse atributo</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShyZWdfbG9nMSlcbmBgYCJ9 -->
-<pre class="r"><code>summary(reg_log1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxuTlVMTFxuXG5EZXZpYW5jZSBSZXNpZHVhbHM6IFxuICAgIE1pbiAgICAgICAxUSAgIE1lZGlhbiAgICAgICAzUSAgICAgIE1heCAgXG4tMS45MzkzICAtMC4yMTk5ICAgMC4wMDAwICAgMC41MjE2ICAgNC44ODUyICBcblxuQ29lZmZpY2llbnRzOlxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB6IHZhbHVlIFByKD58enwpICAgIFxuKEludGVyY2VwdCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAxLjY4NGUrMDEgIDEuMTM0ZSswMyAgIDAuMDE1ICAgIDAuOTg4ICAgIFxudG90YWxfZGVzcGVzYSAgICAgICAgICAgICAgICAgICAgICAgICAgIC00Ljc4M2UtMDYgIDQuNzc4ZS0wNyAtMTAuMDEwICAgPDJlLTE2ICoqKlxuZGVzY3JpY2FvX2Nvcl9yYWNhQlJBTkNBICAgICAgICAgICAgICAgIC0xLjQzOWUrMDEgIDEuMTM0ZSswMyAgLTAuMDEzICAgIDAuOTkwICAgIFxuZGVzY3JpY2FvX2Nvcl9yYWNhSU5Ew41HRU5BICAgICAgICAgICAgICAtMS4yNDhlKzAwICAyLjY1NGUrMDMgICAwLjAwMCAgICAxLjAwMCAgICBcbmRlc2NyaWNhb19jb3JfcmFjYVBBUkRBICAgICAgICAgICAgICAgICAtMS40NzJlKzAxICAxLjEzNGUrMDMgIC0wLjAxMyAgICAwLjk5MCAgICBcbmRlc2NyaWNhb19jb3JfcmFjYVBSRVRBICAgICAgICAgICAgICAgICAtMS4zMjVlKzAxICAxLjEzNGUrMDMgIC0wLjAxMiAgICAwLjk5MSAgICBcbmBlc3RhZG9fY2l2aWxESVZPUkNJQURPKEEpYCAgICAgICAgICAgICAtMy4wNjdlLTAxICA0LjExMGUtMDEgIC0wLjc0NiAgICAwLjQ1NiAgICBcbmBlc3RhZG9fY2l2aWxTRVBBUkFETyhBKSBKVURJQ0lBTE1FTlRFYCAtNS40MDJlLTAxICA5LjAwMmUtMDEgIC0wLjYwMCAgICAwLjU0OCAgICBcbmBlc3RhZG9fY2l2aWxTT0xURUlSTyhBKWAgICAgICAgICAgICAgICAgMy4yMThlLTAxICAzLjMwMWUtMDEgICAwLjk3NSAgICAwLjMzMCAgICBcbmBlc3RhZG9fY2l2aWxWScOaVk8oQSlgICAgICAgICAgICAgICAgICAgIDUuODgyZSswMCAgMS4yMjdlKzAxICAgMC40NzkgICAgMC42MzIgICAgXG5gZ3JhdUVOU0lOTyBGVU5EQU1FTlRBTCBJTkNPTVBMRVRPYCAgICAgIDEuNDU3ZS0wMiAgMS4zNDFlKzAwICAgMC4wMTEgICAgMC45OTEgICAgXG5gZ3JhdUVOU0lOTyBNw4lESU8gQ09NUExFVE9gICAgICAgICAgICAgICA0LjEwNmUtMDIgIDguMzM4ZS0wMSAgIDAuMDQ5ICAgIDAuOTYxICAgIFxuYGdyYXVFTlNJTk8gTcOJRElPIElOQ09NUExFVE9gICAgICAgICAgICAgNy43NzVlLTAxICAyLjQ1NmUrMDAgICAwLjMxNyAgICAwLjc1MiAgICBcbmBncmF1TMOKIEUgRVNDUkVWRWAgICAgICAgICAgICAgICAgICAgICAgIDEuNDk2ZSswMSAgMS40MzhlKzAzICAgMC4wMTAgICAgMC45OTIgICAgXG5gZ3JhdVNVUEVSSU9SIENPTVBMRVRPYCAgICAgICAgICAgICAgICAgLTguMDg1ZS0wMSAgNy42MTJlLTAxICAtMS4wNjIgICAgMC4yODggICAgXG5gZ3JhdVNVUEVSSU9SIElOQ09NUExFVE9gICAgICAgICAgICAgICAgLTIuMjk4ZS0wMSAgOC40OTZlLTAxICAtMC4yNzEgICAgMC43ODcgICAgXG4tLS1cblNpZ25pZi4gY29kZXM6ICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZIDAuMSDigJgg4oCZIDFcblxuKERpc3BlcnNpb24gcGFyYW1ldGVyIGZvciBiaW5vbWlhbCBmYW1pbHkgdGFrZW4gdG8gYmUgMSlcblxuICAgIE51bGwgZGV2aWFuY2U6IDgwOS42MCAgb24gNTgzICBkZWdyZWVzIG9mIGZyZWVkb21cblJlc2lkdWFsIGRldmlhbmNlOiAzNjEuNzQgIG9uIDU2OCAgZGVncmVlcyBvZiBmcmVlZG9tXG5BSUM6IDM5My43NFxuXG5OdW1iZXIgb2YgRmlzaGVyIFNjb3JpbmcgaXRlcmF0aW9uczogMTVcbiJ9 -->
-<pre><code>
-Call:
-NULL
-
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--1.9393  -0.2199   0.0000   0.5216   4.8852  
-
-Coefficients:
-                                          Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                              1.684e+01  1.134e+03   0.015    0.988    
-total_despesa                           -4.783e-06  4.778e-07 -10.010   &lt;2e-16 ***
-descricao_cor_racaBRANCA                -1.439e+01  1.134e+03  -0.013    0.990    
-descricao_cor_racaINDÍGENA              -1.248e+00  2.654e+03   0.000    1.000    
-descricao_cor_racaPARDA                 -1.472e+01  1.134e+03  -0.013    0.990    
-descricao_cor_racaPRETA                 -1.325e+01  1.134e+03  -0.012    0.991    
-`estado_civilDIVORCIADO(A)`             -3.067e-01  4.110e-01  -0.746    0.456    
-`estado_civilSEPARADO(A) JUDICIALMENTE` -5.402e-01  9.002e-01  -0.600    0.548    
-`estado_civilSOLTEIRO(A)`                3.218e-01  3.301e-01   0.975    0.330    
-`estado_civilVIÚVO(A)`                   5.882e+00  1.227e+01   0.479    0.632    
-`grauENSINO FUNDAMENTAL INCOMPLETO`      1.457e-02  1.341e+00   0.011    0.991    
-`grauENSINO MÉDIO COMPLETO`              4.106e-02  8.338e-01   0.049    0.961    
-`grauENSINO MÉDIO INCOMPLETO`            7.775e-01  2.456e+00   0.317    0.752    
-`grauLÊ E ESCREVE`                       1.496e+01  1.438e+03   0.010    0.992    
-`grauSUPERIOR COMPLETO`                 -8.085e-01  7.612e-01  -1.062    0.288    
-`grauSUPERIOR INCOMPLETO`               -2.298e-01  8.496e-01  -0.271    0.787    
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 809.60  on 583  degrees of freedom
-Residual deviance: 361.74  on 568  degrees of freedom
-AIC: 393.74
-
-Number of Fisher Scoring iterations: 15</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShhcnZvcmUpXG5gYGAifQ== -->
-<pre class="r"><code>summary(arvore)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiQ2FsbDpcbihmdW5jdGlvbiAoZm9ybXVsYSwgZGF0YSwgd2VpZ2h0cywgc3Vic2V0LCBuYS5hY3Rpb24gPSBuYS5ycGFydCwgXG4gICAgbWV0aG9kLCBtb2RlbCA9IEZBTFNFLCB4ID0gRkFMU0UsIHkgPSBUUlVFLCBwYXJtcywgY29udHJvbCwgXG4gICAgY29zdCwgLi4uKSBcbntcbiAgICBDYWxsIDwtIG1hdGNoLmNhbGwoKVxuICAgIGlmIChpcy5kYXRhLmZyYW1lKG1vZGVsKSkge1xuICAgICAgICBtIDwtIG1vZGVsXG4gICAgICAgIG1vZGVsIDwtIEZBTFNFXG4gICAgfVxuICAgIGVsc2Uge1xuICAgICAgICBpbmR4IDwtIG1hdGNoKGMoXCJmb3JtdWxhXCIsIFwiZGF0YVwiLCBcIndlaWdodHNcIiwgXCJzdWJzZXRcIiksIFxuICAgICAgICAgICAgbmFtZXMoQ2FsbCksIG5vbWF0Y2ggPSAwKVxuICAgICAgICBpZiAoaW5keFsxXSA9PSAwKSBcbiAgICAgICAgICAgIHN0b3AoXCJhICdmb3JtdWxhJyBhcmd1bWVudCBpcyByZXF1aXJlZFwiKVxuICAgICAgICB0ZW1wIDwtIENhbGxbYygxLCBpbmR4KV1cbiAgICAgICAgdGVtcCRuYS5hY3Rpb24gPC0gbmEuYWN0aW9uXG4gICAgICAgIHRlbXBbWzFdXSA8LSBxdW90ZShzdGF0czo6bW9kZWwuZnJhbWUpXG4gICAgICAgIG0gPC0gZXZhbC5wYXJlbnQodGVtcClcbiAgICB9XG4gICAgVGVybXMgPC0gYXR0cihtLCBcInRlcm1zXCIpXG4gICAgaWYgKGFueShhdHRyKFRlcm1zLCBcIm9yZGVyXCIpID4gMSkpIFxuICAgICAgICBzdG9wKFwiVHJlZXMgY2Fubm90IGhhbmRsZSBpbnRlcmFjdGlvbiB0ZXJtc1wiKVxuICAgIFkgPC0gbW9kZWwucmVzcG9uc2UobSlcbiAgICB3dCA8LSBtb2RlbC53ZWlnaHRzKG0pXG4gICAgaWYgKGFueSh3dCA8IDApKSBcbiAgICAgICAgc3RvcChcIm5lZ2F0aXZlIHdlaWdodHMgbm90IGFsbG93ZWRcIilcbiAgICBpZiAoIWxlbmd0aCh3dCkpIFxuICAgICAgICB3dCA8LSByZXAoMSwgbnJvdyhtKSlcbiAgICBvZmZzZXQgPC0gbW9kZWwub2Zmc2V0KG0pXG4gICAgWCA8LSBycGFydC5tYXRyaXgobSlcbiAgICBub2JzIDwtIG5yb3coWClcbiAgICBudmFyIDwtIG5jb2woWClcbiAgICBpZiAobWlzc2luZyhtZXRob2QpKSB7XG4gICAgICAgIG1ldGhvZCA8LSBpZiAoaXMuZmFjdG9yKFkpIHx8IGlzLmNoYXJhY3RlcihZKSkgXG4gICAgICAgICAgICBcImNsYXNzXCJcbiAgICAgICAgZWxzZSBpZiAoaW5oZXJpdHMoWSwgXCJTdXJ2XCIpKSBcbiAgICAgICAgICAgIFwiZXhwXCJcbiAgICAgICAgZWxzZSBpZiAoaXMubWF0cml4KFkpKSBcbiAgICAgICAgICAgIFwicG9pc3NvblwiXG4gICAgICAgIGVsc2UgXCJhbm92YVwiXG4gICAgfVxuICAgIGlmIChpcy5saXN0KG1ldGhvZCkpIHtcbiAgICAgICAgbWxpc3QgPC0gbWV0aG9kXG4gICAgICAgIG1ldGhvZCA8LSBcInVzZXJcIlxuICAgICAgICBpbml0IDwtIGlmIChtaXNzaW5nKHBhcm1zKSkgXG4gICAgICAgICAgICBtbGlzdCRpbml0KFksIG9mZnNldCwgd3QgPSB3dClcbiAgICAgICAgZWxzZSBtbGlzdCRpbml0KFksIG9mZnNldCwgcGFybXMsIHd0KVxuICAgICAgICBrZWVwIDwtIHJwYXJ0Y2FsbGJhY2sobWxpc3QsIG5vYnMsIGluaXQpXG4gICAgICAgIG1ldGhvZC5pbnQgPC0gNFxuICAgICAgICBwYXJtcyA8LSBpbml0JHBhcm1zXG4gICAgfVxuICAgIGVsc2Uge1xuICAgICAgICBtZXRob2QuaW50IDwtIHBtYXRjaChtZXRob2QsIGMoXCJhbm92YVwiLCBcInBvaXNzb25cIiwgXCJjbGFzc1wiLCBcbiAgICAgICAgICAgIFwiZXhwXCIpKVxuICAgICAgICBpZiAoaXMubmEobWV0aG9kLmludCkpIFxuICAgICAgICAgICAgc3RvcChcIkludmFsaWQgbWV0aG9kXCIpXG4gICAgICAgIG1ldGhvZCA8LSBjKFwiYW5vdmFcIiwgXCJwb2lzc29uXCIsIFwiY2xhc3NcIiwgXCJleHBcIilbbWV0aG9kLmludF1cbiAgICAgICAgaWYgKG1ldGhvZC5pbnQgPT0gNCkgXG4gICAgICAgICAgICBtZXRob2QuaW50IDwtIDJcbiAgICAgICAgaW5pdCA8LSBpZiAobWlzc2luZyhwYXJtcykpIFxuICAgICAgICAgICAgZ2V0KHBhc3RlKFwicnBhcnRcIiwgbWV0aG9kLCBzZXAgPSBcIi5cIiksIGVudmlyID0gZW52aXJvbm1lbnQoKSkoWSwgXG4gICAgICAgICAgICAgICAgb2Zmc2V0LCAsIHd0KVxuICAgICAgICBlbHNlIGdldChwYXN0ZShcInJwYXJ0XCIsIG1ldGhvZCwgc2VwID0gXCIuXCIpLCBlbnZpciA9IGVudmlyb25tZW50KCkpKFksIFxuICAgICAgICAgICAgb2Zmc2V0LCBwYXJtcywgd3QpXG4gICAgICAgIG5zIDwtIGFzTmFtZXNwYWNlKFwicnBhcnRcIilcbiAgICAgICAgaWYgKCFpcy5udWxsKGluaXQkcHJpbnQpKSBcbiAgICAgICAgICAgIGVudmlyb25tZW50KGluaXQkcHJpbnQpIDwtIG5zXG4gICAgICAgIGlmICghaXMubnVsbChpbml0JHN1bW1hcnkpKSBcbiAgICAgICAgICAgIGVudmlyb25tZW50KGluaXQkc3VtbWFyeSkgPC0gbnNcbiAgICAgICAgaWYgKCFpcy5udWxsKGluaXQkdGV4dCkpIFxuICAgICAgICAgICAgZW52aXJvbm1lbnQoaW5pdCR0ZXh0KSA8LSBuc1xuICAgIH1cbiAgICBZIDwtIGluaXQkeVxuICAgIHhsZXZlbHMgPC0gLmdldFhsZXZlbHMoVGVybXMsIG0pXG4gICAgY2F0cyA8LSByZXAoMCwgbmNvbChYKSlcbiAgICBpZiAoIWlzLm51bGwoeGxldmVscykpIFxuICAgICAgICBjYXRzW21hdGNoKG5hbWVzKHhsZXZlbHMpLCBjb2xuYW1lcyhYKSldIDwtIHVubGlzdChsYXBwbHkoeGxldmVscywgXG4gICAgICAgICAgICBsZW5ndGgpKVxuICAgIGV4dHJhQXJncyA8LSBsaXN0KC4uLilcbiAgICBpZiAobGVuZ3RoKGV4dHJhQXJncykpIHtcbiAgICAgICAgY29udHJvbGFyZ3MgPC0gbmFtZXMoZm9ybWFscyhycGFydC5jb250cm9sKSlcbiAgICAgICAgaW5keCA8LSBtYXRjaChuYW1lcyhleHRyYUFyZ3MpLCBjb250cm9sYXJncywgbm9tYXRjaCA9IDApXG4gICAgICAgIGlmIChhbnkoaW5keCA9PSAwKSkgXG4gICAgICAgICAgICBzdG9wKGdldHRleHRmKFwiQXJndW1lbnQgJXMgbm90IG1hdGNoZWRcIiwgbmFtZXMoZXh0cmFBcmdzKVtpbmR4ID09IFxuICAgICAgICAgICAgICAgIDBdKSwgZG9tYWluID0gTkEpXG4gICAgfVxuICAgIGNvbnRyb2xzIDwtIHJwYXJ0LmNvbnRyb2woLi4uKVxuICAgIGlmICghbWlzc2luZyhjb250cm9sKSkgXG4gICAgICAgIGNvbnRyb2xzW25hbWVzKGNvbnRyb2wpXSA8LSBjb250cm9sXG4gICAgeHZhbCA8LSBjb250cm9scyR4dmFsXG4gICAgaWYgKGlzLm51bGwoeHZhbCkgfHwgKGxlbmd0aCh4dmFsKSA9PSAxICYmIHh2YWwgPT0gMCkgfHwgXG4gICAgICAgIG1ldGhvZCA9PSBcInVzZXJcIikge1xuICAgICAgICB4Z3JvdXBzIDwtIDBcbiAgICAgICAgeHZhbCA8LSAwXG4gICAgfVxuICAgIGVsc2UgaWYgKGxlbmd0aCh4dmFsKSA9PSAxKSB7XG4gICAgICAgIHhncm91cHMgPC0gc2FtcGxlKHJlcCgxOnh2YWwsIGxlbmd0aCA9IG5vYnMpLCBub2JzLCByZXBsYWNlID0gRkFMU0UpXG4gICAgfVxuICAgIGVsc2UgaWYgKGxlbmd0aCh4dmFsKSA9PSBub2JzKSB7XG4gICAgICAgIHhncm91cHMgPC0geHZhbFxuICAgICAgICB4dmFsIDwtIGxlbmd0aCh1bmlxdWUoeGdyb3VwcykpXG4gICAgfVxuICAgIGVsc2Uge1xuICAgICAgICBpZiAoIWlzLm51bGwoYXR0cihtLCBcIm5hLmFjdGlvblwiKSkpIHtcbiAgICAgICAgICAgIHRlbXAgPC0gYXMuaW50ZWdlcihhdHRyKG0sIFwibmEuYWN0aW9uXCIpKVxuICAgICAgICAgICAgeHZhbCA8LSB4dmFsWy10ZW1wXVxuICAgICAgICAgICAgaWYgKGxlbmd0aCh4dmFsKSA9PSBub2JzKSB7XG4gICAgICAgICAgICAgICAgeGdyb3VwcyA8LSB4dmFsXG4gICAgICAgICAgICAgICAgeHZhbCA8LSBsZW5ndGgodW5pcXVlKHhncm91cHMpKVxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgZWxzZSBzdG9wKFwiV3JvbmcgbGVuZ3RoIGZvciAneHZhbCdcIilcbiAgICAgICAgfVxuICAgICAgICBlbHNlIHN0b3AoXCJXcm9uZyBsZW5ndGggZm9yICd4dmFsJ1wiKVxuICAgIH1cbiAgICBpZiAobWlzc2luZyhjb3N0KSkgXG4gICAgICAgIGNvc3QgPC0gcmVwKDEsIG52YXIpXG4gICAgZWxzZSB7XG4gICAgICAgIGlmIChsZW5ndGgoY29zdCkgIT0gbnZhcikgXG4gICAgICAgICAgICBzdG9wKFwiQ29zdCB2ZWN0b3IgaXMgdGhlIHdyb25nIGxlbmd0aFwiKVxuICAgICAgICBpZiAoYW55KGNvc3QgPD0gMCkpIFxuICAgICAgICAgICAgc3RvcChcIkNvc3QgdmVjdG9yIG11c3QgYmUgcG9zaXRpdmVcIilcbiAgICB9XG4gICAgdGZ1biA8LSBmdW5jdGlvbih4KSBpZiAoaXMubWF0cml4KHgpKSBcbiAgICAgICAgcmVwKGlzLm9yZGVyZWQoeCksIG5jb2woeCkpXG4gICAgZWxzZSBpcy5vcmRlcmVkKHgpXG4gICAgbGFicyA8LSBzdWIoXCJeYCguKilgJFwiLCBcIlxcXFwxXCIsIGF0dHIoVGVybXMsIFwidGVybS5sYWJlbHNcIikpXG4gICAgaXNvcmQgPC0gdW5saXN0KGxhcHBseShtW2xhYnNdLCB0ZnVuKSlcbiAgICBzdG9yYWdlLm1vZGUoWCkgPC0gXCJkb3VibGVcIlxuICAgIHN0b3JhZ2UubW9kZSh3dCkgPC0gXCJkb3VibGVcIlxuICAgIHRlbXAgPC0gYXMuZG91YmxlKHVubGlzdChpbml0JHBhcm1zKSlcbiAgICBpZiAoIWxlbmd0aCh0ZW1wKSkgXG4gICAgICAgIHRlbXAgPC0gMFxuICAgIHJwZml0IDwtIC5DYWxsKENfcnBhcnQsIG5jYXQgPSBhcy5pbnRlZ2VyKGNhdHMgKiAoIWlzb3JkKSksIFxuICAgICAgICBtZXRob2QgPSBhcy5pbnRlZ2VyKG1ldGhvZC5pbnQpLCBhcy5kb3VibGUodW5saXN0KGNvbnRyb2xzKSksIFxuICAgICAgICB0ZW1wLCBhcy5pbnRlZ2VyKHh2YWwpLCBhcy5pbnRlZ2VyKHhncm91cHMpLCBhcy5kb3VibGUodChpbml0JHkpKSwgXG4gICAgICAgIFgsIHd0LCBhcy5pbnRlZ2VyKGluaXQkbnVteSksIGFzLmRvdWJsZShjb3N0KSlcbiAgICBuc3BsaXQgPC0gbnJvdyhycGZpdCRpc3BsaXQpXG4gICAgbmNhdCA8LSBpZiAoIWlzLm51bGwocnBmaXQkY3NwbGl0KSkgXG4gICAgICAgIG5yb3cocnBmaXQkY3NwbGl0KVxuICAgIGVsc2UgMFxuICAgIGlmIChuc3BsaXQgPT0gMCkgXG4gICAgICAgIHh2YWwgPC0gMFxuICAgIG51bWNwIDwtIG5jb2wocnBmaXQkY3B0YWJsZSlcbiAgICB0ZW1wIDwtIGlmIChucm93KHJwZml0JGNwdGFibGUpID09IDMpIFxuICAgICAgICBjKFwiQ1BcIiwgXCJuc3BsaXRcIiwgXCJyZWwgZXJyb3JcIilcbiAgICBlbHNlIGMoXCJDUFwiLCBcIm5zcGxpdFwiLCBcInJlbCBlcnJvclwiLCBcInhlcnJvclwiLCBcInhzdGRcIilcbiAgICBkaW1uYW1lcyhycGZpdCRjcHRhYmxlKSA8LSBsaXN0KHRlbXAsIDE6bnVtY3ApXG4gICAgdG5hbWUgPC0gYyhcIjxsZWFmPlwiLCBjb2xuYW1lcyhYKSlcbiAgICBzcGxpdHMgPC0gbWF0cml4KGMocnBmaXQkaXNwbGl0WywgMjozXSwgcnBmaXQkZHNwbGl0KSwgbmNvbCA9IDUsIFxuICAgICAgICBkaW1uYW1lcyA9IGxpc3QodG5hbWVbcnBmaXQkaXNwbGl0WywgMV0gKyAxXSwgYyhcImNvdW50XCIsIFxuICAgICAgICAgICAgXCJuY2F0XCIsIFwiaW1wcm92ZVwiLCBcImluZGV4XCIsIFwiYWRqXCIpKSlcbiAgICBpbmRleCA8LSBycGZpdCRpbm9kZVssIDJdXG4gICAgbmFkZCA8LSBzdW0oaXNvcmRbcnBmaXQkaXNwbGl0WywgMV1dKVxuICAgIGlmIChuYWRkID4gMCkge1xuICAgICAgICBuZXdjIDwtIG1hdHJpeCgwLCBuYWRkLCBtYXgoY2F0cykpXG4gICAgICAgIGN2YXIgPC0gcnBmaXQkaXNwbGl0WywgMV1cbiAgICAgICAgaW5keCA8LSBpc29yZFtjdmFyXVxuICAgICAgICBjZGlyIDwtIHNwbGl0c1tpbmR4LCAyXVxuICAgICAgICBjY3V0IDwtIGZsb29yKHNwbGl0c1tpbmR4LCA0XSlcbiAgICAgICAgc3BsaXRzW2luZHgsIDJdIDwtIGNhdHNbY3ZhcltpbmR4XV1cbiAgICAgICAgc3BsaXRzW2luZHgsIDRdIDwtIG5jYXQgKyAxOm5hZGRcbiAgICAgICAgZm9yIChpIGluIDE6bmFkZCkge1xuICAgICAgICAgICAgbmV3Y1tpLCAxOihjYXRzWyhjdmFyW2luZHhdKVtpXV0pXSA8LSAtYXMuaW50ZWdlcihjZGlyW2ldKVxuICAgICAgICAgICAgbmV3Y1tpLCAxOmNjdXRbaV1dIDwtIGFzLmludGVnZXIoY2RpcltpXSlcbiAgICAgICAgfVxuICAgICAgICBjYXRtYXQgPC0gaWYgKG5jYXQgPT0gMCkgXG4gICAgICAgICAgICBuZXdjXG4gICAgICAgIGVsc2Uge1xuICAgICAgICAgICAgY3MgPC0gcnBmaXQkY3NwbGl0XG4gICAgICAgICAgICBuY3MgPC0gbmNvbChjcylcbiAgICAgICAgICAgIG5jYyA8LSBuY29sKG5ld2MpXG4gICAgICAgICAgICBpZiAobmNzIDwgbmNjKSBcbiAgICAgICAgICAgICAgICBjcyA8LSBjYmluZChjcywgbWF0cml4KDAsIG5yb3coY3MpLCBuY2MgLSBuY3MpKVxuICAgICAgICAgICAgcmJpbmQoY3MsIG5ld2MpXG4gICAgICAgIH1cbiAgICAgICAgbmNhdCA8LSBuY2F0ICsgbmFkZFxuICAgIH1cbiAgICBlbHNlIGNhdG1hdCA8LSBycGZpdCRjc3BsaXRcbiAgICBpZiAobnNwbGl0ID09IDApIHtcbiAgICAgICAgZnJhbWUgPC0gZGF0YS5mcmFtZShyb3cubmFtZXMgPSAxLCB2YXIgPSBcIjxsZWFmPlwiLCBuID0gcnBmaXQkaW5vZGVbLCBcbiAgICAgICAgICAgIDVdLCB3dCA9IHJwZml0JGRub2RlWywgM10sIGRldiA9IHJwZml0JGRub2RlWywgMV0sIFxuICAgICAgICAgICAgeXZhbCA9IHJwZml0JGRub2RlWywgNF0sIGNvbXBsZXhpdHkgPSBycGZpdCRkbm9kZVssIFxuICAgICAgICAgICAgICAgIDJdLCBuY29tcGV0ZSA9IDAsIG5zdXJyb2dhdGUgPSAwKVxuICAgIH1cbiAgICBlbHNlIHtcbiAgICAgICAgdGVtcCA8LSBpZmVsc2UoaW5kZXggPT0gMCwgMSwgaW5kZXgpXG4gICAgICAgIHN2YXIgPC0gaWZlbHNlKGluZGV4ID09IDAsIDAsIHJwZml0JGlzcGxpdFt0ZW1wLCAxXSlcbiAgICAgICAgZnJhbWUgPC0gZGF0YS5mcmFtZShyb3cubmFtZXMgPSBycGZpdCRpbm9kZVssIDFdLCB2YXIgPSB0bmFtZVtzdmFyICsgXG4gICAgICAgICAgICAxXSwgbiA9IHJwZml0JGlub2RlWywgNV0sIHd0ID0gcnBmaXQkZG5vZGVbLCAzXSwgXG4gICAgICAgICAgICBkZXYgPSBycGZpdCRkbm9kZVssIDFdLCB5dmFsID0gcnBmaXQkZG5vZGVbLCA0XSwgXG4gICAgICAgICAgICBjb21wbGV4aXR5ID0gcnBmaXQkZG5vZGVbLCAyXSwgbmNvbXBldGUgPSBwbWF4KDAsIFxuICAgICAgICAgICAgICAgIHJwZml0JGlub2RlWywgM10gLSAxKSwgbnN1cnJvZ2F0ZSA9IHJwZml0JGlub2RlWywgXG4gICAgICAgICAgICAgICAgNF0pXG4gICAgfVxuICAgIGlmIChtZXRob2QuaW50ID09IDMpIHtcbiAgICAgICAgbnVtY2xhc3MgPC0gaW5pdCRudW1yZXNwIC0gMlxuICAgICAgICBub2RlcHJvYiA8LSBycGZpdCRkbm9kZVssIG51bWNsYXNzICsgNV0vc3VtKHd0KVxuICAgICAgICB0ZW1wIDwtIHBtYXgoMSwgaW5pdCRjb3VudHMpXG4gICAgICAgIHRlbXAgPC0gcnBmaXQkZG5vZGVbLCA0ICsgKDE6bnVtY2xhc3MpXSAlKiUgZGlhZyhpbml0JHBhcm1zJHByaW9yL3RlbXApXG4gICAgICAgIHlwcm9iIDwtIHRlbXAvcm93U3Vtcyh0ZW1wKVxuICAgICAgICB5dmFsMiA8LSBtYXRyaXgocnBmaXQkZG5vZGVbLCA0ICsgKDA6bnVtY2xhc3MpXSwgbmNvbCA9IG51bWNsYXNzICsgXG4gICAgICAgICAgICAxKVxuICAgICAgICBmcmFtZSR5dmFsMiA8LSBjYmluZCh5dmFsMiwgeXByb2IsIG5vZGVwcm9iKVxuICAgIH1cbiAgICBlbHNlIGlmIChpbml0JG51bXJlc3AgPiAxKSBcbiAgICAgICAgZnJhbWUkeXZhbDIgPC0gcnBmaXQkZG5vZGVbLCAtKDE6MyksIGRyb3AgPSBGQUxTRV1cbiAgICBpZiAoaXMubnVsbChpbml0JHN1bW1hcnkpKSBcbiAgICAgICAgc3RvcChcIkluaXRpYWxpemF0aW9uIHJvdXRpbmUgaXMgbWlzc2luZyB0aGUgJ3N1bW1hcnknIGZ1bmN0aW9uXCIpXG4gICAgZnVuY3Rpb25zIDwtIGlmIChpcy5udWxsKGluaXQkcHJpbnQpKSBcbiAgICAgICAgbGlzdChzdW1tYXJ5ID0gaW5pdCRzdW1tYXJ5KVxuICAgIGVsc2UgbGlzdChzdW1tYXJ5ID0gaW5pdCRzdW1tYXJ5LCBwcmludCA9IGluaXQkcHJpbnQpXG4gICAgaWYgKCFpcy5udWxsKGluaXQkdGV4dCkpIFxuICAgICAgICBmdW5jdGlvbnMgPC0gYyhmdW5jdGlvbnMsIGxpc3QodGV4dCA9IGluaXQkdGV4dCkpXG4gICAgaWYgKG1ldGhvZCA9PSBcInVzZXJcIikgXG4gICAgICAgIGZ1bmN0aW9ucyA8LSBjKGZ1bmN0aW9ucywgbWxpc3QpXG4gICAgd2hlcmUgPC0gcnBmaXQkd2hpY2hcbiAgICBuYW1lcyh3aGVyZSkgPC0gcm93Lm5hbWVzKG0pXG4gICAgYW5zIDwtIGxpc3QoZnJhbWUgPSBmcmFtZSwgd2hlcmUgPSB3aGVyZSwgY2FsbCA9IENhbGwsIHRlcm1zID0gVGVybXMsIFxuICAgICAgICBjcHRhYmxlID0gdChycGZpdCRjcHRhYmxlKSwgbWV0aG9kID0gbWV0aG9kLCBwYXJtcyA9IGluaXQkcGFybXMsIFxuICAgICAgICBjb250cm9sID0gY29udHJvbHMsIGZ1bmN0aW9ucyA9IGZ1bmN0aW9ucywgbnVtcmVzcCA9IGluaXQkbnVtcmVzcClcbiAgICBpZiAobnNwbGl0KSBcbiAgICAgICAgYW5zJHNwbGl0cyA9IHNwbGl0c1xuICAgIGlmIChuY2F0ID4gMCkgXG4gICAgICAgIGFucyRjc3BsaXQgPC0gY2F0bWF0ICsgMlxuICAgIGlmIChuc3BsaXQpIFxuICAgICAgICBhbnMkdmFyaWFibGUuaW1wb3J0YW5jZSA8LSBpbXBvcnRhbmNlKGFucylcbiAgICBpZiAobW9kZWwpIHtcbiAgICAgICAgYW5zJG1vZGVsIDwtIG1cbiAgICAgICAgaWYgKG1pc3NpbmcoeSkpIFxuICAgICAgICAgICAgeSA8LSBGQUxTRVxuICAgIH1cbiAgICBpZiAoeSkgXG4gICAgICAgIGFucyR5IDwtIFlcbiAgICBpZiAoeCkge1xuICAgICAgICBhbnMkeCA8LSBYXG4gICAgICAgIGFucyR3dCA8LSB3dFxuICAgIH1cbiAgICBhbnMkb3JkZXJlZCA8LSBpc29yZFxuICAgIGlmICghaXMubnVsbChhdHRyKG0sIFwibmEuYWN0aW9uXCIpKSkgXG4gICAgICAgIGFucyRuYS5hY3Rpb24gPC0gYXR0cihtLCBcIm5hLmFjdGlvblwiKVxuICAgIGlmICghaXMubnVsbCh4bGV2ZWxzKSkgXG4gICAgICAgIGF0dHIoYW5zLCBcInhsZXZlbHNcIikgPC0geGxldmVsc1xuICAgIGlmIChtZXRob2QgPT0gXCJjbGFzc1wiKSBcbiAgICAgICAgYXR0cihhbnMsIFwieWxldmVsc1wiKSA8LSBpbml0JHlsZXZlbHNcbiAgICBjbGFzcyhhbnMpIDwtIFwicnBhcnRcIlxuICAgIGFuc1xufSkoZm9ybXVsYSA9IC5vdXRjb21lIH4gLiwgZGF0YSA9IGxpc3QodG90YWxfZGVzcGVzYSA9IGMoMTMzODk4MC4yNSwgXG4yOTA2MjU2Ljg0LCAxMDc2ODE4LjY0LCAyNDg5MDMyLjc5LCAyMzU1NTIuMjIsIDI4MDc4MjQuNzMsIDExODU5NzAuOTksIFxuNjc0NzM5LjY4LCA1NDg0NTMuNCwgNDc3OTkxMi45LCA3MzQ2NjUuMjgsIDEzNjAxMTguNDEsIDI3MzEyNjQuNywgXG40MzYyNjY2LjgyLCAxNTkzODQ5Ljk3LCAxODMzOTQ4LjM1LCAzMTkwMDIuMzIsIDMxMDc4NS44MSwgMTIwNDA3MC4xNiwgXG4yOTMyOTg3LjgzLCAxMTEyNDUyLjAyLCAyMDY1NjQuMTUsIDI3NjQ4MTQuNTIsIDYyNDM5MTMuNywgMzczMjEzLjIyLCBcbjk0NzA4NS40MywgODAzMDI2LjU1LCAzNTIxMDE1LjY1LCA1MzgzMTQuODQsIDM4NDAyOTYuMDIsIDI5OTEzNTMuNjYsIFxuMTg0NTQ0OC41NywgNjI0MDA1LjgyLCAxNDIxNDAxLjU5LCAxNTE1MjgxLjcyLCAxNjI0NjQwLjk3LCA0MDUwMDYuNjcsIFxuODM1MzM0LjYzLCAzNzMxNzYuNzksIDI3ODk3MDIuMzEsIDEzNzkyOTguMjcsIDgyMTkwMy4yMSwgODE0ODgwLjE4LCBcbjQwNTE4MS40NywgODQxNDE2LjI5LCA3Njc2MDUuNjMsIDgyNzk5NC40LCA0MDkwNzYuMDUsIDEzNDU4MzcuNzUsIFxuODkxMDcwLjQ2LCA1MjEwMzIuNTUsIDEwMDg4ODguNTIsIDEzMDM5MTMuMzksIDE5MjI1NTguOTYsIDEzNTM5OTIuNTksIFxuNzA4OTA4LjkzLCA0MjA1OTc5LjQ3LCAxNzA0NTc3LjA5LCAyMTk4NDQ4LjQ2LCA0MjQzNzg5LjgxLCAzNjc5NDguNjYsIFxuNjU3MDkwLjQxLCAxOTc4NzIwLjA1LCAxNzE2ODMsIDI4Nzg1Mi45NCwgNDU1MDIxLjk5LCAzODI2NDguMjMsIFxuMzk1ODg2LjY1LCA1NzIwNTUwLjUsIDY4ODEzOC45OSwgMTk1OTkxNC43MiwgMTIwODMwLjUsIDYxOTA2MCwgXG4yMzE5MzIyLjUxLCAxODEzNDg3LjAxLCAzMTY4NTQuNCwgMjU3MjQ5My41MywgMjUyNjg3Ni44NSwgNTEwNzEyLjk2LCBcbjU3NTcxMy4wMiwgMTE1MDQ0NS43OSwgNDI5ODgwOC4zNCwgODkyNjQ2Ljk5LCA3MjA3MzkuMzgsIDc3MDM0OS42MywgXG44MzE2NjcuNTIsIDM0ODkxMzQuNTcsIDE3MzE0NDcuNDIsIDUwNzM2OTEuNDIsIDEyMTgyMTkuNjEsIDE0NjI2NDUuMjgsIFxuMjUxOTEwLjY3LCAxODYwMTMuOTksIDE2ODQ2NTguNzIsIDM4MTExOTkuNiwgMTgwMjQyLjg2LCAxMTU5NjEzLjA0LCBcbjE0OTA3NC42MywgNjUzODM0LjIyLCAxOTI1MTEzLjEsIDE0NDAxNTUuMjMsIDE5ODY4OC45MSwgNTYxMzU2LjM3LCBcbjEwMzE3OTcuMjcsIDE0MDIzMTEuNDQsIDEwMTk3MjEuNjQsIDI1NjQyNzguMDEsIDEwMDkyNjguMDUsIDczNjg2Ni4yNSwgXG4yNTgyNTYyLjg3LCAxMDg4NzEyLjU0LCA3MzA5MDAuNTksIDg5MTIzNi43NywgMjQ5ODc3MS45NiwgNDU2NTM1My44NSwgXG4yNDAzNDc4LjM2LCA4MDI1MTMuNDEsIDEwMzMwMDMuODYsIDIyOTU4MS40LCA1MTQxNTYuMzQsIDI0MTc2NS45MSwgXG4yMTM0OTI2LjY3LCAzODgwOS41LCAxNjU2Nzg3LjI5LCAxNzQ4MzQ2LjEzLCA3NTQ4MzYuNCwgMjg5NjYwNC40OSwgXG4xMjc4NTc4Ljc2LCAxMzAyOTcuNTksIDUyNjEzNS4zMSwgMTg4OTA2MS44OCwgMjY4NzI3LjM3LCAxMzIwMTg5LjQyLCBcbjI1OTIyNTMuMzUsIDEzNTQzNDUuMjUsIDgwOTkxMi44MywgNzc5NjY1LjAyLCAxMjUyNzMuMTQsIDMxMzQ2MTIuMjcsIFxuMTM0Mjc3MC4yLCAzNDMwNDIxLjU2LCA1NzY0NTEuNTMsIDIyNDgzMDAuMDEsIDU3NTkxMy4yMSwgNTM3Njk0LjM3LCBcbjE5ODg1MS43MywgNTYxMDU4LjE2LCAxMTg3NjU5LjYyLCA1ODEyNzUuODcsIDEwNDAwNjUuMzUsIDUxOTU2Ljc1LCBcbjI2MzkyMC4xLCA1NDc4NzUuNTEsIDQ2Mzk2Ni42NCwgMTI2MjAwMCwgMzA4NDAzOS43OCwgNDYyNTUzLjksIFxuMjA2ODM5MS41OSwgNTYzNjUxLjIyLCAzMjQ5NjguNDgsIDE5OTUzNDQuNDUsIDQ3ODkxMC45LCAxNDA0MDg1Ljc1LCBcbjQwNTMyMjEuNjQsIDQxNjY1NS4yMSwgOTMzODY1Ljk2LCA1MzY1NjE5LjEyLCAzNDA4MzMuNzksIDU3MTczMC44MSwgXG4yMzI2MTguOCwgNzk3NDE2LjgsIDIyMjQ1MDYuODMsIDQ5NTM5NTYuMzksIDI3MTE5OTMuMzksIDI5ODkxMDUuODEsIFxuMTA2NDM0OS45NCwgMjQ4OTMwLjg0LCA4OTM3My4yLCA4ODE5MTIuNzYsIDE5MTA2NzkuMTEsIDM5OTA4Ny44NCwgXG4xMjI1MDc1LjU2LCA5MDgyNzYsIDQ1MzQxOS42OCwgMTc0MjI4NS41MiwgMTA2MzQ4NC41LCAyMjcyOTgwLjc2LCBcbjQxNzk0Ni41NiwgMTczMzQyOS45MSwgMzE4NTk3LjIzLCAxNDg2MDUyLjM1LCA0ODI4Mzg5LjI5LCAxNzE4OTAuOTMsIFxuMTMyMzkyMS4xMiwgMTU5NDI0My40OCwgMjIyNzE1Ljk2LCA3NTk2NjcuNTUsIDIwOTM2OTIuODcsIDEyOTg2MjUuOTYsIFxuMjU2MDM4LjM3LCAxODQ0ODYwLjYxLCAyODMzMzIwLjQyLCA4NzkxNjguMywgMzM5NTQyNy44NywgODU0NzIsIFxuNTI2NzU2LjQ1LCAxNDA5MjMyLjg1LCAyODgyNjY4LjAyLCAyOTk1MDU3LjQ0LCAxNzk1ODk5LjUzLCAyNDA4MzUxLjA3LCBcbjMyMjIwNi43NSwgMTk3MTk3OS41OSwgMTE2NjU0MS43LCA4NDc4MjguMTQsIDExMDY3NTkuNTYsIDQyNjM3MS45MywgXG4xOTExNzguOTQsIDI1Mzc5NDcuNjQsIDQ5NTIxLjY2LCAyMjIyMDMwLjAxLCAxNDY3Mzk5LjEyLCAzNDMwMDQuNDMsIFxuODQ2NDU5NC4xNCwgNzIxMjQ2Ljc4LCAxMzcwMzMyLjA1LCAxOTcyNTg0LjgxLCAxOTc4NTExLjg4LCAxOTM0NDI4LjgsIFxuMTM1MDc4NC43NSwgMzUzMzM0Mi4zOSwgNjc4ODM0OS4zMiwgMTQyMjAzLjMzLCAxMTE5NzQyLjAyLCA0NDMxMzM2LjU2LCBcbjIyODEzNTMuNDMsIDc5NjEwNi45NSwgMjU2MzAwOS43NywgOTU3NDIwLjkyLCAyMTEwNzYyLjY5LCA3MzY1MjUuODEsIFxuNjUwNjkyLjUyLCAxMjc2NDMzLjYxLCA3NDU4MjkuNjgsIDEwMjAzMTEuNzYsIDI2NzQ3ODQuMDksIDg2MTY5MC41MSwgXG42NDIzNTAuMzYsIDUyNTc5OS45OSwgMjk3MzQxMC4xNSwgNDYxNzk5LjIyLCAxMDg4MTk3LjMzLCAyNzU0NzIzLjM5LCBcbjIyNDk5OTkuNzgsIDQ0MTYzMi41NywgMTQyNjQ3OS40NywgMTg0MzcyLjcyLCA3NjkxODAuODUsIDI4Mjc4MDEuMDIsIFxuMzc5ODIxOC4zMSwgNzI0MjIuNCwgMjI4NTA2NS40NCwgNjcyMjU0MC44NiwgMTk4NTU0NC45MSwgMTIwNjUzNS41NiwgXG4yMzI0MTkuMzUsIDkxMTk3Mi42NSwgNDk4MTIxLjYyLCAxOTU1MTMuMzIsIDk5ODMzMC44OCwgMzE4MDQ5MS4yOCwgXG4yOTY3MDAuMDEsIDI0NzY5NzEuNywgMTIwMTE2MC43NSwgMTk5NTY5NS43OSwgNTU5NTg5LjI3LCAzMTU4NDI4Ljg2LCBcbjE5NjA3MDcuNDksIDI4NjMyNjMuMDQsIDI0Mjg1OTIuOTIsIDE3Njc3NzMuODYsIDE3MTE4NDkuMTcsIDEwODI4NTMuNjMsIFxuMzAyMzIzMy42NSwgMTEzNjg5OS43NiwgMjkyNDM4Mi4wNSwgMTczMjcwNC43MSwgNjIzMTI2LjYyLCAxMDY3MjY2LjIsIFxuNzkwMDc3Ljk2LCAyNjI2NDguOTgsIDI4NTQzNDUuNTEsIDUwMjIsIDE5NjUwMCwgMTE4MjMuNSwgNTEzMC42LCBcbjEzNTM1LjAzLCAyMTI0Ny40LCAxMjQ1OS41LCA5MDIxLjcsIDIxMTAyLjg3LCA2MTUuNDgsIDI0ODAsIDcxNjAsIFxuNDgwLCAzNjU3NzQsIDI5MDUuODYsIDI4NjA3LjkyLCA5NjExLjcsIDMwOTM3My4zOSwgMTE4MTAuOTUsIFxuNjA1OS40NiwgMTQ0MCwgNjYwLCAzMzI0LCA5NjIyMjEuNCwgMzYwNy4wNSwgNTAsIDE3NTIuMiwgODE4MC4zNCwgXG4yNjk2LCA1MDAsIDEyNDAsIDM5NjIwLjMsIDYwMCwgMTQ0OCwgNjU3NjMuMjYsIDM2OTE0LjA1LCA0MTk4LjY1LCBcbjE2Njg0LjY0LCAyMjAwLCAxMTUzODkwLjYsIDM0ODcuOSwgOTkxNi44OSwgNzM4NDguMjQsIDY3NjgxMC4zOCwgXG43NjEwLjA1LCAxOTAwLCA0MjQ0MTIuNDYsIDI0NzA4LjkzLCAxMTE4OTg5Ljk2LCAyNTIwLjMsIDMyOTM2LjczLCBcbjEzMzEzNzguNTYsIDY0MzIuNzUsIDEzMDAsIDI0ODQuMjUsIDU2OTkuMywgMTA0MS40LCAxMjA1OS4yNSwgXG4xMDU5MDUuMzksIDI3Mzk5LCAyMjUzNC44OCwgNjE1LjQ4LCAzMDY1LjMsIDE1NTEwLjEsIDE5MDkzLjU0LCBcbjMxNDY3OS45OSwgMTExNTkuNDQsIDQ0OTAsIDEwMDAsIDc1MDAsIDE5NzY1OC4yMywgNDgxNC4zLCAxMjc5NCwgXG42NDAsIDI1MjgwLjY4LCA3MTUwLCA0MDAsIDMxMi41LCAyNjU5NzIuMjIsIDk5MjAyMywgMTM1LCAxNDQ4LCBcbjE1NDMuMDYsIDE0Mjk1OS41OCwgNTcwMC4yNywgMzMzMTM3LjI5LCAxMzU2MjcuNzcsIDY4NTgwLCA1MTM5Mi4zLCBcbjg5Mi4zNiwgODQ0OS45NSwgMTg3MzkuOSwgNjA2NC45LCA0MzA3NC42OCwgMzY0NDAzLjIzLCAxMDAwLCBcbjE4NzUuNSwgMTUxMTguMzQsIDMwMTA0Ljk5LCA1MDAsIDk2NTguMzcsIDE5NjczLjQyLCAxNTA3My42NywgXG42Mjc0LCAxNTg1Mi45MSwgNjAwLCAyMzkxLjI1LCAyMjE5LCAyNzMxLjA3LCA4NzE1MjMuMjksIDI4NjMuMjUsIFxuMjI3NDMuOCwgMzk3LjUsIDEzNzYuNDYsIDU2Nzk5LjUxLCAxNDM3ODkwLjksIDE5NTIuNSwgMTMwNCwgNTg3MDAwLCBcbjM2MjAsIDQ1NSwgMjgxODQ1LjA0LCAxOTY1MTAuMzEsIDc3OTkxLjUsIDIxNDksIDIyMDI4LjQyLCAyMzgzLjg2LCBcbjEzMjA3LjgsIDE1NjUuNDYsIDMzMzAxNS45NSwgMTM1MTE1LjQ2LCAzMjA5ODguNzUsIDIwODkwLCA0Njk1LCBcbjI2MzMuMzMsIDg4OTAsIDEwMDAyOS45NywgNjg5Ny4zLCA2MDAuNjMsIDM5NTUsIDM0NDg1Ni4wNSwgMzk4NDI0Ljc5LCBcbjEyNTgwLCAxNzU2LjY0LCAxMDYxNjEuOCwgMTEwMi4xNiwgMTg5LjksIDUxNS44OCwgNTAwNSwgMTk5NC41LCBcbjE2MjAsIDQyOTgzLjIyLCAzMTM3OS4yMywgMzE3NDcsIDYzNzUwLCA4Mzc3NjguOTgsIDE4ODQ4OS44NSwgXG4xNDQ4LCA3OTE2LCA2MzU1LjYyLCAxNDQ4LCAyMDA1LjUxLCAxNzE4LCA0ODU0LjUsIDI1MCwgOTMyOCwgXG4xODM0LjQ0LCA0NTk4LjUsIDQ4NTc5LjgsIDQ0NTY1LjUyLCAxOTE3LjM0LCAxMjIzNy44LCA0Njg4My41NCwgXG4yNTM2LjQzLCA2NDI3LjIsIDU5NTM4Ljc3LCAxMDIxNSwgNTYxMjQuNiwgNjI4Ny41LCA0NDAxNi44OSwgXG40OTU2My4zNCwgMjM0My43NSwgNzk5LCA0MzMwMCwgMTQzMCwgNzA3MDAuNSwgNjAwMiwgMTc2MTUsIDE1MDA2LjQ2LCBcbjM4NjgsIDQwODcuNTUsIDQ2MzAuNiwgMjg4LjU0LCA2Mzg5MC43NiwgNTA1OCwgNDc5ODEuNCwgMjA0MC42NCwgXG41Mjk0Ni4zNiwgODMzNzcxLCAzNDk2NSwgODE4MzkuODQsIDMwMDAsIDYyMDAwLCA0OTAsIDMzNTAsIDc0MzE3LjkyLCBcbjExNTUsIDI4NDc1NC44NCwgMzc0NjkuNjUsIDEwNTUxNS43NSwgNTYwMTQuODIsIDgyMjEuMzcsIDIxMTM4OS44NSwgXG4xNTAwLCAxNzE5LCA2MTg5LjA3LCAxMDE3Ny41LCAyMTgyMC45NCwgMjc0OSwgMTA4Ny41LCAzNDEyOC43NiwgXG4xMDM0OTcuNzYsIDI3NTUyLjMzLCAxNTUyMzkuMDMsIDE2NTA3LjM2LCAyOTcyMDQuOTEsIDEwOTk0LjAyLCBcbjM2NjcuNSwgNjk4MC4wNSwgNDY3NDMwLjg0LCAxMTYyMS43LCA2MDAsIDE3NjY1LjYxLCAzNjEzNTEuNDgsIFxuMTk4NS4xOCwgMTA4Mjk0LjI2LCAyNzk0MS44LCA0ODk0LCAzMTY4Ny45OSwgMTY1MC41LCAxODYzLjgzLCBcbjg2NTkyLjksIDMwODI5Ljk5LCAzNjk1NC43MywgOTA4LCAyMzQ2NC43MywgMjY2MDIuNywgMjY1MzgsIDY4NTAzLjE0LCBcbjIxNjAsIDYyMTIwLCAxMDgxMC45NSwgMTE2OTQ1LjQyLCAzMDI2LjUsIDY1MTI5LjE3LCAyNDk3LjUsIDExMDkuMDUsIFxuMzAyMDEuNTksIDIyMjgwMy45MywgNjk1LCAxMDc5NywgODAwMCwgNjUzMCwgMTA4MTc0LCAxMDAwMCwgMTU4ODMuMTcsIFxuMzUxMCwgMjA2MCwgMTU0MCwgMTM5MjMwLCAxNzU2LjY0LCAxMTAzNy42NCwgMTQwMCwgNzc4Mi42NSwgMjUzMjQ0LjI0LCBcbjQ5Ny4zLCAzNzE2Ljc1LCAyMzQyLjUsIDExNTc2LCA2OTUxLjg0LCA2ODg3NS42MywgMjUyOCwgMTUzNTMsIFxuODUwMDguMzYsIDMzNy41LCA4MDM1Ljc1LCAzMTIuNSwgMTY1OS42MiwgMjg0Mi42NSwgNTU4MDAuNzUsIFxuMTE3MDEzLjg0LCA2MTAwNi45MSksIGRlc2NyaWNhb19jb3JfcmFjYUJSQU5DQSA9IGMoMSwgMSwgMSwgMSwgXG4wLCAxLCAxLCAxLCAwLCAxLCAxLCAwLCAxLCAwLCAxLCAwLCAxLCAxLCAxLCAwLCAxLCAwLCAxLCAxLCAxLCBcbjEsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDAsIDEsIDAsIDEsIDAsIDEsIDEsIDEsIDEsIFxuMCwgMCwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgXG4wLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAwLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAwLCAxLCAwLCAxLCAxLCBcbjAsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDAsIDEsIDEsIDAsIDAsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMSwgMCwgXG4xLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAwLCAxLCAxLCBcbjAsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDAsIDAsIDAsIFxuMSwgMSwgMSwgMSwgMCwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMCwgMSwgMCwgMCwgXG4xLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAwLCAwLCAxLCAxLCBcbjEsIDEsIDEsIDEsIDEsIDAsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4wLCAxLCAxLCAxLCAwLCAwLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDAsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDAsIDAsIDEsIDEsIFxuMSwgMSwgMCwgMSwgMSwgMSwgMSwgMCwgMCwgMSwgMCwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMCwgMCwgMSwgXG4xLCAxLCAxLCAwLCAwLCAwLCAxLCAxLCAxLCAxLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCBcbjAsIDEsIDAsIDEsIDAsIDEsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDAsIDEsIFxuMSwgMCwgMCwgMCwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgXG4wLCAwLCAwLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCAwLCAwLCAwLCAxLCAxLCAxLCAxLCBcbjAsIDAsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDAsIDAsIDAsIDEsIDEsIDAsIDEsIFxuMCwgMCwgMCwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMCwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMSwgXG4xLCAxLCAwLCAxLCAxLCAxLCAxLCAwLCAwLCAwLCAxLCAwLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCBcbjAsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDAsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDEsIDEsIDEsIDAsIFxuMCwgMCwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgXG4wLCAwLCAxLCAwLCAwLCAxLCAxLCAwLCAxLCAxLCAwLCAxLCAxLCAxLCAwLCAwLCAwLCAxLCAxLCAxLCAxLCBcbjEsIDAsIDEsIDEsIDEsIDAsIDEsIDEsIDAsIDEsIDEsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMCwgXG4xLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAxKSwgZGVzY3JpY2FvX2Nvcl9yYWNhSU5Ew41HRU5BID0gYygwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDApLCBkZXNjcmljYW9fY29yX3JhY2FQQVJEQSA9IGMoMCwgXG4wLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCBcbjAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDAsIFxuMCwgMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgXG4wLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDEsIDEsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMSwgMCwgXG4wLCAwLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMSwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMSwgXG4wLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIFxuMSwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgXG4xLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAxLCAwLCAxLCAwLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDEsIDEsIDEsIDAsIDAsIFxuMCwgMSwgMCwgMCwgMSwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4xLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAxLCAxLCAwLCBcbjAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDAsIFxuMCwgMSwgMCwgMSwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgMSwgMCwgMCwgMSwgXG4wLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAxLCAxLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIFxuMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAxLCAwLCAxLCAxLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMSwgMCwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwKSwgZGVzY3JpY2FvX2Nvcl9yYWNhUFJFVEEgPSBjKDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMSwgMCwgXG4wLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgXG4xLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCBcbjAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIFxuMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAxLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAxLCAxLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCksIGBlc3RhZG9fY2l2aWxESVZPUkNJQURPKEEpYCA9IGMoMCwgXG4wLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgMCwgXG4wLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgXG4xLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCBcbjEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIFxuMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCBcbjEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIFxuMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwKSwgYGVzdGFkb19jaXZpbFNFUEFSQURPKEEpIEpVRElDSUFMTUVOVEVgID0gYygwLCBcbjAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDEsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDApLCBgZXN0YWRvX2NpdmlsU09MVEVJUk8oQSlgID0gYygwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIFxuMCwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAxLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIFxuMCwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMSwgMSwgMCwgMSwgMSwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgXG4wLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgXG4xLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCBcbjEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIFxuMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgXG4wLCAxLCAwLCAxLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDEsIDEsIDEsIDEsIDAsIDEsIDAsIDAsIDEsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMSwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgMCwgMCwgMSwgMCwgMSwgMSwgMSwgMCwgMCwgXG4xLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDEsIDEsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDEsIFxuMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMSwgMCwgXG4xLCAxLCAxLCAxLCAwLCAxLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAwLCAxLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDEsIDEsIDAsIDEsIFxuMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgXG4wLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCBcbjAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDApLCBgZXN0YWRvX2NpdmlsVknDmlZPKEEpYCA9IGMoMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgXG4wLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwKSwgYGdyYXVFTlNJTk8gRlVOREFNRU5UQUwgSU5DT01QTEVUT2AgPSBjKDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjEsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCksIGBncmF1RU5TSU5PIE3DiURJTyBDT01QTEVUT2AgPSBjKDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgXG4wLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4xLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIFxuMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCBcbjAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDAsIDEsIDAsIDAsIDEsIDAsIDEsIDAsIDAsIFxuMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMSwgMCwgMSwgXG4wLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCBcbjEsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDEsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMSwgMSwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgXG4xLCAwLCAxLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDEsIDEsIDAsIDEsIDAsIDEsIDAsIDAsIDAsIDEsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIFxuMSwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSksIGBncmF1RU5TSU5PIE3DiURJTyBJTkNPTVBMRVRPYCA9IGMoMCwgXG4wLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwKSwgYGdyYXVMw4ogRSBFU0NSRVZFYCA9IGMoMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwKSwgYGdyYXVTVVBFUklPUiBDT01QTEVUT2AgPSBjKDEsIFxuMSwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgXG4xLCAxLCAwLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCBcbjEsIDEsIDAsIDAsIDAsIDAsIDEsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIFxuMCwgMSwgMSwgMSwgMSwgMCwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4wLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAwLCAxLCAxLCAwLCAwLCBcbjEsIDEsIDEsIDEsIDEsIDAsIDAsIDEsIDAsIDEsIDAsIDEsIDEsIDEsIDAsIDAsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMCwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgMCwgMSwgMSwgMSwgMSwgXG4xLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDAsIDAsIDEsIDAsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDAsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMCwgMSwgMCwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgXG4wLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCBcbjEsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDAsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIFxuMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4xLCAxLCAxLCAxLCAxLCAxLCAxLCAwLCAxLCAxLCAxLCAwLCAxLCAxLCAwLCAxLCAxLCAxLCAxLCAwLCAxLCBcbjAsIDAsIDAsIDEsIDAsIDAsIDAsIDEsIDEsIDEsIDEsIDEsIDEsIDAsIDEsIDAsIDEsIDAsIDAsIDAsIDEsIFxuMCwgMCwgMSwgMSwgMCwgMSwgMCwgMSwgMCwgMCwgMSwgMCwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMSwgXG4xLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCBcbjEsIDAsIDEsIDAsIDEsIDEsIDEsIDEsIDEsIDAsIDEsIDAsIDEsIDAsIDEsIDAsIDAsIDEsIDAsIDEsIDEsIFxuMCwgMSwgMCwgMCwgMCwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMSwgMCwgMSwgMSwgMCwgMCwgMCwgMSwgMCwgXG4wLCAxLCAwLCAxLCAxLCAwLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAxLCAwLCAxLCAxLCAwLCAxLCAxLCAwLCBcbjEsIDAsIDEsIDAsIDAsIDEsIDEsIDEsIDAsIDEsIDEsIDEsIDAsIDEsIDAsIDEsIDAsIDEsIDEsIDEsIDEsIFxuMCwgMSwgMSwgMCwgMSwgMSwgMSwgMCwgMSwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMSwgXG4wLCAxLCAxLCAwLCAxLCAwLCAxLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAxLCAxLCAwLCAxLCAxLCBcbjAsIDEsIDAsIDEsIDAsIDEsIDAsIDEsIDEsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDEsIDEsIDAsIDEsIDEsIFxuMCwgMCwgMSwgMCwgMSwgMSwgMCwgMSwgMSwgMCwgMCwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMCwgMCwgMCwgXG4wLCAxLCAwLCAxLCAwLCAwLCAwLCAxLCAxLCAxLCAxLCAxLCAwLCAwLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDEsIDEsIDAsIDAsIDAsIDAsIDEsIDEsIDEsIDAsIDAsIDEsIDAsIFxuMCwgMCwgMCwgMSwgMSwgMCwgMSwgMSwgMCwgMSwgMCwgMSwgMSwgMSwgMCwgMCksIGBncmF1U1VQRVJJT1IgSU5DT01QTEVUT2AgPSBjKDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDEsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAxLCAwLCAwLCAxLCAxLCBcbjAsIDAsIDAsIDAsIDAsIDEsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4xLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDEsIDAsIDEsIDEsIDAsIDAsIFxuMCwgMSwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMSwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgXG4wLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgXG4xLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAxLCAxLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMSwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAxLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgXG4wLCAwLCAwLCAwLCAwLCAwLCAxLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCAwLCBcbjAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDEsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIDAsIFxuMCwgMCwgMCwgMCwgMCwgMCwgMCwgMCwgMSwgMCwgMCwgMCwgMCwgMCwgMCwgMCksIC5vdXRjb21lID0gYygxLCBcbjEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4xLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4xLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4xLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgXG4xLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCAxLCBcbjEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIDEsIFxuMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMiwgMiwgMiwgXG4yLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCBcbjIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIFxuMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgXG4yLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCBcbjIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIFxuMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgXG4yLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCBcbjIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIFxuMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgXG4yLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCBcbjIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIFxuMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgMiwgXG4yLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCAyLCBcbjIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIsIDIpKSwgY29udHJvbCA9IGxpc3QoXG4gICAgbWluc3BsaXQgPSAyMCwgbWluYnVja2V0ID0gNywgY3AgPSAwLCBtYXhjb21wZXRlID0gNCwgbWF4c3Vycm9nYXRlID0gNSwgXG4gICAgdXNlc3Vycm9nYXRlID0gMiwgc3Vycm9nYXRlc3R5bGUgPSAwLCBtYXhkZXB0aCA9IDMwLCB4dmFsID0gMCksIFxuICAgIG1pbnNwbGl0ID0gMzAsIGNwID0gMC4wMDEsIG1heGRlcHRoID0gMzApXG4gIG49IDU4NCBcblxuICAgICAgICAgQ1AgbnNwbGl0IHJlbCBlcnJvclxuMSAwLjg0NTg5MDQgICAgICAwIDEuMDAwMDAwMFxuMiAwLjMyMTkxNzggICAgICAxIDAuMTU0MTA5NlxuXG5WYXJpYWJsZSBpbXBvcnRhbmNlXG4gICAgICAgICAgICB0b3RhbF9kZXNwZXNhICAgICBncmF1U1VQRVJJT1IgQ09NUExFVE8gIGRlc2NyaWNhb19jb3JfcmFjYUJSQU5DQSBncmF1RU5TSU5PIE3DiURJTyBDT01QTEVUTyAgIGVzdGFkb19jaXZpbFNPTFRFSVJPKEEpICAgZGVzY3JpY2FvX2Nvcl9yYWNhUEFSREEgXG4gICAgICAgICAgICAgICAgICAgICAgIDU4ICAgICAgICAgICAgICAgICAgICAgICAgMTMgICAgICAgICAgICAgICAgICAgICAgICAgOSAgICAgICAgICAgICAgICAgICAgICAgICA5ICAgICAgICAgICAgICAgICAgICAgICAgIDYgICAgICAgICAgICAgICAgICAgICAgICAgNSBcblxuTm9kZSBudW1iZXIgMTogNTg0IG9ic2VydmF0aW9ucywgICAgY29tcGxleGl0eSBwYXJhbT0wLjg0NTg5MDRcbiAgcHJlZGljdGVkIGNsYXNzPWVsZWl0byAgICAgIGV4cGVjdGVkIGxvc3M9MC41ICBQKG5vZGUpID0xXG4gICAgY2xhc3MgY291bnRzOiAgIDI5MiAgIDI5MlxuICAgcHJvYmFiaWxpdGllczogMC41MDAgMC41MDAgXG4gIGxlZnQgc29uPTIgKDMyNSBvYnMpIHJpZ2h0IHNvbj0zICgyNTkgb2JzKVxuICBQcmltYXJ5IHNwbGl0czpcbiAgICAgIHRvdGFsX2Rlc3Blc2EgICAgICAgICAgICAgPCAxMTg5MjIuMiB0byB0aGUgcmlnaHQsIGltcHJvdmU9MjExLjYzODAwMCwgKDAgbWlzc2luZylcbiAgICAgIGdyYXVTVVBFUklPUiBDT01QTEVUTyAgICAgPCAwLjUgICAgICB0byB0aGUgcmlnaHQsIGltcHJvdmU9IDI3LjM3NTAwMCwgKDAgbWlzc2luZylcbiAgICAgIGdyYXVFTlNJTk8gTcOJRElPIENPTVBMRVRPIDwgMC41ICAgICAgdG8gdGhlIGxlZnQsICBpbXByb3ZlPSAxNi43MjQ3MTAsICgwIG1pc3NpbmcpXG4gICAgICBkZXNjcmljYW9fY29yX3JhY2FCUkFOQ0EgIDwgMC41ICAgICAgdG8gdGhlIHJpZ2h0LCBpbXByb3ZlPSAxMC4zMDE0MjAsICgwIG1pc3NpbmcpXG4gICAgICBlc3RhZG9fY2l2aWxTT0xURUlSTyhBKSAgIDwgMC41ICAgICAgdG8gdGhlIGxlZnQsICBpbXByb3ZlPSAgNy45Mjc2NzMsICgwIG1pc3NpbmcpXG4gIFN1cnJvZ2F0ZSBzcGxpdHM6XG4gICAgICBncmF1U1VQRVJJT1IgQ09NUExFVE8gICAgIDwgMC41ICAgICAgdG8gdGhlIHJpZ2h0LCBhZ3JlZT0wLjY1OSwgYWRqPTAuMjMyLCAoMCBzcGxpdClcbiAgICAgIGRlc2NyaWNhb19jb3JfcmFjYUJSQU5DQSAgPCAwLjUgICAgICB0byB0aGUgcmlnaHQsIGFncmVlPTAuNjI1LCBhZGo9MC4xNTQsICgwIHNwbGl0KVxuICAgICAgZ3JhdUVOU0lOTyBNw4lESU8gQ09NUExFVE8gPCAwLjUgICAgICB0byB0aGUgbGVmdCwgIGFncmVlPTAuNjIyLCBhZGo9MC4xNDcsICgwIHNwbGl0KVxuICAgICAgZXN0YWRvX2NpdmlsU09MVEVJUk8oQSkgICA8IDAuNSAgICAgIHRvIHRoZSBsZWZ0LCAgYWdyZWU9MC42MDMsIGFkaj0wLjEwNCwgKDAgc3BsaXQpXG4gICAgICBkZXNjcmljYW9fY29yX3JhY2FQQVJEQSAgIDwgMC41ICAgICAgdG8gdGhlIGxlZnQsICBhZ3JlZT0wLjU5NCwgYWRqPTAuMDg1LCAoMCBzcGxpdClcblxuTm9kZSBudW1iZXIgMjogMzI1IG9ic2VydmF0aW9uc1xuICBwcmVkaWN0ZWQgY2xhc3M9ZWxlaXRvICAgICAgZXhwZWN0ZWQgbG9zcz0wLjEyICBQKG5vZGUpID0wLjU1NjUwNjhcbiAgICBjbGFzcyBjb3VudHM6ICAgMjg2ICAgIDM5XG4gICBwcm9iYWJpbGl0aWVzOiAwLjg4MCAwLjEyMCBcblxuTm9kZSBudW1iZXIgMzogMjU5IG9ic2VydmF0aW9uc1xuICBwcmVkaWN0ZWQgY2xhc3M9bmFvX2VsZWl0byAgZXhwZWN0ZWQgbG9zcz0wLjAyMzE2NjAyICBQKG5vZGUpID0wLjQ0MzQ5MzJcbiAgICBjbGFzcyBjb3VudHM6ICAgICA2ICAgMjUzXG4gICBwcm9iYWJpbGl0aWVzOiAwLjAyMyAwLjk3NyBcbiJ9 -->
-<pre><code>Call:
-(function (formula, data, weights, subset, na.action = na.rpart, 
-    method, model = FALSE, x = FALSE, y = TRUE, parms, control, 
-    cost, ...) 
-{
-    Call &lt;- match.call()
-    if (is.data.frame(model)) {
-        m &lt;- model
-        model &lt;- FALSE
-    }
-    else {
-        indx &lt;- match(c(&quot;formula&quot;, &quot;data&quot;, &quot;weights&quot;, &quot;subset&quot;), 
-            names(Call), nomatch = 0)
-        if (indx[1] == 0) 
-            stop(&quot;a 'formula' argument is required&quot;)
-        temp &lt;- Call[c(1, indx)]
-        temp$na.action &lt;- na.action
-        temp[[1]] &lt;- quote(stats::model.frame)
-        m &lt;- eval.parent(temp)
-    }
-    Terms &lt;- attr(m, &quot;terms&quot;)
-    if (any(attr(Terms, &quot;order&quot;) &gt; 1)) 
-        stop(&quot;Trees cannot handle interaction terms&quot;)
-    Y &lt;- model.response(m)
-    wt &lt;- model.weights(m)
-    if (any(wt &lt; 0)) 
-        stop(&quot;negative weights not allowed&quot;)
-    if (!length(wt)) 
-        wt &lt;- rep(1, nrow(m))
-    offset &lt;- model.offset(m)
-    X &lt;- rpart.matrix(m)
-    nobs &lt;- nrow(X)
-    nvar &lt;- ncol(X)
-    if (missing(method)) {
-        method &lt;- if (is.factor(Y) || is.character(Y)) 
-            &quot;class&quot;
-        else if (inherits(Y, &quot;Surv&quot;)) 
-            &quot;exp&quot;
-        else if (is.matrix(Y)) 
-            &quot;poisson&quot;
-        else &quot;anova&quot;
-    }
-    if (is.list(method)) {
-        mlist &lt;- method
-        method &lt;- &quot;user&quot;
-        init &lt;- if (missing(parms)) 
-            mlist$init(Y, offset, wt = wt)
-        else mlist$init(Y, offset, parms, wt)
-        keep &lt;- rpartcallback(mlist, nobs, init)
-        method.int &lt;- 4
-        parms &lt;- init$parms
-    }
-    else {
-        method.int &lt;- pmatch(method, c(&quot;anova&quot;, &quot;poisson&quot;, &quot;class&quot;, 
-            &quot;exp&quot;))
-        if (is.na(method.int)) 
-            stop(&quot;Invalid method&quot;)
-        method &lt;- c(&quot;anova&quot;, &quot;poisson&quot;, &quot;class&quot;, &quot;exp&quot;)[method.int]
-        if (method.int == 4) 
-            method.int &lt;- 2
-        init &lt;- if (missing(parms)) 
-            get(paste(&quot;rpart&quot;, method, sep = &quot;.&quot;), envir = environment())(Y, 
-                offset, , wt)
-        else get(paste(&quot;rpart&quot;, method, sep = &quot;.&quot;), envir = environment())(Y, 
-            offset, parms, wt)
-        ns &lt;- asNamespace(&quot;rpart&quot;)
-        if (!is.null(init$print)) 
-            environment(init$print) &lt;- ns
-        if (!is.null(init$summary)) 
-            environment(init$summary) &lt;- ns
-        if (!is.null(init$text)) 
-            environment(init$text) &lt;- ns
-    }
-    Y &lt;- init$y
-    xlevels &lt;- .getXlevels(Terms, m)
-    cats &lt;- rep(0, ncol(X))
-    if (!is.null(xlevels)) 
-        cats[match(names(xlevels), colnames(X))] &lt;- unlist(lapply(xlevels, 
-            length))
-    extraArgs &lt;- list(...)
-    if (length(extraArgs)) {
-        controlargs &lt;- names(formals(rpart.control))
-        indx &lt;- match(names(extraArgs), controlargs, nomatch = 0)
-        if (any(indx == 0)) 
-            stop(gettextf(&quot;Argument %s not matched&quot;, names(extraArgs)[indx == 
-                0]), domain = NA)
-    }
-    controls &lt;- rpart.control(...)
-    if (!missing(control)) 
-        controls[names(control)] &lt;- control
-    xval &lt;- controls$xval
-    if (is.null(xval) || (length(xval) == 1 &amp;&amp; xval == 0) || 
-        method == &quot;user&quot;) {
-        xgroups &lt;- 0
-        xval &lt;- 0
-    }
-    else if (length(xval) == 1) {
-        xgroups &lt;- sample(rep(1:xval, length = nobs), nobs, replace = FALSE)
-    }
-    else if (length(xval) == nobs) {
-        xgroups &lt;- xval
-        xval &lt;- length(unique(xgroups))
-    }
-    else {
-        if (!is.null(attr(m, &quot;na.action&quot;))) {
-            temp &lt;- as.integer(attr(m, &quot;na.action&quot;))
-            xval &lt;- xval[-temp]
-            if (length(xval) == nobs) {
-                xgroups &lt;- xval
-                xval &lt;- length(unique(xgroups))
-            }
-            else stop(&quot;Wrong length for 'xval'&quot;)
-        }
-        else stop(&quot;Wrong length for 'xval'&quot;)
-    }
-    if (missing(cost)) 
-        cost &lt;- rep(1, nvar)
-    else {
-        if (length(cost) != nvar) 
-            stop(&quot;Cost vector is the wrong length&quot;)
-        if (any(cost &lt;= 0)) 
-            stop(&quot;Cost vector must be positive&quot;)
-    }
-    tfun &lt;- function(x) if (is.matrix(x)) 
-        rep(is.ordered(x), ncol(x))
-    else is.ordered(x)
-    labs &lt;- sub(&quot;^`(.*)`$&quot;, &quot;\\1&quot;, attr(Terms, &quot;term.labels&quot;))
-    isord &lt;- unlist(lapply(m[labs], tfun))
-    storage.mode(X) &lt;- &quot;double&quot;
-    storage.mode(wt) &lt;- &quot;double&quot;
-    temp &lt;- as.double(unlist(init$parms))
-    if (!length(temp)) 
-        temp &lt;- 0
-    rpfit &lt;- .Call(C_rpart, ncat = as.integer(cats * (!isord)), 
-        method = as.integer(method.int), as.double(unlist(controls)), 
-        temp, as.integer(xval), as.integer(xgroups), as.double(t(init$y)), 
-        X, wt, as.integer(init$numy), as.double(cost))
-    nsplit &lt;- nrow(rpfit$isplit)
-    ncat &lt;- if (!is.null(rpfit$csplit)) 
-        nrow(rpfit$csplit)
-    else 0
-    if (nsplit == 0) 
-        xval &lt;- 0
-    numcp &lt;- ncol(rpfit$cptable)
-    temp &lt;- if (nrow(rpfit$cptable) == 3) 
-        c(&quot;CP&quot;, &quot;nsplit&quot;, &quot;rel error&quot;)
-    else c(&quot;CP&quot;, &quot;nsplit&quot;, &quot;rel error&quot;, &quot;xerror&quot;, &quot;xstd&quot;)
-    dimnames(rpfit$cptable) &lt;- list(temp, 1:numcp)
-    tname &lt;- c(&quot;&lt;leaf&gt;&quot;, colnames(X))
-    splits &lt;- matrix(c(rpfit$isplit[, 2:3], rpfit$dsplit), ncol = 5, 
-        dimnames = list(tname[rpfit$isplit[, 1] + 1], c(&quot;count&quot;, 
-            &quot;ncat&quot;, &quot;improve&quot;, &quot;index&quot;, &quot;adj&quot;)))
-    index &lt;- rpfit$inode[, 2]
-    nadd &lt;- sum(isord[rpfit$isplit[, 1]])
-    if (nadd &gt; 0) {
-        newc &lt;- matrix(0, nadd, max(cats))
-        cvar &lt;- rpfit$isplit[, 1]
-        indx &lt;- isord[cvar]
-        cdir &lt;- splits[indx, 2]
-        ccut &lt;- floor(splits[indx, 4])
-        splits[indx, 2] &lt;- cats[cvar[indx]]
-        splits[indx, 4] &lt;- ncat + 1:nadd
-        for (i in 1:nadd) {
-            newc[i, 1:(cats[(cvar[indx])[i]])] &lt;- -as.integer(cdir[i])
-            newc[i, 1:ccut[i]] &lt;- as.integer(cdir[i])
-        }
-        catmat &lt;- if (ncat == 0) 
-            newc
-        else {
-            cs &lt;- rpfit$csplit
-            ncs &lt;- ncol(cs)
-            ncc &lt;- ncol(newc)
-            if (ncs &lt; ncc) 
-                cs &lt;- cbind(cs, matrix(0, nrow(cs), ncc - ncs))
-            rbind(cs, newc)
-        }
-        ncat &lt;- ncat + nadd
-    }
-    else catmat &lt;- rpfit$csplit
-    if (nsplit == 0) {
-        frame &lt;- data.frame(row.names = 1, var = &quot;&lt;leaf&gt;&quot;, n = rpfit$inode[, 
-            5], wt = rpfit$dnode[, 3], dev = rpfit$dnode[, 1], 
-            yval = rpfit$dnode[, 4], complexity = rpfit$dnode[, 
-                2], ncompete = 0, nsurrogate = 0)
-    }
-    else {
-        temp &lt;- ifelse(index == 0, 1, index)
-        svar &lt;- ifelse(index == 0, 0, rpfit$isplit[temp, 1])
-        frame &lt;- data.frame(row.names = rpfit$inode[, 1], var = tname[svar + 
-            1], n = rpfit$inode[, 5], wt = rpfit$dnode[, 3], 
-            dev = rpfit$dnode[, 1], yval = rpfit$dnode[, 4], 
-            complexity = rpfit$dnode[, 2], ncompete = pmax(0, 
-                rpfit$inode[, 3] - 1), nsurrogate = rpfit$inode[, 
-                4])
-    }
-    if (method.int == 3) {
-        numclass &lt;- init$numresp - 2
-        nodeprob &lt;- rpfit$dnode[, numclass + 5]/sum(wt)
-        temp &lt;- pmax(1, init$counts)
-        temp &lt;- rpfit$dnode[, 4 + (1:numclass)] %*% diag(init$parms$prior/temp)
-        yprob &lt;- temp/rowSums(temp)
-        yval2 &lt;- matrix(rpfit$dnode[, 4 + (0:numclass)], ncol = numclass + 
-            1)
-        frame$yval2 &lt;- cbind(yval2, yprob, nodeprob)
-    }
-    else if (init$numresp &gt; 1) 
-        frame$yval2 &lt;- rpfit$dnode[, -(1:3), drop = FALSE]
-    if (is.null(init$summary)) 
-        stop(&quot;Initialization routine is missing the 'summary' function&quot;)
-    functions &lt;- if (is.null(init$print)) 
-        list(summary = init$summary)
-    else list(summary = init$summary, print = init$print)
-    if (!is.null(init$text)) 
-        functions &lt;- c(functions, list(text = init$text))
-    if (method == &quot;user&quot;) 
-        functions &lt;- c(functions, mlist)
-    where &lt;- rpfit$which
-    names(where) &lt;- row.names(m)
-    ans &lt;- list(frame = frame, where = where, call = Call, terms = Terms, 
-        cptable = t(rpfit$cptable), method = method, parms = init$parms, 
-        control = controls, functions = functions, numresp = init$numresp)
-    if (nsplit) 
-        ans$splits = splits
-    if (ncat &gt; 0) 
-        ans$csplit &lt;- catmat + 2
-    if (nsplit) 
-        ans$variable.importance &lt;- importance(ans)
-    if (model) {
-        ans$model &lt;- m
-        if (missing(y)) 
-            y &lt;- FALSE
-    }
-    if (y) 
-        ans$y &lt;- Y
-    if (x) {
-        ans$x &lt;- X
-        ans$wt &lt;- wt
-    }
-    ans$ordered &lt;- isord
-    if (!is.null(attr(m, &quot;na.action&quot;))) 
-        ans$na.action &lt;- attr(m, &quot;na.action&quot;)
-    if (!is.null(xlevels)) 
-        attr(ans, &quot;xlevels&quot;) &lt;- xlevels
-    if (method == &quot;class&quot;) 
-        attr(ans, &quot;ylevels&quot;) &lt;- init$ylevels
-    class(ans) &lt;- &quot;rpart&quot;
-    ans
-})(formula = .outcome ~ ., data = list(total_despesa = c(1338980.25, 
-2906256.84, 1076818.64, 2489032.79, 235552.22, 2807824.73, 1185970.99, 
-674739.68, 548453.4, 4779912.9, 734665.28, 1360118.41, 2731264.7, 
-4362666.82, 1593849.97, 1833948.35, 319002.32, 310785.81, 1204070.16, 
-2932987.83, 1112452.02, 206564.15, 2764814.52, 6243913.7, 373213.22, 
-947085.43, 803026.55, 3521015.65, 538314.84, 3840296.02, 2991353.66, 
-1845448.57, 624005.82, 1421401.59, 1515281.72, 1624640.97, 405006.67, 
-835334.63, 373176.79, 2789702.31, 1379298.27, 821903.21, 814880.18, 
-405181.47, 841416.29, 767605.63, 827994.4, 409076.05, 1345837.75, 
-891070.46, 521032.55, 1008888.52, 1303913.39, 1922558.96, 1353992.59, 
-708908.93, 4205979.47, 1704577.09, 2198448.46, 4243789.81, 367948.66, 
-657090.41, 1978720.05, 171683, 287852.94, 455021.99, 382648.23, 
-395886.65, 5720550.5, 688138.99, 1959914.72, 120830.5, 619060, 
-2319322.51, 1813487.01, 316854.4, 2572493.53, 2526876.85, 510712.96, 
-575713.02, 1150445.79, 4298808.34, 892646.99, 720739.38, 770349.63, 
-831667.52, 3489134.57, 1731447.42, 5073691.42, 1218219.61, 1462645.28, 
-251910.67, 186013.99, 1684658.72, 3811199.6, 180242.86, 1159613.04, 
-149074.63, 653834.22, 1925113.1, 1440155.23, 198688.91, 561356.37, 
-1031797.27, 1402311.44, 1019721.64, 2564278.01, 1009268.05, 736866.25, 
-2582562.87, 1088712.54, 730900.59, 891236.77, 2498771.96, 4565353.85, 
-2403478.36, 802513.41, 1033003.86, 229581.4, 514156.34, 241765.91, 
-2134926.67, 38809.5, 1656787.29, 1748346.13, 754836.4, 2896604.49, 
-1278578.76, 130297.59, 526135.31, 1889061.88, 268727.37, 1320189.42, 
-2592253.35, 1354345.25, 809912.83, 779665.02, 125273.14, 3134612.27, 
-1342770.2, 3430421.56, 576451.53, 2248300.01, 575913.21, 537694.37, 
-198851.73, 561058.16, 1187659.62, 581275.87, 1040065.35, 51956.75, 
-263920.1, 547875.51, 463966.64, 1262000, 3084039.78, 462553.9, 
-2068391.59, 563651.22, 324968.48, 1995344.45, 478910.9, 1404085.75, 
-4053221.64, 416655.21, 933865.96, 5365619.12, 340833.79, 571730.81, 
-232618.8, 797416.8, 2224506.83, 4953956.39, 2711993.39, 2989105.81, 
-1064349.94, 248930.84, 89373.2, 881912.76, 1910679.11, 399087.84, 
-1225075.56, 908276, 453419.68, 1742285.52, 1063484.5, 2272980.76, 
-417946.56, 1733429.91, 318597.23, 1486052.35, 4828389.29, 171890.93, 
-1323921.12, 1594243.48, 222715.96, 759667.55, 2093692.87, 1298625.96, 
-256038.37, 1844860.61, 2833320.42, 879168.3, 3395427.87, 85472, 
-526756.45, 1409232.85, 2882668.02, 2995057.44, 1795899.53, 2408351.07, 
-322206.75, 1971979.59, 1166541.7, 847828.14, 1106759.56, 426371.93, 
-191178.94, 2537947.64, 49521.66, 2222030.01, 1467399.12, 343004.43, 
-8464594.14, 721246.78, 1370332.05, 1972584.81, 1978511.88, 1934428.8, 
-1350784.75, 3533342.39, 6788349.32, 142203.33, 1119742.02, 4431336.56, 
-2281353.43, 796106.95, 2563009.77, 957420.92, 2110762.69, 736525.81, 
-650692.52, 1276433.61, 745829.68, 1020311.76, 2674784.09, 861690.51, 
-642350.36, 525799.99, 2973410.15, 461799.22, 1088197.33, 2754723.39, 
-2249999.78, 441632.57, 1426479.47, 184372.72, 769180.85, 2827801.02, 
-3798218.31, 72422.4, 2285065.44, 6722540.86, 1985544.91, 1206535.56, 
-232419.35, 911972.65, 498121.62, 195513.32, 998330.88, 3180491.28, 
-296700.01, 2476971.7, 1201160.75, 1995695.79, 559589.27, 3158428.86, 
-1960707.49, 2863263.04, 2428592.92, 1767773.86, 1711849.17, 1082853.63, 
-3023233.65, 1136899.76, 2924382.05, 1732704.71, 623126.62, 1067266.2, 
-790077.96, 262648.98, 2854345.51, 5022, 196500, 11823.5, 5130.6, 
-13535.03, 21247.4, 12459.5, 9021.7, 21102.87, 615.48, 2480, 7160, 
-480, 365774, 2905.86, 28607.92, 9611.7, 309373.39, 11810.95, 
-6059.46, 1440, 660, 3324, 962221.4, 3607.05, 50, 1752.2, 8180.34, 
-2696, 500, 1240, 39620.3, 600, 1448, 65763.26, 36914.05, 4198.65, 
-16684.64, 2200, 1153890.6, 3487.9, 9916.89, 73848.24, 676810.38, 
-7610.05, 1900, 424412.46, 24708.93, 1118989.96, 2520.3, 32936.73, 
-1331378.56, 6432.75, 1300, 2484.25, 5699.3, 1041.4, 12059.25, 
-105905.39, 27399, 22534.88, 615.48, 3065.3, 15510.1, 19093.54, 
-314679.99, 11159.44, 4490, 1000, 7500, 197658.23, 4814.3, 12794, 
-640, 25280.68, 7150, 400, 312.5, 265972.22, 992023, 135, 1448, 
-1543.06, 142959.58, 5700.27, 333137.29, 135627.77, 68580, 51392.3, 
-892.36, 8449.95, 18739.9, 6064.9, 43074.68, 364403.23, 1000, 
-1875.5, 15118.34, 30104.99, 500, 9658.37, 19673.42, 15073.67, 
-6274, 15852.91, 600, 2391.25, 2219, 2731.07, 871523.29, 2863.25, 
-22743.8, 397.5, 1376.46, 56799.51, 1437890.9, 1952.5, 1304, 587000, 
-3620, 455, 281845.04, 196510.31, 77991.5, 2149, 22028.42, 2383.86, 
-13207.8, 1565.46, 333015.95, 135115.46, 320988.75, 20890, 4695, 
-2633.33, 8890, 100029.97, 6897.3, 600.63, 3955, 344856.05, 398424.79, 
-12580, 1756.64, 106161.8, 1102.16, 189.9, 515.88, 5005, 1994.5, 
-1620, 42983.22, 31379.23, 31747, 63750, 837768.98, 188489.85, 
-1448, 7916, 6355.62, 1448, 2005.51, 1718, 4854.5, 250, 9328, 
-1834.44, 4598.5, 48579.8, 44565.52, 1917.34, 12237.8, 46883.54, 
-2536.43, 6427.2, 59538.77, 10215, 56124.6, 6287.5, 44016.89, 
-49563.34, 2343.75, 799, 43300, 1430, 70700.5, 6002, 17615, 15006.46, 
-3868, 4087.55, 4630.6, 288.54, 63890.76, 5058, 47981.4, 2040.64, 
-52946.36, 833771, 34965, 81839.84, 3000, 62000, 490, 3350, 74317.92, 
-1155, 284754.84, 37469.65, 105515.75, 56014.82, 8221.37, 211389.85, 
-1500, 1719, 6189.07, 10177.5, 21820.94, 2749, 1087.5, 34128.76, 
-103497.76, 27552.33, 155239.03, 16507.36, 297204.91, 10994.02, 
-3667.5, 6980.05, 467430.84, 11621.7, 600, 17665.61, 361351.48, 
-1985.18, 108294.26, 27941.8, 4894, 31687.99, 1650.5, 1863.83, 
-86592.9, 30829.99, 36954.73, 908, 23464.73, 26602.7, 26538, 68503.14, 
-2160, 62120, 10810.95, 116945.42, 3026.5, 65129.17, 2497.5, 1109.05, 
-30201.59, 222803.93, 695, 10797, 8000, 6530, 108174, 10000, 15883.17, 
-3510, 2060, 1540, 139230, 1756.64, 11037.64, 1400, 7782.65, 253244.24, 
-497.3, 3716.75, 2342.5, 11576, 6951.84, 68875.63, 2528, 15353, 
-85008.36, 337.5, 8035.75, 312.5, 1659.62, 2842.65, 55800.75, 
-117013.84, 61006.91), descricao_cor_racaBRANCA = c(1, 1, 1, 1, 
-0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 
-1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 
-0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 
-0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 
-0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 
-1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 
-0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 
-1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 
-1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 
-0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 
-1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 
-1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 
-0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 
-1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 
-0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 
-0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 
-0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 
-1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 
-0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 
-0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 
-0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 
-1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 
-1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 
-1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1), descricao_cor_racaINDÍGENA = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), descricao_cor_racaPARDA = c(0, 
-0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 
-0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 
-0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 
-1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 
-0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 
-1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 
-0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 
-0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 
-0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 
-0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0), descricao_cor_racaPRETA = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 
-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 
-0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `estado_civilDIVORCIADO(A)` = c(0, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 
-0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
-0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `estado_civilSEPARADO(A) JUDICIALMENTE` = c(0, 
-0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `estado_civilSOLTEIRO(A)` = c(0, 
-0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 
-0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
-1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 
-0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 
-1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 
-0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 
-1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0), `estado_civilVIÚVO(A)` = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
-0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `grauENSINO FUNDAMENTAL INCOMPLETO` = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `grauENSINO MÉDIO COMPLETO` = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 
-0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
-1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 
-1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 
-0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 
-1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 
-1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 
-1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 
-1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1), `grauENSINO MÉDIO INCOMPLETO` = c(0, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `grauLÊ E ESCREVE` = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), `grauSUPERIOR COMPLETO` = c(1, 
-1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 
-1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 
-1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 
-0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 
-1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 
-1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 
-1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 
-0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 
-1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 
-0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 
-0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 
-0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 
-1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 
-1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 
-0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 
-0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 
-1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 
-0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 
-0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 
-0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 
-0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 
-0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 
-1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 
-0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0), `grauSUPERIOR INCOMPLETO` = c(0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 
-0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 
-0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 
-0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
-1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 
-0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0), .outcome = c(1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2)), control = list(
-    minsplit = 20, minbucket = 7, cp = 0, maxcompete = 4, maxsurrogate = 5, 
-    usesurrogate = 2, surrogatestyle = 0, maxdepth = 30, xval = 0), 
-    minsplit = 30, cp = 0.001, maxdepth = 30)
-  n= 584 
-
-         CP nsplit rel error
-1 0.8458904      0 1.0000000
-2 0.3219178      1 0.1541096
-
-Variable importance
-            total_despesa     grauSUPERIOR COMPLETO  descricao_cor_racaBRANCA grauENSINO MÉDIO COMPLETO   estado_civilSOLTEIRO(A)   descricao_cor_racaPARDA 
-                       58                        13                         9                         9                         6                         5 
-
-Node number 1: 584 observations,    complexity param=0.8458904
-  predicted class=eleito      expected loss=0.5  P(node) =1
-    class counts:   292   292
-   probabilities: 0.500 0.500 
-  left son=2 (325 obs) right son=3 (259 obs)
-  Primary splits:
-      total_despesa             &lt; 118922.2 to the right, improve=211.638000, (0 missing)
-      grauSUPERIOR COMPLETO     &lt; 0.5      to the right, improve= 27.375000, (0 missing)
-      grauENSINO MÉDIO COMPLETO &lt; 0.5      to the left,  improve= 16.724710, (0 missing)
-      descricao_cor_racaBRANCA  &lt; 0.5      to the right, improve= 10.301420, (0 missing)
-      estado_civilSOLTEIRO(A)   &lt; 0.5      to the left,  improve=  7.927673, (0 missing)
-  Surrogate splits:
-      grauSUPERIOR COMPLETO     &lt; 0.5      to the right, agree=0.659, adj=0.232, (0 split)
-      descricao_cor_racaBRANCA  &lt; 0.5      to the right, agree=0.625, adj=0.154, (0 split)
-      grauENSINO MÉDIO COMPLETO &lt; 0.5      to the left,  agree=0.622, adj=0.147, (0 split)
-      estado_civilSOLTEIRO(A)   &lt; 0.5      to the left,  agree=0.603, adj=0.104, (0 split)
-      descricao_cor_racaPARDA   &lt; 0.5      to the left,  agree=0.594, adj=0.085, (0 split)
-
-Node number 2: 325 observations
-  predicted class=eleito      expected loss=0.12  P(node) =0.5565068
-    class counts:   286    39
-   probabilities: 0.880 0.120 
-
-Node number 3: 259 observations
-  predicted class=nao_eleito  expected loss=0.02316602  P(node) =0.4434932
-    class counts:     6   253
-   probabilities: 0.023 0.977 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShib29zdClcbmBgYCJ9 -->
-<pre class="r"><code>summary(boost)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgICAgIExlbmd0aCBDbGFzcyAgICAgIE1vZGUgICAgIFxuZm9ybXVsYSAgICAgICAgICAgICAzICAgICBmb3JtdWxhICAgIGNhbGwgICAgIFxudHJlZXMgICAgICAgICAgICAgIDUwICAgICAtbm9uZS0gICAgIGxpc3QgICAgIFxud2VpZ2h0cyAgICAgICAgICAgIDUwICAgICAtbm9uZS0gICAgIG51bWVyaWMgIFxuY2xhc3NuYW1lcyAgICAgICAgICAyICAgICAtbm9uZS0gICAgIGNoYXJhY3RlclxuZGVwZW5kZW50X3ZhcmlhYmxlICAxICAgICAtbm9uZS0gICAgIGNoYXJhY3RlclxuY2FsbCAgICAgICAgICAgICAgICA0ICAgICAtbm9uZS0gICAgIGNhbGwgICAgIFxueE5hbWVzICAgICAgICAgICAgIDE1ICAgICAtbm9uZS0gICAgIGNoYXJhY3RlclxucHJvYmxlbVR5cGUgICAgICAgICAxICAgICAtbm9uZS0gICAgIGNoYXJhY3RlclxudHVuZVZhbHVlICAgICAgICAgICAyICAgICBkYXRhLmZyYW1lIGxpc3QgICAgIFxub2JzTGV2ZWxzICAgICAgICAgICAyICAgICAtbm9uZS0gICAgIGNoYXJhY3RlclxucGFyYW0gICAgICAgICAgICAgICAwICAgICAtbm9uZS0gICAgIGxpc3QgICAgIFxuIn0= -->
-<pre><code>                   Length Class      Mode     
-formula             3     formula    call     
-trees              50     -none-     list     
-weights            50     -none-     numeric  
-classnames          2     -none-     character
-dependent_variable  1     -none-     character
-call                4     -none-     call     
-xNames             15     -none-     character
-problemType         1     -none-     character
-tuneValue           2     data.frame list     
-obsLevels           2     -none-     character
-param               0     -none-     list     </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1417,7 +554,7 @@ param               0     -none-     list     </code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKYGBgCgoKYGBge3J9CmxpYnJhcnkocnBhcnQpCmxpYnJhcnkoY2FyZXQpCmxpYnJhcnkoZHBseXIpCmBgYAoKYGBge3J9CmVsZWljb2VzID0gcmVhZC5jc3YoInRyYWluLmNzdiIsIGVuY29kaW5nPSJ1dGYtOCIpCmBgYAoKIyMxLiBIw6EgZGVzYmFsYW5jZWFtZW50byBkYXMgY2xhc3NlcyAoaXN0byDDqSwgdW1hIGNsYXNzZSB0ZW0gbXVpdG8gbWFpcyBpbnN0w6JuY2lhcyBxdWUgb3V0cmEpPyBFbSBxdWUgcHJvcG9yw6fDo28/IFF1YWlzIGVmZWl0b3MgY29sYXRlcmFpcyBvIGRlc2JhbGFuY2VhbWVudG8gZGUgY2xhc3NlcyBwb2RlIGNhdXNhciBubyBjbGFzc2lmaWNhZG9yPwoKUGFyYSByZXNwb25kZXIgZXN0YSBxdWVzdMOjbyBpcmVtb3MgcGxvdGFyIGEgZGlmZXJlbsOnYSBlbnRyZSBhcyBkdWFzIGNsYXNzZXM6IGVsZWl0byBlIG7Do28gZWxlaXRvLgoKYGBge3J9CmRmX2NsYXNzZXMgPC0gZWxlaWNvZXMgJT4lIGNvdW50KHNpdHVhY2FvX2ZpbmFsKQoKZGZfY2xhc3NlcwpgYGAKUGFyYSBpbHVzdHJhciBtZWxob3IsIHBsb3RhbW9zIG8gZ3LDoWZpY28gY29tIGEgcHJvcG9yw6fDo286CgpgYGB7cn0KcHJvcG9yY2FvIDwtIChkZl9jbGFzc2VzJG4vc3VtKGRmX2NsYXNzZXMkbikgKiAxMDApCmdncGxvdChkZl9jbGFzc2VzLCBhZXMoeCA9IHNpdHVhY2FvX2ZpbmFsLCB5ID0gcHJvcG9yY2FvKSwgb3B0aW9ucyhzY2lwZW49NSkpICsKICAgIGdlb21fYmFyKHN0YXQgPSAiaWRlbnRpdHkiKQpgYGAKCkZvaSBwZXJjZWJpZG8gcXVlIGEgY2xhc3NlIG5hb19lbGVpdG8gKG7Do28gZWxlaXRvKSBwb3NzdWkgbXVpdG8gbWFpcyBpbnN0w6JuY2lhcyBxdWUgYSBjbGFzc2UgZWxlaXRvLiBlbGVpdG8gcG9zc3VpIDQxNiBpbnN0w6JuY2lhcyBlIG5hb19lbGVpdG8gcG9zc3VpIDM3MTkgaW5zdMOibmNpYXMsIGNvbSBwcm9wb3LDp8OjbyBkZSAxMCwxJSBlIDg5LDklLiBBbyB0cmVpbmFyIHVtIG1vZGVsbyBmdXR1cm8gZWxlIHRlbmRlIGEgZmljYXIgZW52aWVzYWRvIHZpc3RvIHF1ZSBhIGRpZmVyZW7Dp2EgZW50cmUgbmFvX2VsZWl0byBlIGVsZWl0byDDqSB2aXNpdmVsbWVudGUgZ3JhbmRlLgpcICAKXCAgClwgIAoKIyMyLiBUcmVpbmU6IHVtIG1vZGVsbyBkZSByZWdyZXNzw6NvIGxvZ8Otc3RpY2EsIHVtYSDDoXJ2b3JlIGRlIGRlY2lzw6NvIGUgdW0gbW9kZWxvIGRlIGFkYWJvb3N0LiBUdW5lIGVzc2VzIG1vZGVsb3MgdXNhbmRvIHZhbGlkYcOnw6NvIGNydXphZGEgZSBjb250cm9sZSBvdmVyZml0dGluZyBzZSBuZWNlc3PDoXJpbywgY29uc2lkZXJhbmRvIGFzIHBhcnRpY3VsYXJpZGFkZXMgZGUgY2FkYSBtb2RlbG8uIAoKYGBge3J9CiMgU2VwYXJhIG9zIGRhZG9zIGVtIHRyZWlubyBlIHRlc3RlCmRhdGFQYXJ0aXRpb24gPC0gY3JlYXRlRGF0YVBhcnRpdGlvbih5ID0gZWxlaWNvZXMkc2l0dWFjYW9fZmluYWwgLCBwPTAuNzAsIGxpc3Q9RkFMU0UpCgp0cmVpbm8gPC0gZWxlaWNvZXNbIGRhdGFQYXJ0aXRpb24sIF0KdGVzdGUgPC0gZWxlaWNvZXNbIC1kYXRhUGFydGl0aW9uLCBdCmBgYApcICAKXCAgCgpKw6EgcXVlIHZpbW9zIG5hIHF1ZXN0w6NvIGFudGVyaW9yIHF1ZSBhcyBjbGFzc2VzIGVzdMOjbyBkZXNiYWxhbmNlYWRhcywgw6kgaW1wb3J0YW50ZSBiYWxhbmNlw6EtbGFzIHBhcmEgZGVwb2lzIHRyZWluYXIgbyBtb2RlbG8uIEVzY29saGVtb3MgdXNhciBhIGlkZWlhIGRlIHVuZGVyLXNhbXBsaW5nLgoKYGBge3J9CmN0cmwgPC0gdHJhaW5Db250cm9sKG1ldGhvZCA9ICJyZXBlYXRlZGN2IiwgCiAgICAgICAgICAgICAgICAgICAgIG51bWJlciA9IDEwLCAKICAgICAgICAgICAgICAgICAgICAgcmVwZWF0cyA9IDEwLCAKICAgICAgICAgICAgICAgICAgICAgdmVyYm9zZUl0ZXIgPSBGQUxTRSwKICAgICAgICAgICAgICAgICAgICAgc2FtcGxpbmcgPSAiZG93biIpCgoKZm9ybXVsYSA9IGFzLmZvcm11bGEoc2l0dWFjYW9fZmluYWwgfiB0b3RhbF9kZXNwZXNhICsgZGVzY3JpY2FvX2Nvcl9yYWNhICsgZXN0YWRvX2NpdmlsICsgZ3JhdSkKYGBgClwgIApcICAKXCAgCgojIyMgUmVncmVzc8OjbyBsb2fDrXN0aWNhOgpgYGB7ciB3YXJuaW5nID0gRkFMU0V9CnJlZ19sb2cxIDwtIHRyYWluKGZvcm11bGEsCiAgICAgICAgICAgICAgICAgZGF0YSA9IHRyZWlubywKICAgICAgICAgICAgICAgICBtZXRob2Q9ImdsbSIsCiAgICAgICAgICAgICAgICAgdHJDb250cm9sID0gY3RybCwgCiAgICAgICAgICAgICAgICAgZmFtaWx5PSJiaW5vbWlhbCIsICAgICAgIyBzZSBhIHZhcmnDoXZlbCBmb3IgYmluw6FyaWEKICAgICAgICAgICAgICAgICBuYS5hY3Rpb24gPSBuYS5vbWl0KQoKcmVnX2xvZzEKYGBgClwgIApcICAKXCAgCgojIyMgw4Fydm9yZSBkZSBkZWNpc8OjbzoKYGBge3J9CmFydm9yZSA8LSB0cmFpbihmb3JtdWxhLAogICAgICAgICAgICAgICAgIGRhdGEgPSB0cmVpbm8sCiAgICAgICAgICAgICAgICAgbWV0aG9kID0gInJwYXJ0IiwKICAgICAgICAgICAgICAgICB0ckNvbnRyb2wgPSBjdHJsLAogICAgICAgICAgICAgICAgIG1pbnNwbGl0PTMwLAogICAgICAgICAgICAgICAgIGNwPTAuMDAxLCAgIyBwYXLDom1ldHJvIGRlIGNvbXBsZXhpZGFkZQogICAgICAgICAgICAgICAgIG1heGRlcHRoPTMwKQoKYXJ2b3JlCmBgYApcICAKXCAgClwgIAoKIyMjIEFkYWJvb3N0OgpgYGB7cn0KYm9vc3QgPC0gdHJhaW4oZm9ybXVsYSwKICAgICAgICAgICAgICAgIGRhdGE9dHJlaW5vLAogICAgICAgICAgICAgICAgdHJDb250cm9sID0gY3RybCwKICAgICAgICAgICAgICAgIG1ldGhvZCA9ICJhZGFib29zdCIpCgpib29zdApgYGAKXCAgClwgIApcICAKCiMjMy4gUmVwb3J0ZSBhY3Vyw6FjaWEsIHByZWNpc2lvbiwgcmVjYWxsIGUgZi1tZWFzdXJlIG5vIHRyZWlubyBlIHZhbGlkYcOnw6NvLiBDb21vIHZvY8OqIGF2YWxpYSBvcyByZXN1bHRhZG9zPyBKdXN0aWZpcXVlIHN1YSByZXNwb3N0YS4KCkFjdXLDoWNpYSA9IChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIAo8aT5Ob3MgZGl6IGEgcHJvcG9yw6fDo28gZGUgb2JzZXJ2YcOnw7VlcyBjb3JyZXRhbWVudGUgY2xhc3NpZmljYWRhcy48L2k+CgpQcmVjaXNpb24gPSAgVFAgLyAoVFAgKyBGUCkKPGk+IERpeiByZXNwZWl0byBhIHF1YW50YXMgZGFzIG9ic2VydmHDp29lcyBwcmVkaXRhcyBjb21vIHBvc2l0aXZhcyBzw6NvIHJlYWxtZW50ZSBwb3NpdGl2YXMgPC9pPgoKUmVjYWxsID0gVFAgLyAoVFAgKyBGTikKPGk+ICBEaXogcmVzcGVpdG8gYSBxdWFudGFzIGRhcyBvYnNlcnZhw6dvZXMgcG9zaXRpdmFzIGZvcmFtIGNvcnJldGFtZW50ZSBjbGFzc2lmaWNhZGFzIDxpPgoKRi1NZWFzdXJlID0gMiB4IChSZWNhbGwgeCBQcmVjaXNpb24pIC8gKFJlY2FsbCArIFByZWNpc2lvbikKCgojIyMgUmVncmVzc8OjbyBsb2fDrXN0aWNhOgpgYGB7cn0KdGVzdGUkcHJlZGljYW9fbG9nIDwtIHByZWRpY3QocmVnX2xvZzEsIHRlc3RlKQoKVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fbG9nID09ICJlbGVpdG8iKSAlPiUgbnJvdygpClROIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gIm5hb19lbGVpdG8iICwgcHJlZGljYW9fbG9nID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKRlAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19sb2cgPT0gImVsZWl0byIpICU+JSBucm93KCkgCkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gImVsZWl0byIsIHByZWRpY2FvX2xvZyA9PSAibmFvX2VsZWl0byIgKSAlPiUgbnJvdygpCgphY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSAKcHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApCnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKQpmX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pCgphY2N1cmFjeQpwcmVjaXNpb24KcmVjYWxsCmZfbWVhc3VyZQpgYGAKCgoKIyMjIMOBcnZvcmUgZGUgZGVjaXPDo286CmBgYHtyfQp0ZXN0ZSRwcmVkaWNhb19hcnZvcmUgPC0gcHJlZGljdChhcnZvcmUsIHRlc3RlKQoKVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fYXJ2b3JlID09ICJlbGVpdG8iKSAlPiUgbnJvdygpClROIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gIm5hb19lbGVpdG8iICwgcHJlZGljYW9fYXJ2b3JlID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKRlAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19hcnZvcmUgPT0gImVsZWl0byIpICU+JSBucm93KCkgCkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gImVsZWl0byIsIHByZWRpY2FvX2Fydm9yZSA9PSAibmFvX2VsZWl0byIgKSAlPiUgbnJvdygpCgphY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSAKcHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApCnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKQpmX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pCgphY2N1cmFjeQpwcmVjaXNpb24KcmVjYWxsCmZfbWVhc3VyZQpgYGAKCgoKIyMjIEFkYWJvb3N0OgpgYGB7cn0KdGVzdGUkcHJlZGljYW9fYWRhIDwtIHByZWRpY3QoYm9vc3QsIHRlc3RlKQoKVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fYWRhID09ICJlbGVpdG8iKSAlPiUgbnJvdygpClROIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gIm5hb19lbGVpdG8iICwgcHJlZGljYW9fYWRhID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKRlAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19hZGEgPT0gImVsZWl0byIpICU+JSBucm93KCkgCkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gImVsZWl0byIsIHByZWRpY2FvX2FkYSA9PSAibmFvX2VsZWl0byIgKSAlPiUgbnJvdygpCgphY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSAKcHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApCnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKQpmX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pCgphY2N1cmFjeQpwcmVjaXNpb24KcmVjYWxsCmZfbWVhc3VyZQpgYGAKCgpQYXJhIHVtYSBhbsOhbGlzZSBtYWlzIG90aW1pc3RhIHBvZGVtb3MgbGV2YXIgZW0gY29uc2lkZXJhw6fDo28gbyBSZWNhbGwKCmBgYHtyfQpjb25mdXNpb25NYXRyaXgodGVzdGUkcHJlZGljYW9fbG9nLCB0ZXN0ZSRzaXR1YWNhb19maW5hbCkKYGBgCgoKIyM0LiBJbnRlcnByZXRlIGFzIHNhw61kYXMgZG9zIG1vZGVsb3MuIFF1YWlzIGF0cmlidXRvcyBwYXJlY2VtIHNlciBtYWlzIGltcG9ydGFudGVzIGRlIGFjb3JkbyBjb20gY2FkYSBtb2RlbG8/IENyaWUgcGVsbyBtZW5vcyB1bSBub3ZvIGF0cmlidXRvIHF1ZSBuw6NvIGVzdMOhIG5vcyBkYWRvcyBvcmlnaW5haXMgZSBlc3R1ZGUgbyBpbXBhY3RvIGRlc3NlIGF0cmlidXRvCgpgYGB7cn0KdmFySW1wKHJlZ19sb2cxKQp2YXJJbXAoYXJ2b3JlKQp2YXJJbXAoYm9vc3QpCmBgYAoKCiMjNS4gRW52aWUgc2V1cyBtZWxob3JlcyBtb2RlbG9zIMOgIGNvbXBldGnDp8OjbyBkbyBLYWdnbGUuIFN1Z2VzdMO1ZXMgYWJhaXhvOgojIyMxLiBFeHBlcmltZW50ZSBvdXRyb3MgbW9kZWxvcyAoZS5nLiBTVk0sIFJhbmRvbUZvcmVzdHMgZSBHcmFkaWVudEJvb3N0aW5nKQojIyMyLiBDcmllIG5vdm9zIGF0cmlidXRvcy4KCgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKCmBgYHtyfQpsaWJyYXJ5KHJwYXJ0KQpsaWJyYXJ5KGNhcmV0KQpsaWJyYXJ5KGRwbHlyKQpgYGAKCmBgYHtyfQplbGVpY29lcyA9IHJlYWQuY3N2KCJ0cmFpbi5jc3YiLCBlbmNvZGluZz0idXRmLTgiKQpgYGAKCiMjMS4gSMOhIGRlc2JhbGFuY2VhbWVudG8gZGFzIGNsYXNzZXMgKGlzdG8gw6ksIHVtYSBjbGFzc2UgdGVtIG11aXRvIG1haXMgaW5zdMOibmNpYXMgcXVlIG91dHJhKT8gRW0gcXVlIHByb3BvcsOnw6NvPyBRdWFpcyBlZmVpdG9zIGNvbGF0ZXJhaXMgbyBkZXNiYWxhbmNlYW1lbnRvIGRlIGNsYXNzZXMgcG9kZSBjYXVzYXIgbm8gY2xhc3NpZmljYWRvcj8KClBhcmEgcmVzcG9uZGVyIGVzdGEgcXVlc3TDo28gaXJlbW9zIHBsb3RhciBhIGRpZmVyZW7Dp2EgZW50cmUgYXMgZHVhcyBjbGFzc2VzOiBlbGVpdG8gZSBuw6NvIGVsZWl0by4KCmBgYHtyfQpkZl9jbGFzc2VzIDwtIGVsZWljb2VzICU+JSBjb3VudChzaXR1YWNhb19maW5hbCkKCmRmX2NsYXNzZXMKYGBgCgoKUGFyYSBpbHVzdHJhciBtZWxob3IsIHBsb3RhbW9zIG8gZ3LDoWZpY28gY29tIGEgcHJvcG9yw6fDo286CgpgYGB7cn0KcHJvcG9yY2FvIDwtIChkZl9jbGFzc2VzJG4vc3VtKGRmX2NsYXNzZXMkbikgKiAxMDApCmdncGxvdChkZl9jbGFzc2VzLCBhZXMoeCA9IHNpdHVhY2FvX2ZpbmFsLCB5ID0gcHJvcG9yY2FvKSwgb3B0aW9ucyhzY2lwZW49NSkpICsKICAgIGdlb21fYmFyKHN0YXQgPSAiaWRlbnRpdHkiKQpgYGAKCkZvaSBwZXJjZWJpZG8gcXVlIGEgY2xhc3NlIG5hb19lbGVpdG8gKG7Do28gZWxlaXRvKSBwb3NzdWkgbXVpdG8gbWFpcyBpbnN0w6JuY2lhcyBxdWUgYSBjbGFzc2UgZWxlaXRvLiBlbGVpdG8gcG9zc3VpIDQxNiBpbnN0w6JuY2lhcyBlIG5hb19lbGVpdG8gcG9zc3VpIDM3MTkgaW5zdMOibmNpYXMsIGNvbSBwcm9wb3LDp8OjbyBkZSAxMCwxJSBlIDg5LDklLiBBbyB0cmVpbmFyIHVtIG1vZGVsbyBmdXR1cm8gZWxlIHRlbmRlIGEgZmljYXIgZW52aWVzYWRvIHZpc3RvIHF1ZSBhIGRpZmVyZW7Dp2EgZW50cmUgbmFvX2VsZWl0byBlIGVsZWl0byDDqSB2aXNpdmVsbWVudGUgZ3JhbmRlLgpcICAKXCAgClwgIAoKIyMyLiBUcmVpbmU6IHVtIG1vZGVsbyBkZSByZWdyZXNzw6NvIGxvZ8Otc3RpY2EsIHVtYSDDoXJ2b3JlIGRlIGRlY2lzw6NvIGUgdW0gbW9kZWxvIGRlIGFkYWJvb3N0LiBUdW5lIGVzc2VzIG1vZGVsb3MgdXNhbmRvIHZhbGlkYcOnw6NvIGNydXphZGEgZSBjb250cm9sZSBvdmVyZml0dGluZyBzZSBuZWNlc3PDoXJpbywgY29uc2lkZXJhbmRvIGFzIHBhcnRpY3VsYXJpZGFkZXMgZGUgY2FkYSBtb2RlbG8uIAoKUG9kZW1vcyBlc2NvbGhlciBhbGd1bWFzIHZhcmnDoXZlaXMgY29tIGFzIHF1YWlzIHF1ZXJlbW9zIHRyYWJhbGhhcjoKCmBgYHtyfQojZmlsdHJhX2RhZG9zIDwtIGVsZWljb2VzICU+JSBzZWxlY3QodG90YWxfZGVzcGVzYSwgZGVzY3JpY2FvX2Nvcl9yYWNhLCBlc3RhZG9fY2l2aWwsIGdyYXUsIHNpdHVhY2FvX2ZpbmFsKQpgYGAKCgpgYGB7cn0KIyBTZXBhcmEgb3MgZGFkb3MgZW0gdHJlaW5vIGUgdGVzdGUKZGF0YVBhcnRpdGlvbiA8LSBjcmVhdGVEYXRhUGFydGl0aW9uKHkgPSBlbGVpY29lcyRzaXR1YWNhb19maW5hbCAsIHA9MC43MCwgbGlzdD1GQUxTRSkKCnRyZWlubyA8LSBlbGVpY29lc1sgZGF0YVBhcnRpdGlvbiwgXQp0ZXN0ZSA8LSBlbGVpY29lc1sgLWRhdGFQYXJ0aXRpb24sIF0KYGBgClwgIApcICAKCkrDoSBxdWUgdmltb3MgbmEgcXVlc3TDo28gYW50ZXJpb3IgcXVlIGFzIGNsYXNzZXMgZXN0w6NvIGRlc2JhbGFuY2VhZGFzLCDDqSBpbXBvcnRhbnRlIGJhbGFuY2XDoS1sYXMgcGFyYSBkZXBvaXMgdHJlaW5hciBvIG1vZGVsby4gRXNjb2xoZW1vcyB1c2FyIGEgaWRlaWEgZGUgdW5kZXItc2FtcGxpbmcuCgpgYGB7cn0KY3RybCA8LSB0cmFpbkNvbnRyb2wobWV0aG9kID0gInJlcGVhdGVkY3YiLCAKICAgICAgICAgICAgICAgICAgICAgbnVtYmVyID0gMTAsIAogICAgICAgICAgICAgICAgICAgICByZXBlYXRzID0gMTAsCiAgICAgICAgICAgICAgICAgICAgIHZlcmJvc2VJdGVyID0gRkFMU0UsCiAgICAgICAgICAgICAgICAgICAgIHNhbXBsaW5nID0gImRvd24iKQoKCmZvcm11bGEgPSBhcy5mb3JtdWxhKHNpdHVhY2FvX2ZpbmFsIH4gdG90YWxfZGVzcGVzYSArIGRlc2NyaWNhb19jb3JfcmFjYSArIGVzdGFkb19jaXZpbCArIGdyYXUpCmBgYApcICAKXCAgClwgIAoKIyMjIFJlZ3Jlc3PDo28gbG9nw61zdGljYToKYGBge3Igd2FybmluZyA9IEZBTFNFfQpyZWdfbG9nMSA8LSB0cmFpbihmb3JtdWxhLAogICAgICAgICAgICAgICAgICBkYXRhID0gdHJlaW5vLAogICAgICAgICAgICAgICAgICBtZXRob2Q9ImdsbSIsCiAgICAgICAgICAgICAgICAgIHRyQ29udHJvbCA9IGN0cmwsIAogICAgICAgICAgICAgICAgICBmYW1pbHk9ImJpbm9taWFsIiwgICAgICAjIHNlIGEgdmFyacOhdmVsIGZvciBiaW7DoXJpYQogICAgICAgICAgICAgICAgICBuYS5hY3Rpb24gPSBuYS5vbWl0KQoKcmVnX2xvZzEKYGBgClwgIApcICAKXCAgCgojIyMgw4Fydm9yZSBkZSBkZWNpc8OjbzoKYGBge3J9CmFydm9yZSA8LSB0cmFpbihmb3JtdWxhLAogICAgICAgICAgICAgICAgIGRhdGEgPSB0cmVpbm8sCiAgICAgICAgICAgICAgICAgbWV0aG9kID0gInJwYXJ0IiwKICAgICAgICAgICAgICAgICB0ckNvbnRyb2wgPSBjdHJsLAogICAgICAgICAgICAgICAgIG1pbnNwbGl0PTMwLAogICAgICAgICAgICAgICAgIGNwPTAuMDAxLCAgIyBwYXLDom1ldHJvIGRlIGNvbXBsZXhpZGFkZQogICAgICAgICAgICAgICAgIG1heGRlcHRoPTMwKQoKYXJ2b3JlCmBgYApcICAKXCAgClwgIAoKIyMjIEFkYWJvb3N0OgpgYGB7cn0KYm9vc3QgPC0gdHJhaW4oZm9ybXVsYSwKICAgICAgICAgICAgICAgIGRhdGE9dHJlaW5vLAogICAgICAgICAgICAgICAgdHJDb250cm9sID0gY3RybCwKICAgICAgICAgICAgICAgIG1ldGhvZCA9ICJhZGFib29zdCIpCgpib29zdApgYGAKXCAgClwgIApcICAKCiMjMy4gUmVwb3J0ZSBhY3Vyw6FjaWEsIHByZWNpc2lvbiwgcmVjYWxsIGUgZi1tZWFzdXJlIG5vIHRyZWlubyBlIHZhbGlkYcOnw6NvLiBDb21vIHZvY8OqIGF2YWxpYSBvcyByZXN1bHRhZG9zPyBKdXN0aWZpcXVlIHN1YSByZXNwb3N0YS4KCkFjdXLDoWNpYSA9IChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIAo8aT5Ob3MgZGl6IGEgcHJvcG9yw6fDo28gZGUgb2JzZXJ2YcOnw7VlcyBjb3JyZXRhbWVudGUgY2xhc3NpZmljYWRhcy48L2k+CgpQcmVjaXNpb24gPSAgVFAgLyAoVFAgKyBGUCkKPGk+IERpeiByZXNwZWl0byBhIHF1YW50YXMgZGFzIG9ic2VydmHDp29lcyBwcmVkaXRhcyBjb21vIHBvc2l0aXZhcyBzw6NvIHJlYWxtZW50ZSBwb3NpdGl2YXMgPC9pPgoKUmVjYWxsID0gVFAgLyAoVFAgKyBGTikKPGk+ICBEaXogcmVzcGVpdG8gYSBxdWFudGFzIGRhcyBvYnNlcnZhw6dvZXMgcG9zaXRpdmFzIGZvcmFtIGNvcnJldGFtZW50ZSBjbGFzc2lmaWNhZGFzIDwvaT4KCkYtTWVhc3VyZSA9IDIgeCAoUmVjYWxsIHggUHJlY2lzaW9uKSAvIChSZWNhbGwgKyBQcmVjaXNpb24pCgoKIyMjIFJlZ3Jlc3PDo28gbG9nw61zdGljYSBubyB0cmVpbm86CmBgYHtyfQp0cmVpbm8kcHJlZGljYW9fbG9nIDwtIHByZWRpY3QocmVnX2xvZzEsIHRyZWlubykKClRQIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJlbGVpdG8iLCBwcmVkaWNhb19sb2cgPT0gImVsZWl0byIpICU+JSBucm93KCkKVE4gPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gIm5hb19lbGVpdG8iICwgcHJlZGljYW9fbG9nID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKRlAgPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gIm5hb19lbGVpdG8iICwgcHJlZGljYW9fbG9nID09ICJlbGVpdG8iKSAlPiUgbnJvdygpIApGTiA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fbG9nID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKCmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIApwcmVjaXNpb24gPC0gVFAgLyAoVFAgKyBGUCkKcmVjYWxsIDwtIFRQIC8gKFRQICsgRk4pCmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbikKCgphY2N1cmFjeQpwcmVjaXNpb24KcmVjYWxsCmZfbWVhc3VyZQoKYGBgCgojIyMgUmVncmVzc8OjbyBsb2fDrXN0aWNhIG5vIHRlc3RlOgpgYGB7cn0KdGVzdGUkcHJlZGljYW9fbG9nIDwtIHByZWRpY3QocmVnX2xvZzEsIHRlc3RlKQoKVFAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fbG9nID09ICJlbGVpdG8iKSAlPiUgbnJvdygpClROIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gIm5hb19lbGVpdG8iICwgcHJlZGljYW9fbG9nID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKRlAgPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19sb2cgPT0gImVsZWl0byIpICU+JSBucm93KCkgCkZOIDwtIHRlc3RlICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gImVsZWl0byIsIHByZWRpY2FvX2xvZyA9PSAibmFvX2VsZWl0byIgKSAlPiUgbnJvdygpCgphY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSAKcHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApCnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKQpmX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pCgphY2N1cmFjeQpwcmVjaXNpb24KcmVjYWxsCmZfbWVhc3VyZQoKYGBgCgpPcyB2YWxvcmVzIGRlIGFjdXLDoWNpYSwgcHJlY2lzw6NvLCByZWNhbGwgZSBmLW1lYXN1cmUgc8OjbyBtYWlvcmVzIG5hIHBhcnRpw6fDo28gZGUgdGVzdGUgZG8gcXVlIG5hIHBhcnRpw6fDo28gZGUgdHJlaW5vLgoKCgojIyMgw4Fydm9yZSBkZSBkZWNpc8OjbyBubyB0cmVpbm86CmBgYHtyfQp0cmVpbm8kcHJlZGljYW9fYXJ2b3JlIDwtIHByZWRpY3QoYXJ2b3JlLCB0cmVpbm8pCgpUUCA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fYXJ2b3JlID09ICJlbGVpdG8iKSAlPiUgbnJvdygpClROIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJuYW9fZWxlaXRvIiAsIHByZWRpY2FvX2Fydm9yZSA9PSAibmFvX2VsZWl0byIgKSAlPiUgbnJvdygpCkZQIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJuYW9fZWxlaXRvIiAsIHByZWRpY2FvX2Fydm9yZSA9PSAiZWxlaXRvIikgJT4lIG5yb3coKSAKRk4gPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gImVsZWl0byIsIHByZWRpY2FvX2Fydm9yZSA9PSAibmFvX2VsZWl0byIgKSAlPiUgbnJvdygpCgphY2N1cmFjeSA8LSAoVFAgKyBUTikvKFRQICsgVE4gKyBGUCArIEZOKSAKcHJlY2lzaW9uIDwtIFRQIC8gKFRQICsgRlApCnJlY2FsbCA8LSBUUCAvIChUUCArIEZOKQpmX21lYXN1cmUgPC0gMioocmVjYWxsICogcHJlY2lzaW9uKSAvIChyZWNhbGwgKyBwcmVjaXNpb24pCgphY2N1cmFjeQpwcmVjaXNpb24KcmVjYWxsCmZfbWVhc3VyZQpgYGAKCgojIyMgw4Fydm9yZSBkZSBkZWNpc8OjbyBubyB0ZXN0ZToKYGBge3J9CnRlc3RlJHByZWRpY2FvX2Fydm9yZSA8LSBwcmVkaWN0KGFydm9yZSwgdGVzdGUpCgpUUCA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJlbGVpdG8iLCBwcmVkaWNhb19hcnZvcmUgPT0gImVsZWl0byIpICU+JSBucm93KCkKVE4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19hcnZvcmUgPT0gIm5hb19lbGVpdG8iICkgJT4lIG5yb3coKQpGUCA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJuYW9fZWxlaXRvIiAsIHByZWRpY2FvX2Fydm9yZSA9PSAiZWxlaXRvIikgJT4lIG5yb3coKSAKRk4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fYXJ2b3JlID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKCmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIApwcmVjaXNpb24gPC0gVFAgLyAoVFAgKyBGUCkKcmVjYWxsIDwtIFRQIC8gKFRQICsgRk4pCmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbikKCmFjY3VyYWN5CnByZWNpc2lvbgpyZWNhbGwKZl9tZWFzdXJlCmBgYApBbyBjb250csOhcmlvIGRvIG1vZGVsbyBkZSBSZWdyZXNzw6NvIExvZ8Otc3RpY2EsIG8gbW9kZWxvIGRlIMOBcnZvcmUgZGUgRGVjaXPDo28gYXByZXNlbnRhIHZhbG9yZXMgbWFpb3JlcyBuYSBwYXJ0acOnw6NvIGRlIHRyZWluby4KCgoKIyMjIEFkYWJvb3N0IG5vIHRyZWlubzoKYGBge3J9CnRyZWlubyRwcmVkaWNhb19hZGEgPC0gcHJlZGljdChib29zdCwgdHJlaW5vKQoKVFAgPC0gdHJlaW5vICU+JSBmaWx0ZXIoc2l0dWFjYW9fZmluYWwgPT0gImVsZWl0byIsIHByZWRpY2FvX2FkYSA9PSAiZWxlaXRvIikgJT4lIG5yb3coKQpUTiA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19hZGEgPT0gIm5hb19lbGVpdG8iICkgJT4lIG5yb3coKQpGUCA8LSB0cmVpbm8gJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19hZGEgPT0gImVsZWl0byIpICU+JSBucm93KCkgCkZOIDwtIHRyZWlubyAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJlbGVpdG8iLCBwcmVkaWNhb19hZGEgPT0gIm5hb19lbGVpdG8iICkgJT4lIG5yb3coKQoKYWNjdXJhY3kgPC0gKFRQICsgVE4pLyhUUCArIFROICsgRlAgKyBGTikgCnByZWNpc2lvbiA8LSBUUCAvIChUUCArIEZQKQpyZWNhbGwgPC0gVFAgLyAoVFAgKyBGTikKZl9tZWFzdXJlIDwtIDIqKHJlY2FsbCAqIHByZWNpc2lvbikgLyAocmVjYWxsICsgcHJlY2lzaW9uKQoKYWNjdXJhY3kKcHJlY2lzaW9uCnJlY2FsbApmX21lYXN1cmUKYGBgCgojIyMgQWRhYm9vc3Qgbm8gdGVzdGU6CmBgYHtyfQp0ZXN0ZSRwcmVkaWNhb19hZGEgPC0gcHJlZGljdChib29zdCwgdGVzdGUpCgpUUCA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJlbGVpdG8iLCBwcmVkaWNhb19hZGEgPT0gImVsZWl0byIpICU+JSBucm93KCkKVE4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAibmFvX2VsZWl0byIgLCBwcmVkaWNhb19hZGEgPT0gIm5hb19lbGVpdG8iICkgJT4lIG5yb3coKQpGUCA8LSB0ZXN0ZSAlPiUgZmlsdGVyKHNpdHVhY2FvX2ZpbmFsID09ICJuYW9fZWxlaXRvIiAsIHByZWRpY2FvX2FkYSA9PSAiZWxlaXRvIikgJT4lIG5yb3coKSAKRk4gPC0gdGVzdGUgJT4lIGZpbHRlcihzaXR1YWNhb19maW5hbCA9PSAiZWxlaXRvIiwgcHJlZGljYW9fYWRhID09ICJuYW9fZWxlaXRvIiApICU+JSBucm93KCkKCmFjY3VyYWN5IDwtIChUUCArIFROKS8oVFAgKyBUTiArIEZQICsgRk4pIApwcmVjaXNpb24gPC0gVFAgLyAoVFAgKyBGUCkKcmVjYWxsIDwtIFRQIC8gKFRQICsgRk4pCmZfbWVhc3VyZSA8LSAyKihyZWNhbGwgKiBwcmVjaXNpb24pIC8gKHJlY2FsbCArIHByZWNpc2lvbikKCmFjY3VyYWN5CnByZWNpc2lvbgpyZWNhbGwKZl9tZWFzdXJlCmBgYApDb21vIHBvZGVtb3Mgbm90YXIsIG8gbW9kZWxvIG5hIHBhcnRpw6fDo28gdHJlaW5vIGFwcmVzZW50YSBhY3Vyw6FjaWEsIHByZWNpc8OjbywgcmVjYWxsIGUgZi1tZWFzdXJlIG1haW9yIHF1ZSBubyB0ZXN0ZSwgaWd1YWxtZW50ZSBhbyBtb2RlbG8gZGUgw4Fydm9yZSBkZSBEZWNpc8Ojby4KCgpgYGB7cn0KY29uZnVzaW9uTWF0cml4KHRlc3RlJHByZWRpY2FvX2xvZywgdGVzdGUkc2l0dWFjYW9fZmluYWwpCmNvbmZ1c2lvbk1hdHJpeCh0ZXN0ZSRwcmVkaWNhb19hcnZvcmUsIHRlc3RlJHNpdHVhY2FvX2ZpbmFsKQpjb25mdXNpb25NYXRyaXgodGVzdGUkcHJlZGljYW9fYWRhLCB0ZXN0ZSRzaXR1YWNhb19maW5hbCkKYGBgCgoKIyM0LiBJbnRlcnByZXRlIGFzIHNhw61kYXMgZG9zIG1vZGVsb3MuIFF1YWlzIGF0cmlidXRvcyBwYXJlY2VtIHNlciBtYWlzIGltcG9ydGFudGVzIGRlIGFjb3JkbyBjb20gY2FkYSBtb2RlbG8/IENyaWUgcGVsbyBtZW5vcyB1bSBub3ZvIGF0cmlidXRvIHF1ZSBuw6NvIGVzdMOhIG5vcyBkYWRvcyBvcmlnaW5haXMgZSBlc3R1ZGUgbyBpbXBhY3RvIGRlc3NlIGF0cmlidXRvCgpgYGB7cn0KCmBgYAoKCiMjNS4gRW52aWUgc2V1cyBtZWxob3JlcyBtb2RlbG9zIMOgIGNvbXBldGnDp8OjbyBkbyBLYWdnbGUuIFN1Z2VzdMO1ZXMgYWJhaXhvOgojIyMxLiBFeHBlcmltZW50ZSBvdXRyb3MgbW9kZWxvcyAoZS5nLiBTVk0sIFJhbmRvbUZvcmVzdHMgZSBHcmFkaWVudEJvb3N0aW5nKQojIyMyLiBDcmllIG5vdm9zIGF0cmlidXRvcy4KCgoKCg==</div>
 
 
 

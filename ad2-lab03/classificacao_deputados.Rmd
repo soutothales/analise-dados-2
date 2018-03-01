@@ -3,10 +3,6 @@ title: "R Notebook"
 output: html_notebook
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 
 ```{r}
 library(rpart)
@@ -27,6 +23,8 @@ df_classes <- eleicoes %>% count(situacao_final)
 
 df_classes
 ```
+
+
 Para ilustrar melhor, plotamos o gráfico com a proporção:
 
 ```{r}
@@ -41,6 +39,13 @@ Foi percebido que a classe nao_eleito (não eleito) possui muito mais instância
 \  
 
 ##2. Treine: um modelo de regressão logística, uma árvore de decisão e um modelo de adaboost. Tune esses modelos usando validação cruzada e controle overfitting se necessário, considerando as particularidades de cada modelo. 
+
+Podemos escolher algumas variáveis com as quais queremos trabalhar:
+
+```{r}
+#filtra_dados <- eleicoes %>% select(total_despesa, descricao_cor_raca, estado_civil, grau, situacao_final)
+```
+
 
 ```{r}
 # Separa os dados em treino e teste
@@ -57,7 +62,7 @@ Já que vimos na questão anterior que as classes estão desbalanceadas, é impo
 ```{r}
 ctrl <- trainControl(method = "repeatedcv", 
                      number = 10, 
-                     repeats = 10, 
+                     repeats = 10,
                      verboseIter = FALSE,
                      sampling = "down")
 
@@ -71,11 +76,11 @@ formula = as.formula(situacao_final ~ total_despesa + descricao_cor_raca + estad
 ### Regressão logística:
 ```{r warning = FALSE}
 reg_log1 <- train(formula,
-                 data = treino,
-                 method="glm",
-                 trControl = ctrl, 
-                 family="binomial",      # se a variável for binária
-                 na.action = na.omit)
+                  data = treino,
+                  method="glm",
+                  trControl = ctrl, 
+                  family="binomial",      # se a variável for binária
+                  na.action = na.omit)
 
 reg_log1
 ```
@@ -121,12 +126,34 @@ Precision =  TP / (TP + FP)
 <i> Diz respeito a quantas das observaçoes preditas como positivas são realmente positivas </i>
 
 Recall = TP / (TP + FN)
-<i>  Diz respeito a quantas das observaçoes positivas foram corretamente classificadas <i>
+<i>  Diz respeito a quantas das observaçoes positivas foram corretamente classificadas </i>
 
 F-Measure = 2 x (Recall x Precision) / (Recall + Precision)
 
 
-### Regressão logística:
+### Regressão logística no treino:
+```{r}
+treino$predicao_log <- predict(reg_log1, treino)
+
+TP <- treino %>% filter(situacao_final == "eleito", predicao_log == "eleito") %>% nrow()
+TN <- treino %>% filter(situacao_final == "nao_eleito" , predicao_log == "nao_eleito" ) %>% nrow()
+FP <- treino %>% filter(situacao_final == "nao_eleito" , predicao_log == "eleito") %>% nrow() 
+FN <- treino %>% filter(situacao_final == "eleito", predicao_log == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+f_measure <- 2*(recall * precision) / (recall + precision)
+
+
+accuracy
+precision
+recall
+f_measure
+
+```
+
+### Regressão logística no teste:
 ```{r}
 teste$predicao_log <- predict(reg_log1, teste)
 
@@ -144,11 +171,35 @@ accuracy
 precision
 recall
 f_measure
+
+```
+
+Os valores de acurácia, precisão, recall e f-measure são maiores na partição de teste do que na partição de treino.
+
+
+
+### Árvore de decisão no treino:
+```{r}
+treino$predicao_arvore <- predict(arvore, treino)
+
+TP <- treino %>% filter(situacao_final == "eleito", predicao_arvore == "eleito") %>% nrow()
+TN <- treino %>% filter(situacao_final == "nao_eleito" , predicao_arvore == "nao_eleito" ) %>% nrow()
+FP <- treino %>% filter(situacao_final == "nao_eleito" , predicao_arvore == "eleito") %>% nrow() 
+FN <- treino %>% filter(situacao_final == "eleito", predicao_arvore == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+f_measure <- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure
 ```
 
 
-
-### Árvore de decisão:
+### Árvore de decisão no teste:
 ```{r}
 teste$predicao_arvore <- predict(arvore, teste)
 
@@ -167,10 +218,31 @@ precision
 recall
 f_measure
 ```
+Ao contrário do modelo de Regressão Logística, o modelo de Árvore de Decisão apresenta valores maiores na partição de treino.
 
 
 
-### Adaboost:
+### Adaboost no treino:
+```{r}
+treino$predicao_ada <- predict(boost, treino)
+
+TP <- treino %>% filter(situacao_final == "eleito", predicao_ada == "eleito") %>% nrow()
+TN <- treino %>% filter(situacao_final == "nao_eleito" , predicao_ada == "nao_eleito" ) %>% nrow()
+FP <- treino %>% filter(situacao_final == "nao_eleito" , predicao_ada == "eleito") %>% nrow() 
+FN <- treino %>% filter(situacao_final == "eleito", predicao_ada == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+f_measure <- 2*(recall * precision) / (recall + precision)
+
+accuracy
+precision
+recall
+f_measure
+```
+
+### Adaboost no teste:
 ```{r}
 teste$predicao_ada <- predict(boost, teste)
 
@@ -189,21 +261,20 @@ precision
 recall
 f_measure
 ```
+Como podemos notar, o modelo na partição treino apresenta acurácia, precisão, recall e f-measure maior que no teste, igualmente ao modelo de Árvore de Decisão.
 
-
-Para uma análise mais otimista podemos levar em consideração o Recall
 
 ```{r}
 confusionMatrix(teste$predicao_log, teste$situacao_final)
+confusionMatrix(teste$predicao_arvore, teste$situacao_final)
+confusionMatrix(teste$predicao_ada, teste$situacao_final)
 ```
 
 
 ##4. Interprete as saídas dos modelos. Quais atributos parecem ser mais importantes de acordo com cada modelo? Crie pelo menos um novo atributo que não está nos dados originais e estude o impacto desse atributo
 
 ```{r}
-varImp(reg_log1)
-varImp(arvore)
-varImp(boost)
+
 ```
 
 
