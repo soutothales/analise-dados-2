@@ -43,16 +43,16 @@ Foi percebido que a classe nao_eleito (não eleito) possui muito mais instância
 Podemos escolher algumas variáveis com as quais queremos trabalhar:
 
 ```{r}
-#filtra_dados <- eleicoes %>% select(total_despesa, descricao_cor_raca, estado_civil, grau, situacao_final)
+filtra_dados <- eleicoes %>% select(total_despesa, descricao_cor_raca, estado_civil, grau, situacao_final)
 ```
 
 
 ```{r}
 # Separa os dados em treino e teste
-dataPartition <- createDataPartition(y = eleicoes$situacao_final , p=0.70, list=FALSE)
+dataPartition <- createDataPartition(y = filtra_dados$situacao_final , p=0.70, list=FALSE)
 
-treino <- eleicoes[ dataPartition, ]
-teste <- eleicoes[ -dataPartition, ]
+treino <- filtra_dados[ dataPartition, ]
+teste <- filtra_dados[ -dataPartition, ]
 ```
 \  
 \  
@@ -61,13 +61,13 @@ Já que vimos na questão anterior que as classes estão desbalanceadas, é impo
 
 ```{r}
 ctrl <- trainControl(method = "repeatedcv", 
-                     number = 10, 
-                     repeats = 10,
+                     #number = 10, 
+                     repeats = 4,
                      verboseIter = FALSE,
                      sampling = "down")
 
 
-formula = as.formula(situacao_final ~ total_despesa + descricao_cor_raca + estado_civil + grau)
+formula = as.formula(situacao_final ~ .)
 ```
 \  
 \  
