@@ -283,5 +283,44 @@ confusionMatrix(teste$predicao_ada, teste$situacao_final)
 ###2. Crie novos atributos.
 
 
+```{r}
+kaggle_teste <- read.csv("test.csv", encoding="UTF-8")
+```
+
+```{r warning = FALSE}
+ctrl2 <- trainControl(method = "repeatedcv", 
+                     number = 10, 
+                     repeats = 10,
+                     verboseIter = FALSE,
+                     sampling = "down")
+
+kaggle_reg_log <- train(formula,
+                        data = filtra_dados,
+                        method="glm",
+                        trControl = ctrl2, 
+                        family="binomial",      # se a variável for binária
+                        na.action = na.omit)
+
+summary(kaggle_reg_log)
+```
+
+
+```{r}
+
+
+predicao_kaggle <- predict(kaggle_reg_log, kaggle_teste)
+
+kaggle_teste$situacao_final <- predicao_kaggle
+
+kaggle_teste <- kaggle_teste %>% select(ID, situacao_final)
+
+```
+
+
+```{r}
+write.csv(kaggle_teste, file = "kaggle_teste.csv", row.names = FALSE)
+```
+
+
 
 
