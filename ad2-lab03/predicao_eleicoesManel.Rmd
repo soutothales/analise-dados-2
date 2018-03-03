@@ -1,0 +1,96 @@
+---
+title: "Predição Eleições 2014"
+author: "Emanoel Barros"
+date: "27 de fevereiro de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<p>Carregando bibliotecas:</p>
+```{r warning=FALSE, message=FALSE}
+library(caret)
+library(dplyr)
+```
+<br>
+<p>Carregando dados com todas as variáveis:</p>
+```{r}
+dados_eleicoes <- read.csv("train.csv", encoding = "UTF-8")
+```
+<br>
+
+<p><b>1. Há desbalanceamento das classes (isto é, uma classe tem muito mais instâncias que outra)? Em que proporção? Quais efeitos colaterais o desbalanceamento de classes pode causar no classificador?</b></p>
+
+<p>Ao visualizar a variável <b>situacao_final</b>, percebemos que há um desbalanceamento entre <b>eleitos</b> e <b>não eleitos</b>:</p>
+```{r}
+dados_eleicoes %>% count(situacao_final)
+```
+<br>
+
+<p>Para uma melhor visualização desse desbalanceamento, plotaremos um gráfico:</p>
+```{r}
+diff_situacao <- dados_eleicoes %>% count(situacao_final)
+ggplot(diff_situacao, aes(x = situacao_final, y = n), options(scipen = 5)) +
+  geom_bar(stat = "identity")
+```
+<br>
+
+<p>Os dados dispostos dessa forma dificulta o processo de treinamento do modelo, visto que há um viés para um dos valores da variável.</p>
+<br>
+
+<p><b>2. Treine: um modelo de regressão logística, uma árvore de decisão e um modelo de adaboost. Tune esses modelos usando validação cruzada e controle overfitting se necessário, considerando as particularidades de cada modelo.</b></p>
+
+<p>Para isso, é necessário separar o dataset em dois: treino e teste. Aqui será dividido em 70% e 30%, respectivamente.</p>
+<p>Uma partição é criada contendo os índices de 70% dos dados, que é atribuído ao dataset de treino. Da mesma forma, os outros 30% são atribuídos ao dataset de teste:</p>
+```{r}
+dados_eleicoes$eh_deputado = ifelse(dados_eleicoes$descricao_ocupacao == "DEPUTADO", 1, 0)
+
+dados_eleicoes <- dados_eleicoes %>% select(total_receita, recursos_de_partidos, recursos_proprios, total_despesa, despesa_max_campanha, eh_deputado, situacao_final)
+
+particao <- createDataPartition(y = dados_eleicoes$situacao_final, p = 0.70, list = FALSE)
+
+dados_treino <- dados_eleicoes[ particao, ]
+dados_teste <- dados_eleicoes[ -particao, ]
+```
+
+
+```{r}
+control <- trainControl(method = "repeatedcv",
+                        number = 10,
+                        repeats = 10,
+                        sampling = "down")
+
+
+formula <- as.formula(situacao_final ~ .)
+```
+
+```{r}
+modelO_regressao <- train(formula,
+                          data = dados_treino,
+                          method = "glm",
+                          family = "binomial",
+                          na.action = na.omit,
+                          trControl = control)
+
+summary(modelO_regressao)
+```
+
+```{r}
+arvore_decisao <- train(formula,
+                        data = dados_treino,
+                        method = "rpart",
+                        cp = 0.001,
+                        maxdepth = 20)
+
+arvore_decisao
+```
+
+```{r}
+adaboost <- train(formula,
+                  data = dados_treino,
+                  method = "adaboost",
+                  trControl = control)
+```
+

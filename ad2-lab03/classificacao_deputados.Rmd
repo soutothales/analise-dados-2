@@ -11,7 +11,7 @@ library(dplyr)
 ```
 
 ```{r}
-eleicoes = read.csv("train.csv", encoding="utf-8")
+eleicoes <- read.csv("train.csv", encoding = "UTF-8")
 ```
 
 ##1. Há desbalanceamento das classes (isto é, uma classe tem muito mais instâncias que outra)? Em que proporção? Quais efeitos colaterais o desbalanceamento de classes pode causar no classificador?
@@ -43,7 +43,7 @@ Foi percebido que a classe nao_eleito (não eleito) possui muito mais instância
 Podemos escolher algumas variáveis com as quais queremos trabalhar:
 
 ```{r}
-filtra_dados <- eleicoes %>% select(total_despesa, descricao_cor_raca, estado_civil, grau, situacao_final)
+filtra_dados <- eleicoes %>% select(total_receita, total_despesa, descricao_cor_raca, estado_civil, idade, grau, situacao_final)
 ```
 
 
@@ -62,7 +62,7 @@ Já que vimos na questão anterior que as classes estão desbalanceadas, é impo
 ```{r}
 ctrl <- trainControl(method = "repeatedcv", 
                      #number = 10, 
-                     repeats = 4,
+                     repeats = 5,
                      verboseIter = FALSE,
                      sampling = "down")
 
@@ -94,9 +94,9 @@ arvore <- train(formula,
                  data = treino,
                  method = "rpart",
                  trControl = ctrl,
-                 minsplit=30,
-                 cp=0.001,  # parâmetro de complexidade
-                 maxdepth=30)
+                 minsplit=20,
+                 cp=0.01,  # parâmetro de complexidade
+                 maxdepth=20)
 
 arvore
 ```
@@ -174,7 +174,7 @@ f_measure
 
 ```
 
-Os valores de acurácia, precisão, recall e f-measure são maiores na partição de teste do que na partição de treino.
+Os valores de acurácia, precisão, recall e f-measure são maiores na partição de treino do que na partição de teste.
 
 
 
@@ -218,7 +218,7 @@ precision
 recall
 f_measure
 ```
-Ao contrário do modelo de Regressão Logística, o modelo de Árvore de Decisão apresenta valores maiores na partição de treino.
+Igualmente ao modelo de Regressão Logística, o modelo de Árvore de Decisão apresenta valores maiores na partição de treino.
 
 
 
@@ -261,7 +261,7 @@ precision
 recall
 f_measure
 ```
-Como podemos notar, o modelo na partição treino apresenta acurácia, precisão, recall e f-measure maior que no teste, igualmente ao modelo de Árvore de Decisão.
+Como podemos notar, o modelo na partição treino apresenta acurácia, precisão, recall e f-measure maior que no teste, igualmente ao modelo de Árvore de Decisão e Regressão Logística.
 
 
 ```{r}
@@ -273,9 +273,24 @@ confusionMatrix(teste$predicao_ada, teste$situacao_final)
 
 ##4. Interprete as saídas dos modelos. Quais atributos parecem ser mais importantes de acordo com cada modelo? Crie pelo menos um novo atributo que não está nos dados originais e estude o impacto desse atributo
 
-```{r}
 
+```{r}
+varImp(reg_log1)
 ```
+
+De acordo com o modelo de regressão logística, o atributo mais importante é o grau de ensino.
+
+
+```{r}
+varImp(arvore)
+```
+De acordo com o método de árvore de decisão a receita e a despesas são importantes preditores da situação final, em seguida vem o grau de ensino.
+
+```{r}
+varImp(boost)
+```
+
+Como visto no modelo de árvore de decisão, no Adaboost também observamos que receita e despesas são os mais importantes atributos.
 
 
 ##5. Envie seus melhores modelos à competição do Kaggle. Sugestões abaixo:
@@ -288,38 +303,64 @@ kaggle_teste <- read.csv("test.csv", encoding="UTF-8")
 ```
 
 ```{r warning = FALSE}
-ctrl2 <- trainControl(method = "repeatedcv", 
-                     number = 10, 
-                     repeats = 10,
-                     verboseIter = FALSE,
-                     sampling = "down")
+library(randomForest)
+#ctrl2 <- trainControl(method = "repeatedcv", 
+#                     number = 10, 
+#                     repeats = 10,
+#                     verboseIter = FALSE,
+#                     sampling = "down")
 
-kaggle_reg_log <- train(formula,
-                        data = filtra_dados,
-                        method="glm",
-                        trControl = ctrl2, 
-                        family="binomial",      # se a variável for binária
-                        na.action = na.omit)
+#kaggle_reg_log <- train(situacao_final ~ .,
+#                        data = filtra_dados,
+#                        method="glm",
+#                        trControl = ctrl2, 
+#                        family = "binomial",      # se a variável for binária
+#                        na.action = na.omit)
 
-summary(kaggle_reg_log)
+kaggle_random_forest = randomForest(situacao_final ~ ., 
+                                    data = filtra_dados,
+                                    family = "binomial", 
+                                    na.action = na.omit)
+
+#summary(kaggle_reg_log)
+#summary(kaggle_random_forest)
 ```
 
 
 ```{r}
+predicao_kaggle <- predict(kaggle_random_forest, kaggle_teste)
 
+kaggle_teste$prediction <- predicao_kaggle
 
-predicao_kaggle <- predict(kaggle_reg_log, kaggle_teste)
-
-kaggle_teste$situacao_final <- predicao_kaggle
-
-kaggle_teste <- kaggle_teste %>% select(ID, situacao_final)
+kaggle_saida <- kaggle_teste %>% select(ID, prediction)
 
 ```
-
 
 ```{r}
-write.csv(kaggle_teste, file = "kaggle_teste.csv", row.names = FALSE)
+write.csv(kaggle_saida, file = "kaggle_saida.csv", row.names = FALSE)
 ```
+
+```{r}
+filtra_dados$predicao_kaggle <- predict(kaggle_random_forest, filtra_dados)
+
+TP <- filtra_dados %>% filter(situacao_final == "eleito", predicao_kaggle == "eleito") %>% nrow()
+TN <- filtra_dados %>% filter(situacao_final == "nao_eleito" , predicao_kaggle == "nao_eleito" ) %>% nrow()
+FP <- filtra_dados %>% filter(situacao_final == "nao_eleito" , predicao_kaggle == "eleito") %>% nrow() 
+FN <- filtra_dados %>% filter(situacao_final == "eleito", predicao_kaggle == "nao_eleito" ) %>% nrow()
+
+accuracy <- (TP + TN)/(TP + TN + FP + FN) 
+precision <- TP / (TP + FP)
+recall <- TP / (TP + FN)
+
+accuracy
+precision
+recall
+
+```
+
+
+
+
 
 
 
